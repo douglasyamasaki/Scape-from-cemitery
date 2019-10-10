@@ -1,5 +1,19 @@
 #include "Player.h"
 
+void Player::updateTexture()
+{
+	if (!getLock()) {
+		if (velocity.y > 0.0f && !canJump)
+			setTexture(textures->getJumpUp());
+		else if (velocity.y < 0.0f)
+			setTexture(textures->getJumpDown());
+		else if ((velocity.x > 0.0f || velocity.x < 0.0f) && !getLock())
+			setTexture(textures->getWalk());
+		else if (velocity.x == 0.0f && !getLock())
+			setTexture(textures->getIdle());
+	}
+}
+
 void Player::OnCollision(sf::Vector2f direction)
 {
 	if (direction.x < 0.0f) {
@@ -48,16 +62,10 @@ void Player::update(float deltat) {
 	}
 	
 
-	if (velocity.x > 0.0f || velocity.x < 0.0f) {
-		setTexture(textures->getWalk());
-	}
-	else{
-		setTexture(textures->getIdle());
-	}
-
+	updateTexture();
 	Refresh(deltat);
 	setTextureRect(uvRect);
 	moveHB(velocity.x*deltat, velocity.y*deltat);
-	setPosition(hitbox.getPosition() - deslHB);
+	setPosition(hitbox.getPosition());
 
 }

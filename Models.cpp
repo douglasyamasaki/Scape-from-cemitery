@@ -12,6 +12,10 @@ ArcherModel* ArcherModel::getInstance(){
 ArcherModel::ArcherModel() {
 	Walk = new sf::Texture();
 	Idle = new sf::Texture();
+	JumpUp = new sf::Texture();
+	JumpDown = new sf::Texture();
 	Walk->loadFromFile("./Sprites/Skeleton/Walk.png");
 	Idle->loadFromFile("./Sprites/Skeleton/Idle.png");
+	JumpUp->loadFromFile("./Sprites/Skeleton/Jump Up.png");
+	JumpDown->loadFromFile("./Sprites/Skeleton/Jump Down.png");
 }

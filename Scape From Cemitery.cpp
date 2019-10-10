@@ -46,7 +46,6 @@ int main()
 		window.setView(view);
 		view.setCenter(P1.getPosition());
 		window.draw(P1);
-		window.draw (P1.getHit());
 		window.draw(plat1);
 		window.draw(plat2);
 		window.display();
