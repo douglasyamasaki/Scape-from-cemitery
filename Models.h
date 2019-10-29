@@ -17,4 +17,13 @@ namespace SpriteModels {
 		sf::Texture* getJumpDown() { return JumpDown; }
 		sf::Texture* getJumpUp() { return JumpUp; }
 	};
+	class ArrowModel {
+	private:
+		static ArrowModel* instance;
+		sf::Texture* Arrow;
+		ArrowModel();
+	public:
+		static ArrowModel* getInstance();
+		sf::Texture* getArrow() { return Arrow; }
+	};
 }
