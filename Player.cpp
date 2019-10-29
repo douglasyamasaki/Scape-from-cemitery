@@ -64,6 +64,6 @@ void Player::update(float deltat) {
 	Refresh(deltat);
 	setTextureRect(uvRect);
 	moveHB(velocity.x*deltat, velocity.y*deltat);
-	setPosition(hitbox.getPosition());
+	move(velocity.x*deltat,velocity.y*deltat);
 
 }
