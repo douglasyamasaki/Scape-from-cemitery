@@ -33,8 +33,6 @@ void Player::OnCollision(sf::Vector2f direction)
 Player::Player(sf::Vector2f size, sf::Vector2f pos, float speed, sf::Vector2f HBArea) : DynamicEntity(size, pos , speed,HBArea)
 {
 	jumpHeight = 200.0f;
-	hitbox.setPosition(pos);
-	hitbox.setOrigin(HBArea / 2.0f);
 	textures = ArcherModel::getInstance();
 	setTexture(textures->getIdle());
 	load(textures->getIdle(), sf::Vector2u(6, 4), 0.1);
