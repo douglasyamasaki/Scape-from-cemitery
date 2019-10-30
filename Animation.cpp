@@ -3,12 +3,6 @@ void Animation::load(sf::Texture* texture, sf::Vector2u ImgCount, float stime)
 {
 	this->imgCount= ImgCount;
 	this->stime = stime;
-	frames = 0;
-	lock = false;
-	faceright = true;
-	ttotal = 0;
-	imgI.x = 0;
-	imgI.y = 0;
 	uvRect.width = texture->getSize().x / float(ImgCount.x);
 	uvRect.height = texture->getSize().y / float(ImgCount.y);
 
@@ -43,4 +37,13 @@ void Animation::Refresh(float deltat)
 		uvRect.width = -abs(uvRect.width);
 	}
 	uvRect.top = imgI.y * uvRect.height;
+}
+
+Animation::Animation() {
+	frames = 0;
+	lock = false;
+	faceright = true;
+	ttotal = 0;
+	imgI.x = 0;
+	imgI.y = 0;
 }

@@ -15,7 +15,7 @@ namespace AbstractEntitys {
 	public:
 		StaticEntity(sf::Vector2f size, sf::Vector2f pos) : Entity(size, pos), Collisor(size) { 
 			hitbox.setPosition(pos);
-		},
+		}
 	};
 	class DynamicEntity : public Entity, public Collisor {
 	protected:

@@ -14,7 +14,7 @@ protected:
 
 public:
 	void load (sf::Texture* texture, sf::Vector2u ImgCount, float stime);
-	Animation() {}
+	Animation();
 	void reset() { imgI = sf::Vector2u(0, 0); }
 	void Refresh(float deltat);
 	void setLock() { lock = true; }

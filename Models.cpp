@@ -2,7 +2,7 @@
 using namespace SpriteModels;
 
 ArcherModel* ArcherModel::instance = 0;
-
+ArrowModel* ArrowModel::instance = 0;
 ArcherModel* ArcherModel::getInstance(){
 	if (!instance)
 		instance = new ArcherModel();
@@ -27,6 +27,6 @@ ArrowModel* ArrowModel::getInstance() {
 }
 
 ArrowModel::ArrowModel() {
-	Arrow = new sf::texture();
+	Arrow = new sf::Texture();
 	Arrow->loadFromFile("./Sprites/Skeleton/Arrow.png");
 }
