@@ -8,9 +8,15 @@ private:
 	sf::Keyboard::Key p1up;
 	sf::Keyboard::Key p1left;
 	sf::Keyboard::Key p1right;
+	sf::Keyboard::Key p1attack01;
+	sf::Keyboard::Key p1attack02;
+	sf::Keyboard::Key p1attack03;
 	Up upleaf;
 	Right rightleaf;
 	Left leftleaf;
+	Attack01 attack01;
+	Attack02 attack02;
+	Attack03 attack03;
 
 public:
 	Controlador();

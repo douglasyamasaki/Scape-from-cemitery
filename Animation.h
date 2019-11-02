@@ -15,7 +15,9 @@ protected:
 public:
 	void load (sf::Texture* texture, sf::Vector2u ImgCount, float stime);
 	Animation();
-	void reset() { imgI = sf::Vector2u(0, 0); }
+	void setStime(const float stime) { this->stime = stime; }
+	void frameup() { frames++; }
+	void reset() { imgI = sf::Vector2u(0, 0); frames = 0; }
 	void Refresh(float deltat);
 	void setLock() { lock = true; }
 	const bool getFaceright() const { return faceright; }

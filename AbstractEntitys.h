@@ -8,7 +8,9 @@ namespace AbstractEntitys {
 			setOrigin(size/2.0f);
 			setPosition(pos);
 		}
-
+		Entity(sf::Vector2f size) : sf::RectangleShape(size) {
+			setOrigin(sf::Vector2f(0.0f, 0.0f));
+		}
 	};
 
 	class StaticEntity : public Entity, public Collisor {
@@ -19,14 +21,15 @@ namespace AbstractEntitys {
 	};
 	class DynamicEntity : public Entity, public Collisor {
 	protected:
-		float speed;
+		sf::Vector2f speed;
 	public:
-		DynamicEntity(sf::Vector2f size, sf::Vector2f pos, float speed, sf::Vector2f hitbox) : Entity(size, pos), Collisor(hitbox) 
+		DynamicEntity(sf::Vector2f size, sf::Vector2f pos, sf::Vector2f speed, sf::Vector2f hitbox) : Entity(size, pos), Collisor(hitbox)
 		{ this->speed = speed; }
-		DynamicEntity(sf::Vector2f size, sf::Vector2f pos, float speed, sf::Vector2f hitbox,sf::Vector2f deslocamento) : Entity(size, pos), 
+		DynamicEntity(sf::Vector2f size, sf::Vector2f pos, sf::Vector2f speed, sf::Vector2f hitbox,sf::Vector2f deslocamento) : Entity(size, pos),
 		Collisor(hitbox,deslocamento,pos) 
 		{ this->speed = speed; }
 		
 		virtual void update(float deltat) = 0;
 	};
+
 }

@@ -6,6 +6,7 @@ Collisor::Collisor(sf::Vector2f body) : hitbox(body)
 
 Collisor::Collisor (sf::Vector2f size, sf::Vector2f deslocamento, sf::Vector2f cmpos) : hitbox (size) {
 	hitbox.setOrigin(size/2.0f);
+	this->deslocamento = deslocamento;
 	hitbox.setPosition(cmpos - deslocamento);
 }
 bool Collisor::CheckCollision(Collisor* other, sf::Vector2f& direction , float push)

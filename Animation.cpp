@@ -41,6 +41,7 @@ void Animation::Refresh(float deltat)
 
 Animation::Animation() {
 	frames = 0;
+	stime = 0;
 	lock = false;
 	faceright = true;
 	ttotal = 0;
