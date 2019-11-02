@@ -78,7 +78,7 @@ namespace SpriteModels {
 		sf::Texture* Save;
 		ButtonModel();
 	public:
-		static ButtonModel* getInstance() { return instance; }
+		static ButtonModel* getInstance();
 		sf::Texture* getP1() { return P1; }
 		sf::Texture* getP2() { return P2; }
 		sf::Texture* getBossStage() { return BossStage; }
