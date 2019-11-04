@@ -1,12 +1,15 @@
 #pragma once
 #include "Player.h"
+#include "MenuHandler.h"
 #include <map>
+
 using namespace std;
 namespace CompController {
 	class CompositeController;
 	class Controller {
 	protected:
 		Player* pref;
+		MenuHandler* mref;
 		bool active;
 	public:
 		virtual void setRef(Player* ref) { this->pref = ref; }
@@ -48,6 +51,7 @@ namespace CompController {
 			}
 			return aux;
 		}
+
 		void executar(sf::Event* e) {
 			Controller* aux;
 			map<sf::Keyboard::Key, Controller*>::iterator it;
@@ -61,9 +65,16 @@ namespace CompController {
 				if (aux != nullptr)
 					aux->off();
 			}
+			if (e->type == sf::Event::MouseButtonReleased) {
+				int j = 999;
+				aux = getCmd(static_cast<sf::Keyboard::Key>(j));
+				if (aux != nullptr)
+					aux->on();
+			}
 			for (it = cmdMap.begin(); it != cmdMap.end(); ++it) {
 				if (it->second->getActive())
 					it->second->executar(e);
+
 			}
 		}
 	};
@@ -128,8 +139,14 @@ namespace CompController {
 	class MenuClick : public Controller {
 	private:
 	public:
-		MenuClick() : Controller() {
-
+		void setMenuHandler(MenuHandler* mhref) { this->mref = mhref; }
+		MenuClick() : Controller() { active = true; }
+		bool flag = false;
+		void executar(sf::Event* e) {
+			active = false;
+			if (mref != nullptr)
+				if (mref->getActive())
+					mref->input(sf::Vector2f(e->mouseButton.x,e->mouseButton.y));
 		}
 	};
 }

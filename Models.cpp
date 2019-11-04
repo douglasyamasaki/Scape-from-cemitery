@@ -54,11 +54,11 @@ MenuModel::MenuModel() {
 	Ranking = new sf::Texture();
 	Main = new sf::Texture();
 	Pause->loadFromFile("./Sprites/Menu/Pause.png");
-	Win->loadFromFile("./Sprites/Menu/Pause.png");
-	Lose->loadFromFile("./Sprites/Menu/Pause.png");
-	Selection->loadFromFile("./Sprites/Menu/Pause.png");
-	Ranking->loadFromFile("./Sprites/Menu/Pause.png");
-	Main->loadFromFile("./Sprites/Menu/Pause.png");
+	Win->loadFromFile("./Sprites/Menu/Win.png");
+	Lose->loadFromFile("./Sprites/Menu/Lose.png");
+	Selection->loadFromFile("./Sprites/Menu/Selection.png");
+	Ranking->loadFromFile("./Sprites/Menu/Ranking.png");
+	Main->loadFromFile("./Sprites/Menu/Main.png");
 }
 
 ButtonModel::ButtonModel() {

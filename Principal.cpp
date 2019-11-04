@@ -22,26 +22,9 @@ void Principal::executar() {
 				break;
 			}
 			controle.update(&event);
+			mh.update();
 		}
-		P1.update(deltat);
-		sf::Vector2f direction;
-		for (StList.it = StList.getPrimeiro(); StList.it != nullptr; StList.it++) {
-			if (StList.it.getIt()->getInfo()->getCollisor()->CheckCollision(P1.getCollisor(), direction, 1.0f)) {
-				P1.OnCollision(direction);
-			}
-		}
-		controle.update(&event);
-		window.clear();
-		window.setView(view);
-		view.setCenter(P1.getHit().getPosition());
-		window.draw(P1.getHit());
-		window.draw(P1);
-		window.draw(plat1);
-		window.draw(plat2);
-		for (arrowlist.it = arrowlist.getPrimeiro(); arrowlist.it != nullptr; arrowlist.it++) {
-			arrowlist.it.getIt()->getInfo()->update(deltat);
-			window.draw(*arrowlist.it.getIt()->getInfo());
-		}
+		//controle.update(&event);
 		window.display();
 	}
 }
@@ -50,7 +33,9 @@ Principal::Principal() : P1 (sf::Vector2f(250, 200), sf::Vector2f(150, -300), sf
 view(sf::Vector2f(0, 0), sf::Vector2f(VIEW_WIDTH, VIEW_HEIGHT)),
 window(sf::VideoMode(VIEW_WIDTH, VIEW_HEIGHT), "Scape from Cemitery"),
 plat1(sf::Vector2f(500, 200), sf::Vector2f(100, 0)),
-plat2(sf::Vector2f(500, 200), sf::Vector2f(600, 0))
+plat2(sf::Vector2f(500, 200), sf::Vector2f(600, 0)),
+mh(this),
+controle(&mh)
 {
 	controle.setP1(&P1);
 	StList + &plat1;

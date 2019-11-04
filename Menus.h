@@ -1,38 +1,45 @@
 #pragma once
 #include "MenuBase.h"
 
+
 namespace Menus {
 	class LoseMenu : public MenuBase {
-	private:
+	protected:
 	public:
 		LoseMenu(sf::Vector2f size, MenuHandler* MHref);
+		void executar();
 	};
 
 	class WinMenu : public MenuBase {
-	private:
+	protected:
 	public:
 		WinMenu(sf::Vector2f size, MenuHandler* MHref);
+		void executar();
 	};
 
 	class SelecaoMenu : public MenuBase {
-	private:
+	protected:
 	public:
 		SelecaoMenu(sf::Vector2f size, MenuHandler* MHref);
+		void executar();
 	};
 	class RankingMenu : public MenuBase {
-	private:
+	protected:
 	public:
 		RankingMenu(sf::Vector2f size, MenuHandler* MHref);
+		void executar();
 	};
 	class MainMenu : public MenuBase {
-	private:
+	protected:
 	public:
 		MainMenu(sf::Vector2f size, MenuHandler* MHref);
+		void executar();
 	};
 	class PauseMenu : public MenuBase {
-	private:
+	protected:
 	public:
 		PauseMenu(sf::Vector2f size, MenuHandler* MHref);
+		void executar();
 	};
 }
 

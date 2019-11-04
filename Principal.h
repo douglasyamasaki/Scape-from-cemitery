@@ -5,6 +5,7 @@
 #include "Listas.h"
 #include <iostream>
 #include "Controlador.h"
+#include "MenuHandler.h"
 using namespace std;
 using namespace Lists;
 static const float VIEW_HEIGHT = 720.0f;
@@ -24,7 +25,9 @@ private:
 	StaticList StList;
 	Platform plat1;
 	Platform plat2;
+	MenuHandler mh;
 public:
+	sf::RenderWindow* getWindow() { return &window; }
 	Principal();
 	void executar();
 };
