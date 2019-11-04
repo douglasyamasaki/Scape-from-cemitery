@@ -5,8 +5,14 @@ void Principal::ResizeView(const sf::RenderWindow& window, sf::View& view) {
 	view.setSize(VIEW_HEIGHT * aspectRatio, VIEW_HEIGHT);
 }
 void Principal::executar() {
+	sf::Texture a;
+	a.loadFromFile("walk.png");
 	while (window.isOpen())
 	{
+		window.clear();
+		sf::RectangleShape atum(sf::Vector2f(1280, 720));
+		atum.setTexture(&a);
+		window.draw(atum);
 		deltat = clock.restart().asSeconds();
 		sf::Event event;
 		if (deltat > 1.0f / 20.0f)
@@ -22,9 +28,12 @@ void Principal::executar() {
 				break;
 			}
 			controle.update(&event);
-			mh.update();
 		}
-		//controle.update(&event);
+		if (mh.getActive())
+			mh.update();
+		else {
+			controle.update(&event);
+		}
 		window.display();
 	}
 }

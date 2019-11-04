@@ -12,6 +12,7 @@ private:
 	sf::Keyboard::Key p1attack02;
 	sf::Keyboard::Key p1attack03;
 	sf::Keyboard::Key click;
+	sf::Keyboard::Key pause;
 	Up upleaf;
 	Right rightleaf;
 	Left leftleaf;
@@ -20,6 +21,7 @@ private:
 	Attack03 attack03;
 	MenuClick mclick;
 	MenuHandler* mhref;
+	PauseCommand pcommand;
 public:
 	Controlador(MenuHandler* mhref);
 	void setP1(Player* p1) { controllers[0].setRef(p1); }

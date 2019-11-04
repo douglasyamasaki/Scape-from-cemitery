@@ -3,6 +3,7 @@
 #include "Principal.h"
 void MenuButtons::ButtonResume::executar()
 {
+	mref->getMhref()->turnOff();
 }
 
 MenuButtons::ButtonResume::ButtonResume(sf::Vector2f size, sf::Vector2f pos, MenuBase* mref) : MenuButtonBase(size, pos, mref)
@@ -13,7 +14,8 @@ MenuButtons::ButtonResume::ButtonResume(sf::Vector2f size, sf::Vector2f pos, Men
 
 void MenuButtons::Button1p::executar()
 {
-	printf("p1\n");
+	mref->getMhref()->switchTosmenu();
+	mref->getMhref()->turnOn();
 }
 
 MenuButtons::Button1p::Button1p(sf::Vector2f size, sf::Vector2f pos, MenuBase* mref) : MenuButtonBase(size, pos, mref)
@@ -24,6 +26,9 @@ MenuButtons::Button1p::Button1p(sf::Vector2f size, sf::Vector2f pos, MenuBase* m
 
 void MenuButtons::Button2p::executar()
 {
+	//falta turnar p2
+	mref->getMhref()->switchTosmenu();
+	mref->getMhref()->turnOn();
 }
 
 MenuButtons::Button2p::Button2p(sf::Vector2f size, sf::Vector2f pos, MenuBase* mref) : MenuButtonBase(size, pos, mref)
@@ -34,6 +39,9 @@ MenuButtons::Button2p::Button2p(sf::Vector2f size, sf::Vector2f pos, MenuBase* m
 
 void MenuButtons::ButtonBossStage::executar()
 {
+	mref->getMhref()->turnOff();
+	mref->getMhref()->switchTopmenu();
+	//iniciar o level
 }
 
 MenuButtons::ButtonBossStage::ButtonBossStage(sf::Vector2f size, sf::Vector2f pos, MenuBase* mref) : MenuButtonBase (size,pos,mref)
@@ -44,6 +52,7 @@ MenuButtons::ButtonBossStage::ButtonBossStage(sf::Vector2f size, sf::Vector2f po
 
 void MenuButtons::ButtonSave::executar()
 {
+	//logica de salvar nivel
 }
 
 MenuButtons::ButtonSave::ButtonSave(sf::Vector2f size, sf::Vector2f pos, MenuBase* mref) : MenuButtonBase(size, pos, mref)
@@ -54,12 +63,15 @@ MenuButtons::ButtonSave::ButtonSave(sf::Vector2f size, sf::Vector2f pos, MenuBas
 
 void MenuButtons::ButtonStage1::executar()
 {
+	mref->getMhref()->turnOff();
+	mref->getMhref()->switchTopmenu();
+	//iniciar o level
 }
 
 MenuButtons::ButtonStage1::ButtonStage1(sf::Vector2f size, sf::Vector2f pos, MenuBase* mref) : MenuButtonBase(size, pos, mref)
 {
 	textures->ButtonModel::getInstance();
-	setTexture(textures->getResume());
+	setTexture(textures->getStage1());
 }
 
 void MenuButtons::ButtonQuit::executar()
@@ -75,6 +87,8 @@ MenuButtons::ButtonQuit::ButtonQuit(sf::Vector2f size, sf::Vector2f pos, MenuBas
 
 void MenuButtons::ButtonMainMenu::executar()
 {
+	mref->getMhref()->switchTommenu();
+	mref->getMhref()->turnOn();
 }
 
 MenuButtons::ButtonMainMenu::ButtonMainMenu(sf::Vector2f size, sf::Vector2f pos, MenuBase* mref) : MenuButtonBase(size, pos, mref)
@@ -85,6 +99,7 @@ MenuButtons::ButtonMainMenu::ButtonMainMenu(sf::Vector2f size, sf::Vector2f pos,
 
 void MenuButtons::ButtonLoad::executar()
 {
+	// logica de carregar fase
 }
 
 MenuButtons::ButtonLoad::ButtonLoad(sf::Vector2f size, sf::Vector2f pos, MenuBase* mref) : MenuButtonBase(size, pos, mref)
@@ -95,6 +110,8 @@ MenuButtons::ButtonLoad::ButtonLoad(sf::Vector2f size, sf::Vector2f pos, MenuBas
 
 void MenuButtons::ButtonHighscore::executar()
 {
+	mref->getMhref()->switchTormenu();
+	mref->getMhref()->turnOn();
 }
 
 MenuButtons::ButtonHighscore::ButtonHighscore(sf::Vector2f size, sf::Vector2f pos, MenuBase* mref) : MenuButtonBase(size, pos, mref)

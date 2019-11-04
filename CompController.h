@@ -10,7 +10,7 @@ namespace CompController {
 	protected:
 		Player* pref;
 		MenuHandler* mref;
-		bool active;
+		bool active = false;
 	public:
 		virtual void setRef(Player* ref) { this->pref = ref; }
 		Controller(Player* ref) { this->pref = ref; active = false; }
@@ -141,12 +141,24 @@ namespace CompController {
 	public:
 		void setMenuHandler(MenuHandler* mhref) { this->mref = mhref; }
 		MenuClick() : Controller() { active = true; }
-		bool flag = false;
 		void executar(sf::Event* e) {
 			active = false;
 			if (mref != nullptr)
 				if (mref->getActive())
 					mref->input(sf::Vector2f(e->mouseButton.x,e->mouseButton.y));
+		}
+	};
+
+	class PauseCommand : public Controller {
+	private:
+	public:
+		void setMenuHandler(MenuHandler* mhref) { this->mref = mhref; }
+		PauseCommand() : Controller() { active = false; }
+		void executar(sf::Event* e) {
+			PauseMenu* pptr = dynamic_cast<PauseMenu*>(mref->getCurrentMenu());
+			if (pptr != nullptr) {
+				pptr->on();
+			}
 		}
 	};
 }

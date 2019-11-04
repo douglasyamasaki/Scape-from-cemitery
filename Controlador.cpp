@@ -9,7 +9,9 @@ Controlador::Controlador(MenuHandler* mhref)
 	p1attack01 = sf::Keyboard::Key::C;
 	p1attack03 = sf::Keyboard::Key::B;
 	p1attack02 = sf::Keyboard::Key::V;
+	pause = sf::Keyboard::Key::P;
 	mclick.setMenuHandler(mhref);
+	pcommand.setMenuHandler(mhref);
 	click = static_cast<sf::Keyboard::Key>(999);
 	controllers[0].add(p1up, &upleaf);
 	controllers[0].add(p1right, &rightleaf);
@@ -18,6 +20,7 @@ Controlador::Controlador(MenuHandler* mhref)
 	controllers[0].add(p1attack02, &attack02);
 	controllers[0].add(p1attack03, &attack03);
 	controllers[0].add(click, &mclick);
+	controllers[0].add(pause, &pcommand);
 
 }
 
