@@ -65,6 +65,7 @@ void MenuButtons::ButtonStage1::executar()
 {
 	mref->getMhref()->turnOff();
 	mref->getMhref()->switchTopmenu();
+	mref->getMhref()->getPrincipal()->startDefaultLevel(1);
 	//iniciar o level
 }
 

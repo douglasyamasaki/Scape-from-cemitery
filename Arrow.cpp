@@ -18,7 +18,10 @@ void Arrow::update(float deltat)
 	setTextureRect(uvRect);
 	if (velocity.x != 0) {
 		setRotation( velocity.y / velocity.x * 45);
-		if (velocity.x < 500)
+		hitbox.setRotation(velocity.y / velocity.x * 45);
+		if (velocity.x < 500){
 			setRotation(velocity.y / velocity.x * 25);
+			hitbox.setRotation(velocity.y / velocity.x * 25);
+		}
 	}
 }

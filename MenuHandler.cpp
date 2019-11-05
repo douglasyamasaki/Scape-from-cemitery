@@ -15,5 +15,6 @@ MenuHandler::MenuHandler(Principal* principalref) :
 }
 
 void MenuHandler::update() {
+	getPrincipal()->resetView();
 	currentMenu->executar();
 }

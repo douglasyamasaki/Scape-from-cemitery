@@ -42,8 +42,30 @@ public:
 		Element<T>* getIt() { return it; }
 		void operator= (Element<T>* ele) { it = ele; }
 	};
+	Iterator it;
+	void remove() {
+		Element<T>* aux;
+		if (primeiro == it.getIt()) {
+			primeiro = it.getIt()->getProx();
+			if (primeiro != nullptr)
+				it.getIt()->getProx()->setAnterior(nullptr);
+			aux = it.getIt()->getProx();
+		}
+		else if (atual == it.getIt()){
+			it.getIt()->getAnterior()->setProx(nullptr);
+			atual = it.getIt()->getAnterior();
+			aux = nullptr;
+		}
+		else {
+			it.getIt()->getProx()->setAnterior(it.getIt()->getAnterior());
+			it.getIt()->getAnterior()->setProx(it.getIt()->getProx());
+			aux = it.getIt()->getProx();
+		}
+		delete it.getIt()->getInfo();
+		delete it.getIt();
+		it = aux;
+	}
 	List() { primeiro = nullptr; atual = nullptr; }
-	
 	void operator+ (T* info) {
 		Element<T>* aux = new Element<T>;
 		size++;

@@ -22,7 +22,6 @@ public:
 	void attack();
 	void updateTexture();
 	void OnCollision(sf::Vector2f direction);
-	Player(sf::Vector2f size, sf::Vector2f pos, sf::Vector2f speed, sf::Vector2f HBArea);
 	Player(sf::Vector2f size, sf::Vector2f pos, sf::Vector2f speed, sf::Vector2f hitbox, sf::Vector2f deslocamento, ArrowList* ref);
 	void update(float deltat);
 	sf::RectangleShape getHit() { return hitbox; }

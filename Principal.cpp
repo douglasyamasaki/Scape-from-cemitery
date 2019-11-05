@@ -1,18 +1,12 @@
 #include "Principal.h"
-
+#include "FirstLevel.h"
 void Principal::ResizeView(const sf::RenderWindow& window, sf::View& view) {
 	float aspectRatio = float(window.getSize().x / float(window.getSize().y));
 	view.setSize(VIEW_HEIGHT * aspectRatio, VIEW_HEIGHT);
 }
 void Principal::executar() {
-	sf::Texture a;
-	a.loadFromFile("walk.png");
 	while (window.isOpen())
 	{
-		window.clear();
-		sf::RectangleShape atum(sf::Vector2f(1280, 720));
-		atum.setTexture(&a);
-		window.draw(atum);
 		deltat = clock.restart().asSeconds();
 		sf::Event event;
 		if (deltat > 1.0f / 20.0f)
@@ -29,25 +23,38 @@ void Principal::executar() {
 			}
 			controle.update(&event);
 		}
+		window.clear();
 		if (mh.getActive())
 			mh.update();
 		else {
 			controle.update(&event);
+			if (levelref != nullptr){
+				window.setView(view);
+				view.setCenter(p1->getCollisor()->getHBPos());
+				levelref->update(deltat);
+				levelref->draw(&window);
+				window.draw(*p1);
+			}
 		}
 		window.display();
 	}
 }
 
-Principal::Principal() : P1 (sf::Vector2f(250, 200), sf::Vector2f(150, -300), sf::Vector2f(100, 0), sf::Vector2f(101, 131), sf::Vector2f(15, -20), &arrowlist),
-view(sf::Vector2f(0, 0), sf::Vector2f(VIEW_WIDTH, VIEW_HEIGHT)),
+Principal::Principal() : view(sf::Vector2f(0, 0), sf::Vector2f(VIEW_WIDTH, VIEW_HEIGHT)),
 window(sf::VideoMode(VIEW_WIDTH, VIEW_HEIGHT), "Scape from Cemitery"),
-plat1(sf::Vector2f(500, 200), sf::Vector2f(100, 0)),
-plat2(sf::Vector2f(500, 200), sf::Vector2f(600, 0)),
 mh(this),
 controle(&mh)
 {
-	controle.setP1(&P1);
-	StList + &plat1;
-	StList + &plat2;
 	executar();
+}
+
+void Principal::startDefaultLevel(int index)
+{
+	if (index == 1) {
+		levelref = new FirstLevel();
+	}
+	levelref->load_default();
+	controle.setP1(levelref->getP1ref());
+	controle.setP2(levelref->getP2ref());
+	p1 = levelref->getP1ref();
 }
