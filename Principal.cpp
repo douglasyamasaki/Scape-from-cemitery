@@ -29,9 +29,9 @@ void Principal::executar() {
 		else {
 			controle.update(&event);
 			if (levelref != nullptr){
+				levelref->update(deltat);
 				window.setView(view);
 				view.setCenter(p1->getCollisor()->getHBPos());
-				levelref->update(deltat);
 				levelref->draw(&window);
 				window.draw(*p1);
 			}

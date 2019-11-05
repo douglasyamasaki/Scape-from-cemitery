@@ -5,7 +5,7 @@ class Level {
 protected:
 	StaticList platforms;
 	EnemieList enemies;
-	ArrowList projectiles;
+	ProjectileList projectiles;
 	Player* p1;
 	Player* p2;
 	bool pl2;

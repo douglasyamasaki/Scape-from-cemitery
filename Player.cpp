@@ -31,7 +31,7 @@ void Player::OnCollision(sf::Vector2f direction)
 }
 
 
-Player::Player(sf::Vector2f size, sf::Vector2f pos, sf::Vector2f speed, sf::Vector2f hitbox, sf::Vector2f deslocamento, ArrowList* ref) : DynamicEntity (size,pos,speed,hitbox,deslocamento)
+Player::Player(sf::Vector2f size, sf::Vector2f pos, sf::Vector2f speed, sf::Vector2f hitbox, sf::Vector2f deslocamento, ProjectileList* ref) : DynamicEntity (size,pos,speed,hitbox,deslocamento)
 {
 	attacktype = 0;
 	this->deslocamento = deslocamento;

@@ -28,11 +28,11 @@ void FirstLevel::update(float deltat)
 	for (projectiles.it = projectiles.getPrimeiro(); projectiles.it.getIt(); projectiles.it++) {
 		projectiles.it.getIt()->getInfo()->update(deltat);
 	}
-	int o = 0;
 	// collision section
 	for (platforms.it = platforms.getPrimeiro(); platforms.it.getIt() != nullptr; platforms.it++) {
 		sf::Vector2f direction;
 		// Colisao de inimigo com player e inimigo com as plataformas
+		direction = sf::Vector2f(0, 0);
 		for (enemies.it = enemies.getPrimeiro(); enemies.it.getIt() != nullptr; enemies.it++) {
 			//Ghost* ghstptr = dynamic_cast<Ghost*>(enemies.it.getIt()->getInfo());
 			///if (ghstpr == nullptr) {
@@ -46,12 +46,13 @@ void FirstLevel::update(float deltat)
 					p2->OnCollision(direction); // on hit
 			}
 		}
+		direction = sf::Vector2f(0, 0);
+		//colisao de plataforma com flechas
 		for (projectiles.it = projectiles.getPrimeiro(); projectiles.it.getIt() != nullptr; projectiles.it++) {
-			o++;
 			if (platforms.it.getIt()->getInfo()->CheckCollision(projectiles.it.getIt()->getInfo()->getCollisor(), direction, 1.0f))
 				projectiles.remove();
 		}
-		printf("%d\n", o);
+		direction = sf::Vector2f(0, 0);
 		// Colisao de plataforma com players
 		platforms.it.getIt()->getInfo()->getCollisor()->CheckCollision(p1->getCollisor(), direction, 1.0f);
 		p1->OnCollision(direction);
@@ -59,5 +60,17 @@ void FirstLevel::update(float deltat)
 			platforms.it.getIt()->getInfo()->getCollisor()->CheckCollision(p2->getCollisor(), direction, 1.0f);
 			p2->OnCollision(direction);
 		}
+	}
+	//colisao de projeteis : (fase 1 nao tem boss , ou seja , nao tem ref a player
+	for (projectiles.it = projectiles.getPrimeiro(); projectiles.it.getIt() != nullptr; projectiles.it++) {
+		sf::Vector2f direction;
+		direction = sf::Vector2f(0, 0);
+		for (enemies.it = enemies.getPrimeiro(); enemies.it.getIt() != nullptr; enemies.it++) {
+			if (projectiles.it.getIt()->getInfo()->getCollisor()->CheckCollision(enemies.it.getIt()->getInfo()->getCollisor(), direction, 1.0f)){
+				//enemie on hit
+				projectiles.remove();
+			}
+		}
+
 	}
 }

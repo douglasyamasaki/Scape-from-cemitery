@@ -1,12 +1,13 @@
 #pragma once
-#include "AbstractEntitys.h"
+#include "Projectile.h"
 #include "Models.h"
 #include "Animation.h"
+
 using namespace SpriteModels;
 using namespace AbstractEntitys;
 
 class Player;
-class Arrow : public DynamicEntity , public Animation
+class Arrow : public Projectile, public Animation
 {
 private:
 	ArrowModel* texture;

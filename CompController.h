@@ -83,7 +83,10 @@ namespace CompController {
 	private:
 	public:
 		Up() : Controller() { }
-		void executar(sf::Event* e) { if (pref != nullptr) pref->jump(); }
+		void executar(sf::Event* e) { 
+			if (pref != nullptr)
+				if (pref->getAttackType() == 0)
+					pref->jump(); }
 	};
 	class Left : public Controller {
 	private:
@@ -103,7 +106,7 @@ namespace CompController {
 	public:
 		Attack01() : Controller() {}
 		void executar(sf::Event* e) {
-			if (pref != nullptr && !pref->getLock()) {
+			if (pref != nullptr && !pref->getLock() && pref->getCanJump()) {
 				pref->setLock();
 				pref->setAttType(1);
 				pref->reset();
@@ -116,7 +119,7 @@ namespace CompController {
 	public:
 		Attack02() : Controller() {}
 		void executar(sf::Event* e) {
-			if (pref != nullptr && !pref->getLock()) {
+			if (pref != nullptr && !pref->getLock() && pref->getCanJump()) {
 				pref->setLock();
 				pref->setAttType(2);
 				pref->reset();
@@ -128,7 +131,7 @@ namespace CompController {
 	public:
 		Attack03() : Controller() {}
 		void executar(sf::Event* e) {
-			if (pref != nullptr && !pref->getLock()) {
+			if (pref != nullptr && !pref->getLock() && pref->getCanJump()) {
 				pref->setLock();
 				pref->setAttType(3);
 				pref->reset();

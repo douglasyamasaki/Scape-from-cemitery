@@ -9,7 +9,7 @@ using namespace AbstractEntitys;
 
 class Player : public DynamicEntity, public Animation {
 private:
-	ArrowList* arrowlistref;
+	ProjectileList* arrowlistref;
 	ArcherModel* textures;
 	sf::Vector2f velocity;
 	bool canJump;
@@ -22,12 +22,14 @@ public:
 	void attack();
 	void updateTexture();
 	void OnCollision(sf::Vector2f direction);
-	Player(sf::Vector2f size, sf::Vector2f pos, sf::Vector2f speed, sf::Vector2f hitbox, sf::Vector2f deslocamento, ArrowList* ref);
+	Player(sf::Vector2f size, sf::Vector2f pos, sf::Vector2f speed, sf::Vector2f hitbox, sf::Vector2f deslocamento, ProjectileList* ref);
 	void update(float deltat);
 	sf::RectangleShape getHit() { return hitbox; }
 	void jump();
 	void moveRight();
 	void moveLeft();
+	const int getAttackType() const { return attacktype;  }
+	const bool getCanJump() const { return canJump; }
 	void increasePoints(int valor) { pontos += valor; }
 
 };
