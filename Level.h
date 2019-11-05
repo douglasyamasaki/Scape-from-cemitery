@@ -1,6 +1,7 @@
 #pragma once
 #include "Listas.h"
 using namespace Lists;
+class Player;
 class Level {
 protected:
 	StaticList platforms;
@@ -12,6 +13,7 @@ protected:
 
 public:
 	Level() { p1 = nullptr; p2 = nullptr; p2 = false; }
+	virtual void check_collision() = 0;
 	virtual void load_default() = 0;
 	virtual void update(float deltat) = 0;
 	virtual void load_static() = 0;

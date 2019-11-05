@@ -1,10 +1,10 @@
 #pragma once
 #include "GenericList.h"
 #include "AbstractEntitys.h"
-#include "Arrow.h"
 #include "Inimigo.h"
+#include "Projectile.h"
 using namespace AbstractEntitys;
-class Projectile;
+
 namespace Lists {
 	class StaticList : public List<StaticEntity> {
 	public:
