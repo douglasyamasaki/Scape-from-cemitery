@@ -116,7 +116,7 @@ void Player::attack() {
 		if (getFrame() == 10 && attacktype == 2) {
 			for (int i = 0; i < 3; i++) {
 				int k = rand() % 240;
-				Arrow* aux = new Arrow(sf::Vector2f(120, 15), getPosition() + sf::Vector2f(0, 30), sf::Vector2f(800-k,-350+k), sf::Vector2f(100, 50), sf::Vector2f(0, 0),this);
+				Arrow* aux = new Arrow(sf::Vector2f(120, 15), getPosition() + sf::Vector2f(0, 30), sf::Vector2f(800-k,-350+k), sf::Vector2f(120, 50), sf::Vector2f(0, 0),this);
 				*arrowlistref + aux;
 				if (!faceright) {
 					aux->scale(-1, 1);
@@ -130,7 +130,7 @@ void Player::attack() {
 			for (int i=0; i<5 ; i++){
 				int k = rand() % 240;
 				int j = rand() % 50;
-				Arrow* aux = new Arrow(sf::Vector2f(120, 15), getPosition() + sf::Vector2f(0, 30), sf::Vector2f(320-j,-900+k), sf::Vector2f(100, 50), sf::Vector2f(0, 0),this);
+				Arrow* aux = new Arrow(sf::Vector2f(120, 15), getPosition() + sf::Vector2f(0, 30), sf::Vector2f(320-j,-900+k), sf::Vector2f(120, 50), sf::Vector2f(0, 0),this);
 				*arrowlistref + aux;
 				if (!faceright) {
 					aux->scale(-1, 1);

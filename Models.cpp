@@ -6,6 +6,8 @@ ArrowModel* ArrowModel::instance = 0;
 GhostModel* GhostModel::instance = 0;
 MenuModel* MenuModel::instance = 0;
 ButtonModel* ButtonModel::instance = 0;
+SpellModel* SpellModel::instance = 0;
+BossModel* BossModel::instance = 0;
 
 ArcherModel* ArcherModel::getInstance(){
 	if (!instance)
@@ -95,5 +97,45 @@ ButtonModel* ButtonModel::getInstance()
 {
 	if (!instance)
 		instance = new ButtonModel();
+	return instance;
+}
+
+SpriteModels::BossModel::BossModel()
+{
+	Rise = new sf::Texture;
+	Idle = new sf::Texture;
+	Die = new sf::Texture;
+	Cast1 = new sf::Texture;
+	Cast2 = new sf::Texture;
+	Cast3 = new sf::Texture;
+	Rise->loadFromFile("./Sprites/Warlock/Rise.png");
+	Idle->loadFromFile("./Sprites/Warlock/Idle.png");
+    Die->loadFromFile("./Sprites/Warlock/Die.png");
+	Cast1->loadFromFile("./Sprites/Warlock/Cast01.png");
+	Cast2->loadFromFile("./Sprites/Warlock/Cast02.png");
+	Cast3->loadFromFile("./Sprites/Warlock/Cast03.png");
+}
+
+BossModel * SpriteModels::BossModel::getInstance()
+{
+	if (!instance)
+		instance = new BossModel();
+	return instance;
+}
+
+SpriteModels::SpellModel::SpellModel()
+{
+	Spell1 = new sf::Texture;
+	Spell2 = new sf::Texture;
+	Spell3 = new sf::Texture;
+	Spell1->loadFromFile("./Sprites/Warlock/Spell01.png");
+	Spell2->loadFromFile("./Sprites/Warlock/Spell02.png");
+	Spell3->loadFromFile("./Sprites/Warlock/Spell03.png");
+}
+
+SpellModel * SpriteModels::SpellModel::getInstance()
+{
+	if (!instance)
+		instance = new SpellModel();
 	return instance;
 }

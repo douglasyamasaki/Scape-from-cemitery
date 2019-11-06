@@ -91,4 +91,38 @@ namespace SpriteModels {
 		sf::Texture* getSave() { return Save; }
 		
 	};
+
+	class BossModel {
+	private:
+		static BossModel* instance;
+		sf::Texture* Rise;
+		sf::Texture* Idle;
+		sf::Texture* Die;
+		sf::Texture* Cast1;
+		sf::Texture* Cast2;
+		sf::Texture* Cast3;
+		BossModel();
+	public:
+		static BossModel* getInstance();
+		sf::Texture* getRise() { return Rise; }
+		sf::Texture* getIdle() { return Idle; }
+		sf::Texture* getDie() { return Die; }
+		sf::Texture* getCast1() { return Cast1; }
+		sf::Texture* getCast2() { return Cast2; }
+		sf::Texture* getCast3() { return Cast3; }
+	};
+
+	class SpellModel {
+	private:
+		static SpellModel* instance;
+		sf::Texture* Spell1;
+		sf::Texture* Spell2;
+		sf::Texture* Spell3;
+		SpellModel();
+	public:
+		static SpellModel* getInstance();
+		sf::Texture* getSpell1() { return Spell1; }
+		sf::Texture* getSpell2() { return Spell2; }
+		sf::Texture* getSpell3() { return Spell3; }
+	};
 }
