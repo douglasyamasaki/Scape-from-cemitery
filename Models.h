@@ -95,6 +95,7 @@ namespace SpriteModels {
 	class BossModel {
 	private:
 		static BossModel* instance;
+		sf::Texture* Walk;
 		sf::Texture* Rise;
 		sf::Texture* Idle;
 		sf::Texture* Die;
@@ -104,6 +105,7 @@ namespace SpriteModels {
 		BossModel();
 	public:
 		static BossModel* getInstance();
+		sf::Texture* getWalk() { return Walk; }
 		sf::Texture* getRise() { return Rise; }
 		sf::Texture* getIdle() { return Idle; }
 		sf::Texture* getDie() { return Die; }
@@ -125,4 +127,5 @@ namespace SpriteModels {
 		sf::Texture* getSpell2() { return Spell2; }
 		sf::Texture* getSpell3() { return Spell3; }
 	};
+
 }

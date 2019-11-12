@@ -20,6 +20,7 @@ public:
 	void reset() { imgI = sf::Vector2u(0, 0); frames = 0; }
 	void Refresh(float deltat);
 	void setLock() { lock = true; }
+	void setImgC(sf::Vector2u imgC) { this->imgCount = imgC; }
 	const bool getFaceright() const { return faceright; }
 	void setFaceright() { faceright = true; }
 	const bool getLock() const { return lock; }

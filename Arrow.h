@@ -17,6 +17,7 @@ public:
 	
 	Arrow(sf::Vector2f size, sf::Vector2f pos, sf::Vector2f speed, sf::Vector2f hitbox, sf::Vector2f deslocamento,Player* pref);
 	void update(float deltat);
+	Player* getAtirador() { return origem; }
 	void flip() { velocity.x *= -1; }
 };
 

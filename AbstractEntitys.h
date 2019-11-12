@@ -22,6 +22,7 @@ namespace AbstractEntitys {
 	class DynamicEntity : public Entity, public Collisor {
 	protected:
 		sf::Vector2f speed;
+		sf::Vector2f movdirection;
 	public:
 		DynamicEntity(sf::Vector2f size, sf::Vector2f pos, sf::Vector2f speed, sf::Vector2f hitbox) : Entity(size, pos), Collisor(hitbox)
 		{ this->speed = speed; }

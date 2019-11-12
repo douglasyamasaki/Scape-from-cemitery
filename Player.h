@@ -12,6 +12,7 @@ private:
 	ProjectileList* arrowlistref;
 	ArcherModel* textures;
 	sf::Vector2f velocity;
+	bool invulneravel;
 	bool canJump;
 	float jumpHeight;
 	int lives;
@@ -28,8 +29,10 @@ public:
 	void jump();
 	void moveRight();
 	void moveLeft();
+	void onHit(sf::Vector2f direction);
 	const int getAttackType() const { return attacktype;  }
 	const bool getCanJump() const { return canJump; }
+	const bool getInvulneravel() const { return invulneravel; }
 	void increasePoints(int valor) { pontos += valor; }
 
 };

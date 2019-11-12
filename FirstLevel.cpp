@@ -1,6 +1,9 @@
 #include "FirstLevel.h"
 #include "Platform.h"
 #include "Player.h"
+#include "Ghost.h"
+#include "Arrow.h"
+#include "Warlock.h"
 FirstLevel::FirstLevel() : Level()
 {
 }
@@ -12,16 +15,26 @@ void FirstLevel::check_collision()
 		// Colisao de inimigo com player e inimigo com as plataformas
 		direction = sf::Vector2f(0, 0);
 		for (enemies.it = enemies.getPrimeiro(); enemies.it.getIt() != nullptr; enemies.it++) {
-			//Ghost* ghstptr = dynamic_cast<Ghost*>(enemies.it.getIt()->getInfo());
-			///if (ghstpr == nullptr) {
-			if (platforms.it.getIt()->getInfo()->getCollisor()->CheckCollision(enemies.it.getIt()->getInfo()->getCollisor(), direction, 1.0f))
-				enemies.it.getIt()->getInfo()->OnCollision(direction);
-			//}
-			if (enemies.it.getIt()->getInfo()->getCollisor()->CheckCollision(p1->getCollisor(), direction, 1.0f))
-				p1->OnCollision(direction); // on hit
+			Ghost* ghstptr = dynamic_cast<Ghost*>(enemies.it.getIt()->getInfo());
+			if (ghstptr == nullptr) {
+				if (platforms.it.getIt()->getInfo()->getCollisor()->CheckCollision(enemies.it.getIt()->getInfo()->getCollisor(), direction, 1.0f))
+					enemies.it.getIt()->getInfo()->OnCollision(direction);
+			}
+			if (!p1->getInvulneravel())
+				if (enemies.it.getIt()->getInfo()->getCollisor()->CheckCollision(p1->getCollisor(), direction, 1.0f)){
+					p1->onHit(direction); // on hit
+					enemies.it.getIt()->getInfo()->onHit(direction);
+					if (enemies.it.getIt()->getInfo()->getVidas() == 0)
+						enemies.remove();
+				}
 			if (p2 != nullptr) {
-				if (enemies.it.getIt()->getInfo()->CheckCollision(p2->getCollisor(), direction, 1.0f))
-					p2->OnCollision(direction); // on hit
+				if (!p2->getInvulneravel())
+					if (enemies.it.getIt()->getInfo()->CheckCollision(p2->getCollisor(), direction, 1.0f)){
+						p2->OnCollision(direction);
+						enemies.it.getIt()->getInfo()->onHit(direction);
+						if (enemies.it.getIt()->getInfo()->getVidas() == 0)
+							enemies.remove();
+				}
 			}
 		}
 		direction = sf::Vector2f(0, 0);
@@ -43,9 +56,14 @@ void FirstLevel::check_collision()
 	for (projectiles.it = projectiles.getPrimeiro(); projectiles.it.getIt() != nullptr; projectiles.it++) {
 		sf::Vector2f direction;
 		direction = sf::Vector2f(0, 0);
+		Arrow* arrowptr = dynamic_cast<Arrow*>(projectiles.it.getIt()->getInfo());
 		for (enemies.it = enemies.getPrimeiro(); enemies.it.getIt() != nullptr; enemies.it++) {
 			if (projectiles.it.getIt()->getInfo()->getCollisor()->CheckCollision(enemies.it.getIt()->getInfo()->getCollisor(), direction, 1.0f)) {
-				//enemie on hit
+				enemies.it.getIt()->getInfo()->onHit(direction);
+				arrowptr->getAtirador()->increasePoints(enemies.it.getIt()->getInfo()->getReward());
+				if (enemies.it.getIt()->getInfo()->getVidas() == 0){
+					enemies.remove();
+				}
 				projectiles.remove();
 			}
 		}
@@ -56,11 +74,16 @@ void FirstLevel::load_static()
 {
 	Platform* chao = new Platform(sf::Vector2f(10000, 1000), sf::Vector2f(0, 0));
 	platforms + chao;
+	Ghost* ghst = new Ghost(sf::Vector2f(150, 150),sf::Vector2f(0,-1000), sf::Vector2f(-50, 50), sf::Vector2f(150, 150), sf::Vector2f(0, 0), 800,p1);
+	Warlock* wlk = new Warlock(sf::Vector2f(250, 200), sf::Vector2f(100, -300), sf::Vector2f(100, 0), sf::Vector2f(101, 131), sf::Vector2f(15, -20), 1000);
+	wlk->setP1(p1);
+	enemies + ghst;
+	enemies + wlk;
 }
 
 void FirstLevel::load_default() {
-	load_static();
 	p1 = new Player(sf::Vector2f(250,200), sf::Vector2f(0,-300), sf::Vector2f(100,0),sf::Vector2f(101,131), sf::Vector2f(15,-20),&projectiles);
+	load_static();
 	
 }
 

@@ -16,12 +16,15 @@ void Player::updateTexture()
 
 void Player::OnCollision(sf::Vector2f direction)
 {
+	
 	if (direction.x < 0.0f) {
 		velocity.x = 0.0f;
 	}
 	else if (direction.x > 0.0f)
 		velocity.x = 0.0f;
 	if (direction.y < 0.0f) {
+		invulneravel = false;
+		setFillColor(sf::Color::White);
 		velocity.y = 0.0f;
 		canJump = true;
 	}
@@ -43,12 +46,13 @@ Player::Player(sf::Vector2f size, sf::Vector2f pos, sf::Vector2f speed, sf::Vect
 	this->arrowlistref = ref;
 	pontos = 0;
 	lives = 10;
+	invulneravel = false;
 
 }
 
 void Player::update(float deltat) {
-
-	velocity.y += 981.0f * deltat;
+	if (!invulneravel)
+		velocity.x = movdirection.x * speed.x;
 	updateTexture();
 	Refresh(deltat);
 	setTextureRect(uvRect);
@@ -57,7 +61,9 @@ void Player::update(float deltat) {
 		setPosition(hitbox.getPosition().x-deslocamento.x , hitbox.getPosition().y + deslocamento.y);
 	else
 		setPosition(hitbox.getPosition().x + deslocamento.x, hitbox.getPosition().y + deslocamento.y);
-	velocity.x = 0.0f;
+	if (!invulneravel)
+		movdirection.x = 0;
+	velocity.y += 981.0f * deltat;
 	attack();
 }
 
@@ -73,16 +79,28 @@ void Player::jump()
 void Player::moveRight()
 {
 	if (!getLock()){
-	velocity.x += speed.x;
-	faceright = true;
+		movdirection.x = 1;
+		faceright = true;
 	}
 }
 
 void Player::moveLeft()
 {
 	if (!getLock()){
-	velocity.x -= speed.x;
+	movdirection.x = -1;
 	faceright = false;
+	}
+}
+
+void Player::onHit(sf::Vector2f direction)
+{
+	if (!invulneravel){
+	velocity.x = direction.x * 4*speed.x;
+	velocity.y = -sqrt(2.0f * 981.0f * jumpHeight);
+	canJump = false;
+	invulneravel = true;
+	lives--;
+	setFillColor(sf::Color::Red);
 	}
 }
 
