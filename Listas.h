@@ -8,11 +8,13 @@ using namespace AbstractEntitys;
 namespace Lists {
 	class StaticList : public List<StaticEntity> {
 	public:
+
 	};
 
 
 	class ProjectileList : public List<Projectile> {
-
+	public:
+		void manageSpells();
 	};
 
 	class EnemieList : public List<Inimigo> {

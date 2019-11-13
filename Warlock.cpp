@@ -1,5 +1,7 @@
 #include "Warlock.h"
 #include "Player.h"
+#include "Spell.h"
+
 void Warlock::UpdateTexture()
 {
 	if (!getLock()) {
@@ -52,7 +54,11 @@ void Warlock::attack()
 			setImgC(sf::Vector2u(6, 4));
 			reset();
 		}
-		
+		if (attacktype == 1 && frames == 9) {
+			frameup();
+			Spell* spell = new Spell(sf::Vector2f(250, 200), sf::Vector2f(p1->getPosition().x, -500), sf::Vector2f(0, 1000), sf::Vector2f(101, 131), sf::Vector2f(15, -20),1);
+			*projeteis + spell;
+		}
 			
 	}
 }
@@ -90,9 +96,10 @@ void Warlock::onHit(sf::Vector2f direction)
 {
 }
 
-Warlock::Warlock(sf::Vector2f size, sf::Vector2f pos, sf::Vector2f speed, sf::Vector2f hitbox, sf::Vector2f deslocamento, const float reward) : 
+Warlock::Warlock(sf::Vector2f size, sf::Vector2f pos, sf::Vector2f speed, sf::Vector2f hitbox, sf::Vector2f deslocamento, const float reward, ProjectileList* ref) : 
 	Inimigo (size,pos,speed,hitbox,deslocamento,reward)
 {
+	this->projeteis = ref;
 	textures = BossModel::getInstance();
 	load(textures->getIdle(), sf::Vector2u(6,4),0.035);
 	attacktype = 0;
@@ -114,7 +121,6 @@ void Warlock::update(float deltat)
 		setPosition(hitbox.getPosition().x + deslocamento.x, hitbox.getPosition().y + deslocamento.y);
 	velocity.x *= 0.0f;
 	velocity.y *= 0.0f;
-	printf("%.2f %.2f\n", movdirection.x, movdirection.y);
 	randomizeattack();
 	attack();
 }

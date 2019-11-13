@@ -4,6 +4,7 @@
 #include "Ghost.h"
 #include "Arrow.h"
 #include "Warlock.h"
+#include "Spell.h"
 FirstLevel::FirstLevel() : Level()
 {
 }
@@ -40,8 +41,16 @@ void FirstLevel::check_collision()
 		direction = sf::Vector2f(0, 0);
 		//colisao de plataforma com flechas
 		for (projectiles.it = projectiles.getPrimeiro(); projectiles.it.getIt() != nullptr; projectiles.it++) {
-			if (platforms.it.getIt()->getInfo()->CheckCollision(projectiles.it.getIt()->getInfo()->getCollisor(), direction, 1.0f))
-				projectiles.remove();
+			Spell* spellptr = dynamic_cast<Spell*>(projectiles.it.getIt()->getInfo());
+			if (spellptr == nullptr){
+				if (platforms.it.getIt()->getInfo()->CheckCollision(projectiles.it.getIt()->getInfo()->getCollisor(), direction, 1.0f))
+					projectiles.remove();
+			}
+			else {
+				if (platforms.it.getIt()->getInfo()->CheckCollision(projectiles.it.getIt()->getInfo()->getCollisor(), direction, 1.0f))
+					spellptr->onCollision(direction);
+			}
+				
 		}
 		direction = sf::Vector2f(0, 0);
 		// Colisao de plataforma com players
@@ -69,15 +78,14 @@ void FirstLevel::check_collision()
 		}
 
 	}
+	projectiles.manageSpells();
 }
 void FirstLevel::load_static()
 {
 	Platform* chao = new Platform(sf::Vector2f(10000, 1000), sf::Vector2f(0, 0));
 	platforms + chao;
-	Ghost* ghst = new Ghost(sf::Vector2f(150, 150),sf::Vector2f(0,-1000), sf::Vector2f(-50, 50), sf::Vector2f(150, 150), sf::Vector2f(0, 0), 800,p1);
-	Warlock* wlk = new Warlock(sf::Vector2f(250, 200), sf::Vector2f(100, -300), sf::Vector2f(100, 0), sf::Vector2f(101, 131), sf::Vector2f(15, -20), 1000);
+	Warlock* wlk = new Warlock(sf::Vector2f(250, 200), sf::Vector2f(100, -300), sf::Vector2f(100, 0), sf::Vector2f(101, 131), sf::Vector2f(15, -20), 1000,&projectiles);
 	wlk->setP1(p1);
-	enemies + ghst;
 	enemies + wlk;
 }
 
