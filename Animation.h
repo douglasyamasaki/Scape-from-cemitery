@@ -5,7 +5,7 @@ class Animation
 protected:
 	sf::Vector2u imgCount;
 	sf::Vector2u imgI;
-	float ttotal;
+	float totalt;
 	float stime;
 	int frames;
 	sf::IntRect uvRect;

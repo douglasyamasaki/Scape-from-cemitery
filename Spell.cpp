@@ -2,7 +2,7 @@
 #include "Models.h"
 using namespace SpriteModels;
 
-Spell::Spell(sf::Vector2f size, sf::Vector2f pos, sf::Vector2f speed, sf::Vector2f hitbox, sf::Vector2f deslocamento,int type) : Projectile (size,pos,speed,hitbox,deslocamento) , Animation ()
+Spell::Spell(sf::Vector2f size, sf::Vector2f pos, sf::Vector2f speed, sf::Vector2f hitbox, sf::Vector2f displacement,int type) : Projectile (size,pos,speed,hitbox,displacement) , Animation ()
 {
 	textures = SpellModel::getInstance();
 	this->type = type;
@@ -40,7 +40,7 @@ void Spell::update(float deltat)
 	Refresh(deltat);
 	setTextureRect(uvRect);
 	moveHB(speed.x * deltat, speed.y * deltat);
-	setPosition(hitbox.getPosition().x - deslocamento.x, hitbox.getPosition().y + deslocamento.y);
+	setPosition(hitbox.getPosition().x - displacement.x, hitbox.getPosition().y + displacement.y);
 	if (!getLock())
 		active = false;
 	switch (type) {
@@ -56,8 +56,8 @@ void Spell::update(float deltat)
 		if (frames > 10)
 			hitable = true;
 		break;
+
 	}
-	printf("%.2f %.2f\n", getPosition().x, getPosition().y);
 }
 
 void Spell::onCollision(sf::Vector2f direction)

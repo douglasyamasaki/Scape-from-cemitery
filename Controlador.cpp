@@ -27,6 +27,6 @@ Controlador::Controlador(MenuHandler* mhref)
 void Controlador::update(sf::Event* ev)
 {
 	for (int i = 0; i < 2; i++) {
-		controllers[i].executar(ev);
+		controllers[i].run(ev);
 	}
 }

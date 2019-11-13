@@ -34,10 +34,10 @@ void Player::OnCollision(sf::Vector2f direction)
 }
 
 
-Player::Player(sf::Vector2f size, sf::Vector2f pos, sf::Vector2f speed, sf::Vector2f hitbox, sf::Vector2f deslocamento, ProjectileList* ref) : DynamicEntity (size,pos,speed,hitbox,deslocamento)
+Player::Player(sf::Vector2f size, sf::Vector2f pos, sf::Vector2f speed, sf::Vector2f hitbox, sf::Vector2f displacement, ProjectileList* ref) : DynamicEntity (size,pos,speed,hitbox,displacement)
 {
 	attacktype = 0;
-	this->deslocamento = deslocamento;
+	this->displacement = displacement;
 	jumpHeight = 200.0f;
 	textures = ArcherModel::getInstance();
 	setTexture(textures->getIdle());
@@ -58,9 +58,9 @@ void Player::update(float deltat) {
 	setTextureRect(uvRect);
 	moveHB(velocity.x*deltat, velocity.y*deltat);
 	if (!faceright)
-		setPosition(hitbox.getPosition().x-deslocamento.x , hitbox.getPosition().y + deslocamento.y);
+		setPosition(hitbox.getPosition().x-displacement.x , hitbox.getPosition().y + displacement.y);
 	else
-		setPosition(hitbox.getPosition().x + deslocamento.x, hitbox.getPosition().y + deslocamento.y);
+		setPosition(hitbox.getPosition().x + displacement.x, hitbox.getPosition().y + displacement.y);
 	if (!invulneravel)
 		movdirection.x = 0;
 	velocity.y += 981.0f * deltat;

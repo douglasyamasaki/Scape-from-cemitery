@@ -10,7 +10,7 @@ Menus::LoseMenu::LoseMenu(sf::Vector2f size, MenuHandler* MHref) : MenuBase (siz
 	add(bmm);
 }
 
-void Menus::LoseMenu::executar()
+void Menus::LoseMenu::run()
 {
 	drawMenu();
 }
@@ -22,7 +22,7 @@ Menus::WinMenu::WinMenu(sf::Vector2f size, MenuHandler* MHref) : MenuBase(size, 
 	add(bmm);
 }
 
-void Menus::WinMenu::executar()
+void Menus::WinMenu::run()
 {
 	drawMenu();
 }
@@ -36,7 +36,7 @@ Menus::SelecaoMenu::SelecaoMenu(sf::Vector2f size, MenuHandler* MHref ) : MenuBa
 	add(bbs);
 }
 
-void Menus::SelecaoMenu::executar()
+void Menus::SelecaoMenu::run()
 {
 	drawMenu();
 }
@@ -48,7 +48,7 @@ Menus::RankingMenu::RankingMenu(sf::Vector2f size, MenuHandler* MHref ) : MenuBa
 	add(bmm);
 }
 
-void Menus::RankingMenu::executar()
+void Menus::RankingMenu::run()
 {
 	drawMenu();
 }
@@ -69,7 +69,7 @@ Menus::MainMenu::MainMenu(sf::Vector2f size, MenuHandler* MHref ) : MenuBase(siz
 }
 
 
-void Menus::MainMenu::executar()
+void Menus::MainMenu::run()
 {
 	drawMenu();
 }
@@ -87,7 +87,7 @@ Menus::PauseMenu::PauseMenu(sf::Vector2f size, MenuHandler* MHref ) : MenuBase(s
 	add(bs);
 }
 
-void Menus::PauseMenu::executar()
+void Menus::PauseMenu::run()
 {
 	drawMenu();
 }

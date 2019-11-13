@@ -11,13 +11,13 @@ class Arrow : public Projectile, public Animation
 {
 private:
 	ArrowModel* texture;
-	Player* origem;
+	Player* origin;
 	sf::Vector2f velocity;
 public:
 	
-	Arrow(sf::Vector2f size, sf::Vector2f pos, sf::Vector2f speed, sf::Vector2f hitbox, sf::Vector2f deslocamento,Player* pref);
+	Arrow(sf::Vector2f size, sf::Vector2f pos, sf::Vector2f speed, sf::Vector2f hitbox, sf::Vector2f displacement,Player* pref);
 	void update(float deltat);
-	Player* getAtirador() { return origem; }
+	Player* getShooter() { return origin; }
 	void flip() { velocity.x *= -1; }
 };
 

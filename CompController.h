@@ -15,7 +15,7 @@ namespace CompController {
 		virtual void setRef(Player* ref) { this->pref = ref; }
 		Controller(Player* ref) { this->pref = ref; active = false; }
 		Controller() { pref = nullptr; active = false; };
-		virtual void executar(sf::Event* e) { };
+		virtual void run(sf::Event* e) { };
 		void on() { active = true; }
 		void off() { active = false; }
 		Player* getRef() const { return pref; }
@@ -52,7 +52,7 @@ namespace CompController {
 			return aux;
 		}
 
-		void executar(sf::Event* e) {
+		void run(sf::Event* e) {
 			Controller* aux;
 			map<sf::Keyboard::Key, Controller*>::iterator it;
 			if (e->type == sf::Event::KeyPressed) {
@@ -73,7 +73,7 @@ namespace CompController {
 			}
 			for (it = cmdMap.begin(); it != cmdMap.end(); ++it) {
 				if (it->second->getActive())
-					it->second->executar(e);
+					it->second->run(e);
 
 			}
 		}
@@ -83,7 +83,7 @@ namespace CompController {
 	private:
 	public:
 		Up() : Controller() { }
-		void executar(sf::Event* e) { 
+		void run(sf::Event* e) { 
 			if (pref != nullptr)
 				if (pref->getAttackType() == 0)
 					pref->jump(); }
@@ -92,20 +92,20 @@ namespace CompController {
 	private:
 	public:
 		Left() : Controller() { }
-		void executar(sf::Event* e) { if (pref != nullptr) pref->moveLeft(); }
+		void run(sf::Event* e) { if (pref != nullptr) pref->moveLeft(); }
 	};
 	class Right : public Controller {
 	private:
 	public:
 		Right() : Controller() { }
-		void executar(sf::Event* e) { if (pref != nullptr) pref->moveRight(); }
+		void run(sf::Event* e) { if (pref != nullptr) pref->moveRight(); }
 	};
 
 	class Attack01 : public Controller {
 	private:
 	public:
 		Attack01() : Controller() {}
-		void executar(sf::Event* e) {
+		void run(sf::Event* e) {
 			if (pref != nullptr && !pref->getLock() && pref->getCanJump()) {
 				pref->setLock();
 				pref->setAttType(1);
@@ -118,7 +118,7 @@ namespace CompController {
 	private:
 	public:
 		Attack02() : Controller() {}
-		void executar(sf::Event* e) {
+		void run(sf::Event* e) {
 			if (pref != nullptr && !pref->getLock() && pref->getCanJump()) {
 				pref->setLock();
 				pref->setAttType(2);
@@ -130,7 +130,7 @@ namespace CompController {
 	private:
 	public:
 		Attack03() : Controller() {}
-		void executar(sf::Event* e) {
+		void run(sf::Event* e) {
 			if (pref != nullptr && !pref->getLock() && pref->getCanJump()) {
 				pref->setLock();
 				pref->setAttType(3);
@@ -144,7 +144,7 @@ namespace CompController {
 	public:
 		void setMenuHandler(MenuHandler* mhref) { this->mref = mhref; }
 		MenuClick() : Controller() { active = true; }
-		void executar(sf::Event* e) {
+		void run(sf::Event* e) {
 			active = false;
 			if (mref != nullptr)
 				if (mref->getActive())
@@ -157,7 +157,7 @@ namespace CompController {
 	public:
 		void setMenuHandler(MenuHandler* mhref) { this->mref = mhref; }
 		PauseCommand() : Controller() { active = false; }
-		void executar(sf::Event* e) {
+		void run(sf::Event* e) {
 			PauseMenu* pptr = dynamic_cast<PauseMenu*>(mref->getCurrentMenu());
 			if (pptr != nullptr) {
 				pptr->on();

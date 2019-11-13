@@ -11,5 +11,5 @@ protected:
 	MenuBase* mref;
 public:
 	MenuButtonBase(sf::Vector2f size, sf::Vector2f pos, MenuBase* mref) : Entity(size) { this->mref = mref; textures = ButtonModel::getInstance(); setPosition(pos); }
-	virtual void executar() = 0;
+	virtual void run() = 0;
 };

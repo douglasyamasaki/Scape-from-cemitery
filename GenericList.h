@@ -8,20 +8,20 @@ protected:
 	class Element {
 	private:
 		T* info;
-		Element<T>* prox;
-		Element<T>* ultimo;
-		Element<T>* ant;
+		Element<T>* next;
+		Element<T>* last;
+		Element<T>* prev;
 	public:
 		void setInfo(T* info) { this->info = info; }
 		T* getInfo() { return info; }
-		Element() { this->info = nullptr; prox = nullptr; ant = nullptr; }
-		void setProx(Element<T>* prox) { this->prox = prox; }
-		Element<T>* getProx() const { return prox; }
-		void setAnterior(Element<T>* ant) { this->ant = ant; }
-		Element<T>* getAnterior() const { return ant; }
+		Element() { this->info = nullptr; next = nullptr; prev = nullptr; }
+		void setnext(Element<T>* next) { this->next = next; }
+		Element<T>* getnext() const { return next; }
+		void setPrev(Element<T>* prev) { this->prev = prev; }
+		Element<T>* getPrev() const { return prev; }
 	};
-	Element<T>* primeiro;
-	Element<T>* atual;
+	Element<T>* first;
+	Element<T>* current;
 
 public:
 
@@ -31,11 +31,11 @@ public:
 	public:
 		void operator++ (int) {
 			if (it != nullptr)
-				it = it->getProx();
+				it = it->getnext();
 		}
 		void operator--() {
 			if (it != nullptr)
-				it = it->getAnterior();
+				it = it->getPrev();
 		}
 		bool operator!= (Element<T>* ele) { return !(ele == it); }
 		T* operator* () { return it->getInfo(); }
@@ -45,42 +45,42 @@ public:
 	Iterator it;
 	void remove() {
 		Element<T>* aux;
-		if (primeiro == it.getIt()) {
-			primeiro = it.getIt()->getProx();
-			if (primeiro != nullptr)
-				it.getIt()->getProx()->setAnterior(nullptr);
-			aux = it.getIt()->getProx();
+		if (first == it.getIt()) {
+			first = it.getIt()->getnext();
+			if (first != nullptr)
+				it.getIt()->getnext()->setPrev(nullptr);
+			aux = it.getIt()->getnext();
 		}
-		else if (atual == it.getIt()){
-			it.getIt()->getAnterior()->setProx(nullptr);
-			atual = it.getIt()->getAnterior();
+		else if (current == it.getIt()){
+			it.getIt()->getPrev()->setnext(nullptr);
+			current = it.getIt()->getPrev();
 			aux = nullptr;
 		}
 		else {
-			it.getIt()->getProx()->setAnterior(it.getIt()->getAnterior());
-			it.getIt()->getAnterior()->setProx(it.getIt()->getProx());
-			aux = it.getIt()->getProx();
+			it.getIt()->getnext()->setPrev(it.getIt()->getPrev());
+			it.getIt()->getPrev()->setnext(it.getIt()->getnext());
+			aux = it.getIt()->getnext();
 		}
 		delete it.getIt()->getInfo();
 		delete it.getIt();
 		it = aux;
 	}
-	List() { primeiro = nullptr; atual = nullptr; }
+	List() { first = nullptr; current = nullptr; }
 	void operator+ (T* info) {
 		Element<T>* aux = new Element<T>;
 		size++;
 		aux->setInfo(info);
-		if (primeiro == nullptr)
-			primeiro = atual = aux;
+		if (first == nullptr)
+			first = current = aux;
 		else {
-			aux->setAnterior(atual);
-			atual->setProx(aux);
-			atual = aux;
+			aux->setPrev(current);
+			current->setnext(aux);
+			current = aux;
 		}
 	}
 	
 	int getSize() { return size; }
-	Element<T>* getPrimeiro() { return primeiro; }
+	Element<T>* getFirst() { return first; }
 };
 template <class T>
 int List<T>::size = 0;

@@ -5,13 +5,13 @@ using namespace AbstractEntitys;
 class Inimigo : public DynamicEntity, public Animation
 {
 protected:
-	int vidas;
+	int life;
 	const int reward;
 	sf::Vector2f velocity;
 
 public:
-	Inimigo(sf::Vector2f size, sf::Vector2f pos, sf::Vector2f speed, sf::Vector2f hitbox, sf::Vector2f deslocamento,const float reward) : 
-		DynamicEntity(size, pos , speed,hitbox,deslocamento),
+	Inimigo(sf::Vector2f size, sf::Vector2f pos, sf::Vector2f speed, sf::Vector2f hitbox, sf::Vector2f displacement,const float reward) : 
+		DynamicEntity(size, pos , speed,hitbox,displacement),
 		reward(reward){}
 	void OnCollision(sf::Vector2f direction)
 	{
@@ -31,6 +31,6 @@ public:
 	const int getReward() const { return reward; }
 	virtual void update(float deltat) = 0;
 	virtual void seek() = 0;
-	const int getVidas() const { return vidas; }
+	const int getLife() const { return life; }
 };
 

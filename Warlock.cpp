@@ -59,6 +59,16 @@ void Warlock::attack()
 			Spell* spell = new Spell(sf::Vector2f(250, 200), sf::Vector2f(p1->getPosition().x, -500), sf::Vector2f(0, 1000), sf::Vector2f(101, 131), sf::Vector2f(15, -20),1);
 			*projeteis + spell;
 		}
+		if (attacktype == 2 && frames == 9) {
+			frameup();
+			Spell* spell = new Spell(sf::Vector2f(250, 200), sf::Vector2f(p1->getPosition().x, -500), sf::Vector2f(0, 1000), sf::Vector2f(101, 131), sf::Vector2f(15, -20), 2);
+			*projeteis + spell;
+		}
+		if (attacktype == 3 && frames == 9) {
+			frameup();
+			Spell* spell = new Spell(sf::Vector2f(250, 200), sf::Vector2f(p1->getPosition().x, -500), sf::Vector2f(0, 1000), sf::Vector2f(101, 131), sf::Vector2f(15, -20), 3);
+			*projeteis + spell;
+		}
 			
 	}
 }
@@ -96,14 +106,14 @@ void Warlock::onHit(sf::Vector2f direction)
 {
 }
 
-Warlock::Warlock(sf::Vector2f size, sf::Vector2f pos, sf::Vector2f speed, sf::Vector2f hitbox, sf::Vector2f deslocamento, const float reward, ProjectileList* ref) : 
-	Inimigo (size,pos,speed,hitbox,deslocamento,reward)
+Warlock::Warlock(sf::Vector2f size, sf::Vector2f pos, sf::Vector2f speed, sf::Vector2f hitbox, sf::Vector2f displacement, const float reward, ProjectileList* ref) : 
+	Inimigo (size,pos,speed,hitbox,displacement,reward)
 {
 	this->projeteis = ref;
 	textures = BossModel::getInstance();
 	load(textures->getIdle(), sf::Vector2u(6,4),0.035);
 	attacktype = 0;
-	vidas = 25;
+	life = 25;
 	velocity = sf::Vector2f(0.0f, 0.0f);
 }
 
@@ -116,9 +126,9 @@ void Warlock::update(float deltat)
 	setTextureRect(uvRect);
 	moveHB(velocity.x * deltat, velocity.y * deltat);
 	if (!faceright)
-		setPosition(hitbox.getPosition().x - deslocamento.x, hitbox.getPosition().y + deslocamento.y);
+		setPosition(hitbox.getPosition().x - displacement.x, hitbox.getPosition().y + displacement.y);
 	else
-		setPosition(hitbox.getPosition().x + deslocamento.x, hitbox.getPosition().y + deslocamento.y);
+		setPosition(hitbox.getPosition().x + displacement.x, hitbox.getPosition().y + displacement.y);
 	velocity.x *= 0.0f;
 	velocity.y *= 0.0f;
 	randomizeattack();

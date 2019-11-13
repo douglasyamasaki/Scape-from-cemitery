@@ -4,7 +4,7 @@ void Principal::ResizeView(const sf::RenderWindow& window, sf::View& view) {
 	float aspectRatio = float(window.getSize().x / float(window.getSize().y));
 	view.setSize(VIEW_HEIGHT * aspectRatio, VIEW_HEIGHT);
 }
-void Principal::executar() {
+void Principal::run() {
 	while (window.isOpen())
 	{
 		deltat = clock.restart().asSeconds();
@@ -45,7 +45,7 @@ window(sf::VideoMode(VIEW_WIDTH, VIEW_HEIGHT), "Scape from Cemitery"),
 mh(this),
 controle(&mh)
 {
-	executar();
+	run();
 }
 
 void Principal::startDefaultLevel(int index)

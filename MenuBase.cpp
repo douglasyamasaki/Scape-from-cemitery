@@ -18,6 +18,6 @@ void MenuBase::input(sf::Vector2f cinput) {
 		aux = *it;
 		if (cinput.x > aux->getPosition().x&& cinput.x < aux->getPosition().x + aux->getSize().x)
 			if (cinput.y > aux->getPosition().y&& cinput.y < aux->getPosition().y + aux->getSize().y)
-				(*it)->executar();
+				(*it)->run();
 	}
 }

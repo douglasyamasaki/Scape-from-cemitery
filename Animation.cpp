@@ -12,9 +12,9 @@ void Animation::load(sf::Texture* texture, sf::Vector2u ImgCount, float stime)
 
 void Animation::Refresh(float deltat)
 {
-	ttotal += deltat;
-	if (ttotal >= stime) {
-		ttotal -= stime;
+	totalt += deltat;
+	if (totalt >= stime) {
+		totalt -= stime;
 		imgI.x++;
 		frames++;
 		if (imgI.x >= imgCount.x){
@@ -44,7 +44,7 @@ Animation::Animation() {
 	stime = 0;
 	lock = false;
 	faceright = true;
-	ttotal = 0;
+	totalt = 0;
 	imgI.x = 0;
 	imgI.y = 0;
 }

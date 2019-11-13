@@ -29,6 +29,6 @@ public:
 	Principal();
 	void startDefaultLevel(int index);
 	void resetView() { window.setView(window.getDefaultView()); }
-	void executar();
+	void run();
 };
 

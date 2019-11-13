@@ -18,13 +18,13 @@ public:
 	virtual void update(float deltat) = 0;
 	virtual void load_static() = 0;
 	void draw(sf::RenderWindow* window) {
-		for (platforms.it = platforms.getPrimeiro(); platforms.it.getIt() != nullptr; platforms.it++) {
+		for (platforms.it = platforms.getFirst(); platforms.it.getIt() != nullptr; platforms.it++) {
 			window->draw(*platforms.it.getIt()->getInfo());
 		}
-		for (enemies.it = enemies.getPrimeiro(); enemies.it.getIt() != nullptr; enemies.it++) {
+		for (enemies.it = enemies.getFirst(); enemies.it.getIt() != nullptr; enemies.it++) {
 			window->draw(*enemies.it.getIt()->getInfo());
 		}
-		for (projectiles.it = projectiles.getPrimeiro(); projectiles.it.getIt() != nullptr; projectiles.it++) {
+		for (projectiles.it = projectiles.getFirst(); projectiles.it.getIt() != nullptr; projectiles.it++) {
 			window->draw(*projectiles.it.getIt()->getInfo());
 		}
 	}

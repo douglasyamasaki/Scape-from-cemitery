@@ -26,9 +26,9 @@ void Ghost::update(float deltat)
 		velocity.y -= speed.y;
 	}
 	if (!faceright)
-		setPosition(hitbox.getPosition().x - deslocamento.x, hitbox.getPosition().y + deslocamento.y);
+		setPosition(hitbox.getPosition().x - displacement.x, hitbox.getPosition().y + displacement.y);
 	else
-		setPosition(hitbox.getPosition().x + deslocamento.x, hitbox.getPosition().y + deslocamento.y);
+		setPosition(hitbox.getPosition().x + displacement.x, hitbox.getPosition().y + displacement.y);
 	Refresh(deltat);
 	setTextureRect(uvRect);
 	moveHB(velocity.x * deltat, velocity.y * deltat);
@@ -36,10 +36,10 @@ void Ghost::update(float deltat)
 	velocity.y *= 0.0f;
 }
 
-Ghost::Ghost(sf::Vector2f size, sf::Vector2f pos, sf::Vector2f speed, sf::Vector2f hitbox, sf::Vector2f deslocamento, const float reward,Player* p1) :
-	Inimigo(size,pos,speed,hitbox,deslocamento,reward)
+Ghost::Ghost(sf::Vector2f size, sf::Vector2f pos, sf::Vector2f speed, sf::Vector2f hitbox, sf::Vector2f displacement, const float reward,Player* p1) :
+	Inimigo(size,pos,speed,hitbox,displacement,reward)
 {
-	vidas = 1;
+	life = 1;
 	setTarget(p1);
 	texture = GhostModel::getInstance();
 	load(texture->getGhost(), sf::Vector2u(3, 5), 0.1);
@@ -48,5 +48,5 @@ Ghost::Ghost(sf::Vector2f size, sf::Vector2f pos, sf::Vector2f speed, sf::Vector
 }
 
 void Ghost::onHit(sf::Vector2f direction) {
-	vidas--;
+	life--;
 }

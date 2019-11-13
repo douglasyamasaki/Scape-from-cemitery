@@ -27,6 +27,6 @@ public:
 	void off() { active = false; }
 	const bool getActive() const { return active; }
 	void input(sf::Vector2f cinput);
-	virtual void executar() = 0;
+	virtual void run() = 0;
 };
 

@@ -3,7 +3,7 @@
 
 void Lists::ProjectileList::manageSpells()
 {
-	for (it = this->getPrimeiro(); it.getIt() != nullptr; it++) {
+	for (it = this->getFirst(); it.getIt() != nullptr; it++) {
 		Spell* spellptr = dynamic_cast<Spell*>(it.getIt()->getInfo());
 		if (spellptr != nullptr) {
 			if (!spellptr->getActive())
