@@ -25,6 +25,10 @@ public:
 	void CollideProjectilePlatform();
 	void CollideProjectilePlayer();
 	void CollideProjectileEnemie();
-
+	void setProjectileList(ProjectileList* ref) { projectiles = ref; }
+	void setEnemiesList(EnemiesList* ref) { enemies = ref; }
+	void setStaticList(StaticList* ref) { statics = ref; }
+	void setP1r(Player* ref) { p1r = ref; }
+	void setP2r(Player* ref) { p2r = ref; }
 };
 

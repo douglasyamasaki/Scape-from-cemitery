@@ -9,17 +9,31 @@ FirstLevel::FirstLevel() : Level()
 {
 }
 
+void FirstLevel::check_collision()
+{
+	collider.CollideEnemiePlatform();
+	collider.CollidePlayerEnemie();
+	collider.CollidePlayerPlatform();
+	collider.CollideProjectileEnemie();
+	collider.CollideProjectilePlatform();
+	collider.CollideProjectilePlayer();
+}
+
 void FirstLevel::load_static()
 {
 	Platform* chao = new Platform(sf::Vector2f(10000, 1000), sf::Vector2f(0, 0));
 	platforms + chao;
-	Warlock* wlk = new Warlock(sf::Vector2f(250, 200), sf::Vector2f(100, -300), sf::Vector2f(100, 0), sf::Vector2f(101, 131), sf::Vector2f(15, -20), 1000,&projectiles);
+	Warlock* wlk = new Warlock(sf::Vector2f(250, 200), sf::Vector2f(200, -300), sf::Vector2f(100, 0), sf::Vector2f(101, 131), sf::Vector2f(15, -20), 1000, &projectiles);
 	wlk->setP1(p1);
 	enemies + wlk;
+	collider.setEnemiesList(&enemies);
+	collider.setProjectileList(&projectiles);
+	collider.setStaticList(&platforms);
+	collider.setP1r(p1);
 }
 
 void FirstLevel::load_default() {
-	p1 = new Player(sf::Vector2f(250,200), sf::Vector2f(0,-300), sf::Vector2f(100,0),sf::Vector2f(101,131), sf::Vector2f(15,-20),&projectiles);
+	p1 = new Player(sf::Vector2f(250,200), sf::Vector2f(0,-600), sf::Vector2f(100,0),sf::Vector2f(101,131), sf::Vector2f(15,-20),&projectiles);
 	load_static();
 	
 }

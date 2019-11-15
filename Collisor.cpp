@@ -65,11 +65,11 @@ void Collisor::CollidePlayerPlatform()
 		Body* bodyptr = dynamic_cast<Body*>(statics->it.getIt()->getInfo());
 		if (bodyptr != nullptr) {
 			if (p1r != nullptr) {
-				if (CheckCollision(p1r, bodyptr, direction, 1.0f))
+				if (CheckCollision(bodyptr, p1r, direction, 1.0f))
 					p1r->OnCollision(direction);
 			}
 			if (p2r != nullptr) {
-				if (CheckCollision(p2r, bodyptr, direction, 1.0f))
+				if (CheckCollision(bodyptr, p2r, direction, 1.0f))
 					p2r->OnCollision(direction);
 			}
 		}
@@ -149,7 +149,7 @@ void Collisor::CollideProjectilePlayer()
 
 void Collisor::CollideProjectileEnemie()
 {
-	for (projectiles->it = projectiles->getPrimeiro(); projectiles->it.getIt()->getInfo() != nullptr; projectiles->it++) {
+	for (projectiles->it = projectiles->getPrimeiro(); projectiles->it.getIt() != nullptr; projectiles->it++) {
 		Arrow* arrowptr = dynamic_cast<Arrow*>(projectiles->it.getIt()->getInfo());
 		if (arrowptr != nullptr) {
 			for (enemies->it = enemies->getPrimeiro(); enemies->it.getIt() != nullptr; enemies->it++) {

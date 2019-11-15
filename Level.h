@@ -2,12 +2,14 @@
 #include "StaticList.h"
 #include "EnemiesList.h"
 #include "ProjectileList.h"
+#include "Collisor.h"
 class Player;
 class Level {
 protected:
 	StaticList platforms;
 	EnemiesList enemies;
 	ProjectileList projectiles;
+	Collisor collider;
 	Player* p1;
 	Player* p2;
 	bool pl2;

@@ -25,4 +25,7 @@ EventHandler::EventHandler(MenuHandler* mhref)
 
 void EventHandler::update(sf::Event* ev)
 {
+	for (int i = 0; i < 2; i++) {
+		controllers[i].executar(ev);
+	}
 }
