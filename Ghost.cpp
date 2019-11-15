@@ -37,7 +37,7 @@ void Ghost::update(float deltat)
 }
 
 Ghost::Ghost(sf::Vector2f size, sf::Vector2f pos, sf::Vector2f speed, sf::Vector2f hitbox, sf::Vector2f deslocamento, const float reward,Player* p1) :
-	Inimigo(size,pos,speed,hitbox,deslocamento,reward)
+	Enemie(size,pos,speed,hitbox,deslocamento,reward)
 {
 	vidas = 1;
 	setTarget(p1);

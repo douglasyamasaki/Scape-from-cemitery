@@ -1,1 +1,176 @@
 #include "Collisor.h"
+#include "Body.h"
+#include "Player.h"
+#include "EnemiesList.h"
+#include "StaticList.h"
+#include "ProjectileList.h"
+#include "Spell.h"
+#include "Ghost.h"
+#include "Arrow.h"
+
+bool Collisor::CheckCollision(Body* thisbody, Body* other, sf::Vector2f& direction, float push)
+{
+	sf::Vector2f otherPos = other->getHBPos();
+	sf::Vector2f otherHalfSize = other->getHalfsize();
+	sf::Vector2f thisPosition = thisbody->getHBPos();
+	sf::Vector2f thisHalfSize = thisbody->getHalfsize();
+
+	float deltax = otherPos.x - thisPosition.x;
+	float deltay = otherPos.y - thisPosition.y;
+	float interX = abs(deltax) - (otherHalfSize.x + thisHalfSize.x);
+	float interY = abs(deltay) - (otherHalfSize.y + thisHalfSize.y);
+	if (interX < 0.0f && interY < 0.0f) {
+		push = std::min(std::max(push, 0.0f), 1.0f);
+
+		if (interX > interY) {
+			if (deltax > 0.0f) {
+				thisbody->moveHB(interX * (1.0f - push), 0.0f);
+				other->moveHB(-interX * push, 0.0f);
+				direction.x = 1.0f;
+				direction.y = 0.0f;
+			}
+			else {
+				thisbody->moveHB(-interX * (1.0f - push), 0.0f);
+				other->moveHB(interX * push, 0.0f);
+				direction.x = -1.0f;
+				direction.y = 0.0f;
+			}
+		}
+		else {
+			if (deltay > 0.0f) {
+				thisbody->moveHB(0.0f, interY * (1.0f - push));
+				other->moveHB(0.0f, -interY * push);
+				direction.x = 0.0f;
+				direction.y = 1.0f;
+			}
+			else {
+				thisbody->moveHB(0.0f, -interY * (1.0f - push));
+				other->moveHB(0.0f, interY * push);
+				direction.x = 0.0f;
+				direction.y = -1.0f;
+			}
+
+		}
+		return true;
+	}
+	return false;
+}
+
+
+void Collisor::CollidePlayerPlatform()
+{
+	
+	for (statics->it = statics->getPrimeiro(); statics->it.getIt() != nullptr; statics->it++) {
+		sf::Vector2f direction = sf::Vector2f(0.0f, 0.0f);
+		Body* bodyptr = dynamic_cast<Body*>(statics->it.getIt()->getInfo());
+		if (bodyptr != nullptr) {
+			if (p1r != nullptr) {
+				if (CheckCollision(p1r, bodyptr, direction, 1.0f))
+					p1r->OnCollision(direction);
+			}
+			if (p2r != nullptr) {
+				if (CheckCollision(p2r, bodyptr, direction, 1.0f))
+					p2r->OnCollision(direction);
+			}
+		}
+	}
+}
+
+void Collisor::CollidePlayerEnemie()
+{
+	for (enemies->it = enemies->getPrimeiro(); enemies->it.getIt() != nullptr; enemies->it++) {
+		sf::Vector2f direction = sf::Vector2f(0.0f, 0.0f);
+		if (p1r != nullptr) {
+			if (CheckCollision(p1r, enemies->it.getIt()->getInfo(), direction, 1.0f))
+				p1r->onHit(direction);
+		}
+		if (p2r != nullptr)
+			if (CheckCollision(p2r, enemies->it.getIt()->getInfo(), direction, 1.0f))
+				p2r->onHit(direction);
+	}
+}
+
+void Collisor::CollideEnemiePlatform()
+{
+	for (statics->it = statics->getPrimeiro(); statics->it.getIt() != nullptr; statics->it++) {
+		Body* bodyptr = dynamic_cast<Body*>(statics->it.getIt()->getInfo());
+		sf::Vector2f direction = sf::Vector2f(0.0f, 0.0f);
+		if (bodyptr != nullptr) {
+			for (enemies->it = enemies->getPrimeiro(); enemies->it.getIt() != nullptr; enemies->it++) {
+				Ghost* ghostptr = dynamic_cast<Ghost*>(enemies->it.getIt()->getInfo());
+				if (ghostptr == nullptr){
+					if (CheckCollision(bodyptr, enemies->it.getIt()->getInfo(), direction, 1.0f))
+						enemies->it.getIt()->getInfo()->OnCollision(direction);
+				}
+
+			}
+		}
+	}
+}
+
+void Collisor::CollideProjectilePlatform()
+{
+	for (statics->it = statics->getPrimeiro(); statics->it.getIt() != nullptr; statics->it++) {
+		Body* bodyptr = dynamic_cast<Body*>(statics->it.getIt()->getInfo());
+		sf::Vector2f direction = sf::Vector2f(0.0f, 0.0f);
+		if (bodyptr != nullptr) {
+			for (projectiles->it = projectiles->getPrimeiro(); projectiles->it.getIt() != nullptr; projectiles->it++) {
+				Spell* spellptr = dynamic_cast<Spell*>(projectiles->it.getIt()->getInfo());
+				if (spellptr == nullptr) {
+					if (CheckCollision(projectiles->it.getIt()->getInfo(), bodyptr, direction, 1.0f))
+						projectiles->remove();
+				}
+				else {
+					if (CheckCollision(projectiles->it.getIt()->getInfo(), bodyptr, direction, 1.0f))
+						spellptr->onCollision(direction);
+				}
+			}
+		}
+	}
+}
+
+void Collisor::CollideProjectilePlayer()
+{
+	for (projectiles->it = projectiles->getPrimeiro(); projectiles->it.getIt() != nullptr; projectiles->it++) {
+		sf::Vector2f direction = sf::Vector2f(0.0f, 0.0f);
+		Spell* spellptr = dynamic_cast<Spell*>(projectiles->it.getIt()->getInfo());
+		if (spellptr != nullptr) {
+			if (p1r != nullptr) {
+				if (CheckCollision(projectiles->it.getIt()->getInfo(), p1r, direction, 1.0f))
+					p1r->onHit(direction);
+			}
+			if (p2r != nullptr) {
+				if (CheckCollision(projectiles->it.getIt()->getInfo(), p2r, direction, 1.0f))
+					p2r->onHit(direction);
+			}
+		}
+	}
+}
+
+void Collisor::CollideProjectileEnemie()
+{
+	for (projectiles->it = projectiles->getPrimeiro(); projectiles->it.getIt()->getInfo() != nullptr; projectiles->it++) {
+		Arrow* arrowptr = dynamic_cast<Arrow*>(projectiles->it.getIt()->getInfo());
+		if (arrowptr != nullptr) {
+			for (enemies->it = enemies->getPrimeiro(); enemies->it.getIt() != nullptr; enemies->it++) {
+				sf::Vector2f direction = sf::Vector2f(0.0f, 0.0f);
+				if (CheckCollision(arrowptr, enemies->it.getIt()->getInfo(), direction, 1.0f)) {
+					enemies->it.getIt()->getInfo()->onHit(direction);
+					arrowptr->getShooter()->increasePoints(enemies->it.getIt()->getInfo()->getReward());
+					if (enemies->it.getIt()->getInfo()->getVidas() == 0)
+						enemies->remove();
+					projectiles->remove();
+				}
+			}
+		}
+	}
+}
+
+Collisor::Collisor()
+{
+	this->projectiles = nullptr;
+	this->enemies = nullptr;
+	this->statics = nullptr;
+	this->p1r = nullptr;
+	this->p2r = nullptr;
+}
