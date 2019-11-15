@@ -1,10 +1,11 @@
 #pragma once
-#include "AbstractEntitys.h"
-using namespace AbstractEntitys;
-class Platform : public StaticEntity
+#include "StaticEntity.h"
+#include "Body.h"
+using namespace AbstractEntity;
+class Platform : public StaticEntity , public Body
 {
 private:
 public:
-	Platform(sf::Vector2f size, sf::Vector2f pos) : StaticEntity(size, pos) { setTexture(nullptr); setOrigin(getSize() / 2.0f);}
+	Platform(sf::Vector2f size, sf::Vector2f pos) : StaticEntity(size, pos) , Body (size){ setTexture(nullptr); setOrigin(getSize() / 2.0f);}
 };
 
