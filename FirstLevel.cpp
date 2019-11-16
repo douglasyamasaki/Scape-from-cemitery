@@ -11,11 +11,11 @@ FirstLevel::FirstLevel() : Level()
 
 void FirstLevel::check_collision()
 {
+	collider.CollideProjectilePlatform();
 	collider.CollideEnemiePlatform();
 	collider.CollidePlayerEnemie();
 	collider.CollidePlayerPlatform();
 	collider.CollideProjectileEnemie();
-	collider.CollideProjectilePlatform();
 	collider.CollideProjectilePlayer();
 }
 
@@ -44,6 +44,8 @@ void FirstLevel::update(float deltat)
 	if (p2 != nullptr)
 		p2->update(deltat);
 	// update section
+	projectiles.ManageSpells();
+	
 	for (enemies.it = enemies.getPrimeiro(); enemies.it.getIt() != nullptr; enemies.it++) {
 		enemies.it.getIt()->getInfo()->update(deltat);
 	}

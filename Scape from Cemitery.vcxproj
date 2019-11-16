@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Animation.h" />
+    <ClInclude Include="ArcherModel.h" />
+    <ClInclude Include="Arrow.h" />
+    <ClInclude Include="ArrowModel.h" />
+    <ClInclude Include="Attack01Command.h" />
+    <ClInclude Include="Attack02Command.h" />
+    <ClInclude Include="Attack03Command.h" />
+    <ClInclude Include="Barrage.h" />
+    <ClInclude Include="Body.h" />
+    <ClInclude Include="Button1p.h" />
+    <ClInclude Include="Button2p.h" />
+    <ClInclude Include="ButtonBase.h" />
+    <ClInclude Include="ButtonBossStage.h" />
+    <ClInclude Include="ButtonFirstStage.h" />
+    <ClInclude Include="ButtonHighscore.h" />
+    <ClInclude Include="ButtonLoad.h" />
+    <ClInclude Include="ButtonMainMenu.h" />
+    <ClInclude Include="ButtonQuit.h" />
+    <ClInclude Include="ButtonResume.h" />
+    <ClInclude Include="ButtonSave.h" />
+    <ClInclude Include="ButtonsModel.h" />
+    <ClInclude Include="Collisor.h" />
+    <ClInclude Include="CompositeController.h" />
+    <ClInclude Include="Controller.h" />
+    <ClInclude Include="DynamicEntity.h" />
+    <ClInclude Include="Enemie.h" />
+    <ClInclude Include="EnemiesList.h" />
+    <ClInclude Include="Entity.h" />
+    <ClInclude Include="EventHandler.h" />
+    <ClInclude Include="FirstLevel.h" />
+    <ClInclude Include="Flame.h" />
+    <ClInclude Include="GenericList.h" />
+    <ClInclude Include="Ghost.h" />
+    <ClInclude Include="GhostModel.h" />
+    <ClInclude Include="LeftCommand.h" />
+    <ClInclude Include="Level.h" />
+    <ClInclude Include="MenuBase.h" />
+    <ClInclude Include="MenuClickCommand.h" />
+    <ClInclude Include="MenuHandler.h" />
+    <ClInclude Include="MenuLose.h" />
+    <ClInclude Include="MenuMain.h" />
+    <ClInclude Include="MenuModel.h" />
+    <ClInclude Include="MenuPause.h" />
+    <ClInclude Include="MenuRanking.h" />
+    <ClInclude Include="MenuSelection.h" />
+    <ClInclude Include="MenuWin.h" />
+    <ClInclude Include="PauseCommand.h" />
+    <ClInclude Include="Platform.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="Principal.h" />
+    <ClInclude Include="Projectile.h" />
+    <ClInclude Include="ProjectileList.h" />
+    <ClInclude Include="RightCommand.h" />
+    <ClInclude Include="Spark.h" />
+    <ClInclude Include="Spell.h" />
+    <ClInclude Include="SpellsModel.h" />
+    <ClInclude Include="StaticEntity.h" />
+    <ClInclude Include="StaticList.h" />
+    <ClInclude Include="UpCommand.h" />
+    <ClInclude Include="Warlock.h" />
+    <ClInclude Include="WarlockModel.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Animation.cpp" />
+    <ClCompile Include="ArcherModel.cpp" />
+    <ClCompile Include="Arrow.cpp" />
+    <ClCompile Include="ArrowModel.cpp" />
+    <ClCompile Include="Attack01Command.cpp" />
+    <ClCompile Include="Attack02Command.cpp" />
+    <ClCompile Include="Attack03Command.cpp" />
+    <ClCompile Include="Barrage.cpp" />
+    <ClCompile Include="Body.cpp" />
+    <ClCompile Include="Button1p.cpp" />
+    <ClCompile Include="Button2p.cpp" />
+    <ClCompile Include="ButtonBossStage.cpp" />
+    <ClCompile Include="ButtonFirstStage.cpp" />
+    <ClCompile Include="ButtonHighscore.cpp" />
+    <ClCompile Include="ButtonLoad.cpp" />
+    <ClCompile Include="ButtonMainMenu.cpp" />
+    <ClCompile Include="ButtonQuit.cpp" />
+    <ClCompile Include="ButtonResume.cpp" />
+    <ClCompile Include="ButtonSave.cpp" />
+    <ClCompile Include="ButtonsModel.cpp" />
+    <ClCompile Include="Collisor.cpp" />
+    <ClCompile Include="CompositeController.cpp" />
+    <ClCompile Include="EnemiesList.cpp" />
+    <ClCompile Include="EventHandler.cpp" />
+    <ClCompile Include="FirstLevel.cpp" />
+    <ClCompile Include="Flame.cpp" />
+    <ClCompile Include="Ghost.cpp" />
+    <ClCompile Include="GhostModel.cpp" />
+    <ClCompile Include="LeftCommand.cpp" />
+    <ClCompile Include="Level.cpp" />
+    <ClCompile Include="MenuBase.cpp" />
+    <ClCompile Include="MenuClickCommand.cpp" />
+    <ClCompile Include="MenuHandler.cpp" />
+    <ClCompile Include="MenuLose.cpp" />
+    <ClCompile Include="MenuMain.cpp" />
+    <ClCompile Include="MenuModel.cpp" />
+    <ClCompile Include="MenuPause.cpp" />
+    <ClCompile Include="MenuRanking.cpp" />
+    <ClCompile Include="MenuSelection.cpp" />
+    <ClCompile Include="MenuWin.cpp" />
+    <ClCompile Include="PauseCommand.cpp" />
+    <ClCompile Include="Platform.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Principal.cpp" />
+    <ClCompile Include="ProjectileList.cpp" />
+    <ClCompile Include="RightCommand.cpp" />
+    <ClCompile Include="Scape From Cemitery.cpp" />
+    <ClCompile Include="Spark.cpp" />
+    <ClCompile Include="Spell.cpp" />
+    <ClCompile Include="SpellsModel.cpp" />
+    <ClCompile Include="StaticList.cpp" />
+    <ClCompile Include="UpCommand.cpp" />
+    <ClCompile Include="Warlock.cpp" />
+    <ClCompile Include="WarlockModel.cpp" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <ProjectGuid>{28D795BD-BAA0-4AD6-BAA3-10FD1E2A1EC5}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>ScapefromCemitery</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\Users\Doug\source\repos\Scape from Cemitery\SFML-2.5.1\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Users\Doug\source\repos\Scape from Cemitery\SFML-2.5.1\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

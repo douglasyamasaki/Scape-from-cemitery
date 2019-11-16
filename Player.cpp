@@ -119,7 +119,7 @@ void Player::attack() {
 		setStime(0.05);
 		if (!getLock()){
 			attacktype = 0;
-			setStime(0.1);
+			setStime(0.05);
 		}
 		if (getFrame() == 8 && attacktype == 1) {
 			Arrow* aux = new Arrow(sf::Vector2f(120, 15), getPosition()+sf::Vector2f(0,30), sf::Vector2f(1000,-350), sf::Vector2f(100, 50), sf::Vector2f(0, 0),this);

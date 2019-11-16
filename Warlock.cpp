@@ -1,6 +1,8 @@
 #include "Warlock.h"
 #include "Player.h"
-#include "Spell.h"
+#include "Spark.h"
+#include "Barrage.h"
+#include "Flame.h"
 
 void Warlock::UpdateTexture()
 {
@@ -39,6 +41,12 @@ void Warlock::attack()
 		return;
 	if (facerightCorrector < 0.0f)
 		faceright = false;
+	sf::Vector2f p1p;
+	sf::Vector2f p2p;
+	if (p1 != nullptr)
+		p1p = p1->getPosition();
+	if (p2 != nullptr)
+		p2p = p2->getPosition();
 	if (attacktype == 1) {
 		setTexture(textures->getCast1());
 	}
@@ -54,9 +62,20 @@ void Warlock::attack()
 			setImgC(sf::Vector2u(6, 4));
 			reset();
 		}
-		if (attacktype == 1 && frames == 9) {
+		if (attacktype == 1 && frames == 19) {
+			Spark* sparkptr = new Spark(sf::Vector2f(250, 200), sf::Vector2f(p1p.x, p1p.y - 300), sf::Vector2f(0, 1000), sf::Vector2f(55, 131), sf::Vector2f(15, -20));
+			*projeteis + sparkptr;
 			frameup();
-			
+		}
+		if (attacktype == 2 && frames == 41) {
+			Flame* barrageptr = new Flame(sf::Vector2f(250, 200), sf::Vector2f(p1p.x, p1p.y - 300), sf::Vector2f(0, 1000), sf::Vector2f(55, 131), sf::Vector2f(15, -20));
+			*projeteis + barrageptr;
+			frameup();
+		}
+		if (attacktype == 3 && frames == 17) {
+			Barrage* flameptr = new Barrage(sf::Vector2f(250, 200), sf::Vector2f(p1p.x, p1p.y - 300), sf::Vector2f(0, 1000), sf::Vector2f(55, 131), sf::Vector2f(15, -20));
+			frameup();
+			*projeteis + flameptr;
 		}
 			
 	}

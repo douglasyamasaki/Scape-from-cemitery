@@ -1,5 +1,7 @@
 #include "Principal.h"
 #include "FirstLevel.h"
+
+
 void Principal::ResizeView(const sf::RenderWindow& window, sf::View& view) {
 	float aspectRatio = float(window.getSize().x / float(window.getSize().y));
 	view.setSize(VIEW_HEIGHT * aspectRatio, VIEW_HEIGHT);
@@ -33,7 +35,6 @@ void Principal::executar() {
 				window.setView(view);
 				view.setCenter(p1->getBody()->getHBPos());
 				levelref->draw(&window);
-				window.draw(*p1);
 			}
 		}
 		window.display();

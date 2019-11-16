@@ -1,0 +1,423 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\AbstractEntity">
+      <UniqueIdentifier>{382b8291-6b6d-4058-8cf0-019675753343}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Projectiles">
+      <UniqueIdentifier>{a28d943d-e651-4fe4-ba41-b1274ad44eaf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\EventHandler">
+      <UniqueIdentifier>{672e8e44-12da-452a-8756-a618c921f54e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\EventHandler">
+      <UniqueIdentifier>{665abfb7-0415-492d-a026-df5c2d00fa7c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\MenuButtons">
+      <UniqueIdentifier>{67fcc8b1-de30-40e4-a79d-08a9b944ae60}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Menus">
+      <UniqueIdentifier>{ab8f4703-31fe-456a-9f30-aeddb0bd1884}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Models">
+      <UniqueIdentifier>{e5a54f5b-659a-46b2-9586-77da6086293b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Models">
+      <UniqueIdentifier>{bcb8f00c-7b4b-49ef-b9dd-d8c532406a3f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Projectiles\Spells">
+      <UniqueIdentifier>{6a7e48c4-101b-4483-81a2-4a964f71333c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Projectiles">
+      <UniqueIdentifier>{65a5bf39-134e-4db7-af53-f6c73ed9b61f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Projectiles\Spells">
+      <UniqueIdentifier>{c623ef22-8f75-4e52-9bb1-7c5132b0af51}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\MenuButtons">
+      <UniqueIdentifier>{a67e589a-a3a3-4c73-911c-9043c8dc96bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Menus">
+      <UniqueIdentifier>{4432e037-87b2-495d-8c6c-fa6a85d47527}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Lists">
+      <UniqueIdentifier>{e4a6af3a-ec74-412e-a651-8fdde454e5cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Lists">
+      <UniqueIdentifier>{1993b9ae-42d4-4eca-a6be-295eb3e05e5a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Levels">
+      <UniqueIdentifier>{30d40a81-63b0-483a-a199-6291b0380135}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Levels">
+      <UniqueIdentifier>{5abba9f1-f6c3-4bd7-aa9e-26e8eef2c51f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\EventHandler\Commands">
+      <UniqueIdentifier>{e2ac4f55-2fb1-4ef3-8f5b-9aaa1a837331}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\EventHandler\Commands">
+      <UniqueIdentifier>{d66f80ba-8b4f-4b3c-86ae-898a25a86ccb}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Collisor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Warlock.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Ghost.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Principal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Platform.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Body.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Animation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ArcherModel.h">
+      <Filter>Header Files\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="ArrowModel.h">
+      <Filter>Header Files\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="Barrage.h">
+      <Filter>Header Files\Projectiles</Filter>
+    </ClInclude>
+    <ClInclude Include="Button1p.h">
+      <Filter>Header Files\MenuButtons</Filter>
+    </ClInclude>
+    <ClInclude Include="Button2p.h">
+      <Filter>Header Files\MenuButtons</Filter>
+    </ClInclude>
+    <ClInclude Include="ButtonBase.h">
+      <Filter>Header Files\MenuButtons</Filter>
+    </ClInclude>
+    <ClInclude Include="ButtonBossStage.h">
+      <Filter>Header Files\MenuButtons</Filter>
+    </ClInclude>
+    <ClInclude Include="ButtonFirstStage.h">
+      <Filter>Header Files\MenuButtons</Filter>
+    </ClInclude>
+    <ClInclude Include="ButtonHighscore.h">
+      <Filter>Header Files\MenuButtons</Filter>
+    </ClInclude>
+    <ClInclude Include="ButtonMainMenu.h">
+      <Filter>Header Files\MenuButtons</Filter>
+    </ClInclude>
+    <ClInclude Include="ButtonLoad.h">
+      <Filter>Header Files\MenuButtons</Filter>
+    </ClInclude>
+    <ClInclude Include="ButtonQuit.h">
+      <Filter>Header Files\MenuButtons</Filter>
+    </ClInclude>
+    <ClInclude Include="ButtonResume.h">
+      <Filter>Header Files\MenuButtons</Filter>
+    </ClInclude>
+    <ClInclude Include="ButtonSave.h">
+      <Filter>Header Files\MenuButtons</Filter>
+    </ClInclude>
+    <ClInclude Include="ButtonsModel.h">
+      <Filter>Header Files\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="CompositeController.h">
+      <Filter>Header Files\EventHandler</Filter>
+    </ClInclude>
+    <ClInclude Include="Arrow.h">
+      <Filter>Header Files\Projectiles</Filter>
+    </ClInclude>
+    <ClInclude Include="Flame.h">
+      <Filter>Header Files\Projectiles</Filter>
+    </ClInclude>
+    <ClInclude Include="GenericList.h">
+      <Filter>Header Files\Lists</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemiesList.h">
+      <Filter>Header Files\Lists</Filter>
+    </ClInclude>
+    <ClInclude Include="EventHandler.h">
+      <Filter>Header Files\EventHandler</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicEntity.h">
+      <Filter>Header Files\AbstractEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="FirstLevel.h">
+      <Filter>Header Files\Levels</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity.h">
+      <Filter>Header Files\AbstractEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemie.h">
+      <Filter>Header Files\AbstractEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="GhostModel.h">
+      <Filter>Header Files\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuBase.h">
+      <Filter>Header Files\Menus</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuHandler.h">
+      <Filter>Header Files\Menus</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuLose.h">
+      <Filter>Header Files\Menus</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuMain.h">
+      <Filter>Header Files\Menus</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuModel.h">
+      <Filter>Header Files\Menus</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuPause.h">
+      <Filter>Header Files\Menus</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuRanking.h">
+      <Filter>Header Files\Menus</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuSelection.h">
+      <Filter>Header Files\Menus</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuWin.h">
+      <Filter>Header Files\Menus</Filter>
+    </ClInclude>
+    <ClInclude Include="StaticList.h">
+      <Filter>Header Files\Lists</Filter>
+    </ClInclude>
+    <ClInclude Include="ProjectileList.h">
+      <Filter>Header Files\Lists</Filter>
+    </ClInclude>
+    <ClInclude Include="Controller.h">
+      <Filter>Header Files\EventHandler</Filter>
+    </ClInclude>
+    <ClInclude Include="Attack01Command.h">
+      <Filter>Header Files\EventHandler\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="Attack02Command.h">
+      <Filter>Header Files\EventHandler\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="Attack03Command.h">
+      <Filter>Header Files\EventHandler\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="LeftCommand.h">
+      <Filter>Header Files\EventHandler\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuClickCommand.h">
+      <Filter>Header Files\EventHandler\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="WarlockModel.h">
+      <Filter>Header Files\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="UpCommand.h">
+      <Filter>Header Files\MenuButtons</Filter>
+    </ClInclude>
+    <ClInclude Include="SpellsModel.h">
+      <Filter>Header Files\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="Spell.h">
+      <Filter>Header Files\Projectiles</Filter>
+    </ClInclude>
+    <ClInclude Include="Spark.h">
+      <Filter>Header Files\Projectiles</Filter>
+    </ClInclude>
+    <ClInclude Include="Projectile.h">
+      <Filter>Header Files\AbstractEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="Level.h">
+      <Filter>Header Files\Levels</Filter>
+    </ClInclude>
+    <ClInclude Include="StaticEntity.h">
+      <Filter>Header Files\AbstractEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="RightCommand.h">
+      <Filter>Header Files\EventHandler\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="PauseCommand.h">
+      <Filter>Header Files\EventHandler\Commands</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Warlock.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Collisor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Ghost.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Body.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Principal.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Animation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Platform.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ArcherModel.cpp">
+      <Filter>Source Files\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="Arrow.cpp">
+      <Filter>Source Files\Projectiles</Filter>
+    </ClCompile>
+    <ClCompile Include="ButtonBossStage.cpp">
+      <Filter>Source Files\MenuButtons</Filter>
+    </ClCompile>
+    <ClCompile Include="ButtonFirstStage.cpp">
+      <Filter>Source Files\MenuButtons</Filter>
+    </ClCompile>
+    <ClCompile Include="ButtonHighscore.cpp">
+      <Filter>Source Files\MenuButtons</Filter>
+    </ClCompile>
+    <ClCompile Include="Button2p.cpp">
+      <Filter>Source Files\MenuButtons</Filter>
+    </ClCompile>
+    <ClCompile Include="ButtonLoad.cpp">
+      <Filter>Source Files\MenuButtons</Filter>
+    </ClCompile>
+    <ClCompile Include="ButtonMainMenu.cpp">
+      <Filter>Source Files\MenuButtons</Filter>
+    </ClCompile>
+    <ClCompile Include="ButtonQuit.cpp">
+      <Filter>Source Files\MenuButtons</Filter>
+    </ClCompile>
+    <ClCompile Include="ButtonResume.cpp">
+      <Filter>Source Files\MenuButtons</Filter>
+    </ClCompile>
+    <ClCompile Include="ButtonSave.cpp">
+      <Filter>Source Files\MenuButtons</Filter>
+    </ClCompile>
+    <ClCompile Include="ButtonsModel.cpp">
+      <Filter>Source Files\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="Button1p.cpp">
+      <Filter>Source Files\MenuButtons</Filter>
+    </ClCompile>
+    <ClCompile Include="EventHandler.cpp">
+      <Filter>Source Files\EventHandler</Filter>
+    </ClCompile>
+    <ClCompile Include="GhostModel.cpp">
+      <Filter>Source Files\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="WarlockModel.cpp">
+      <Filter>Source Files\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="SpellsModel.cpp">
+      <Filter>Source Files\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="ArrowModel.cpp">
+      <Filter>Source Files\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemiesList.cpp">
+      <Filter>Source Files\Lists</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuBase.cpp">
+      <Filter>Source Files\Menus</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuLose.cpp">
+      <Filter>Source Files\Menus</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuHandler.cpp">
+      <Filter>Source Files\Menus</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuMain.cpp">
+      <Filter>Source Files\Menus</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuClickCommand.cpp">
+      <Filter>Source Files\Menus</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuModel.cpp">
+      <Filter>Source Files\Menus</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuPause.cpp">
+      <Filter>Source Files\Menus</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuRanking.cpp">
+      <Filter>Source Files\Menus</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuSelection.cpp">
+      <Filter>Source Files\Menus</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuWin.cpp">
+      <Filter>Source Files\Menus</Filter>
+    </ClCompile>
+    <ClCompile Include="FirstLevel.cpp">
+      <Filter>Source Files\Levels</Filter>
+    </ClCompile>
+    <ClCompile Include="ProjectileList.cpp">
+      <Filter>Source Files\Lists</Filter>
+    </ClCompile>
+    <ClCompile Include="StaticList.cpp">
+      <Filter>Source Files\Lists</Filter>
+    </ClCompile>
+    <ClCompile Include="Barrage.cpp">
+      <Filter>Source Files\Projectiles\Spells</Filter>
+    </ClCompile>
+    <ClCompile Include="Flame.cpp">
+      <Filter>Source Files\Projectiles\Spells</Filter>
+    </ClCompile>
+    <ClCompile Include="Spark.cpp">
+      <Filter>Source Files\Projectiles\Spells</Filter>
+    </ClCompile>
+    <ClCompile Include="Spell.cpp">
+      <Filter>Source Files\Projectiles\Spells</Filter>
+    </ClCompile>
+    <ClCompile Include="Attack01Command.cpp">
+      <Filter>Source Files\EventHandler\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="Attack02Command.cpp">
+      <Filter>Source Files\EventHandler\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="Attack03Command.cpp">
+      <Filter>Source Files\EventHandler\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="CompositeController.cpp">
+      <Filter>Source Files\EventHandler\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="LeftCommand.cpp">
+      <Filter>Source Files\EventHandler\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="PauseCommand.cpp">
+      <Filter>Source Files\EventHandler\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="RightCommand.cpp">
+      <Filter>Source Files\EventHandler\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="UpCommand.cpp">
+      <Filter>Source Files\EventHandler\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="Scape From Cemitery.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Level.cpp">
+      <Filter>Source Files\Levels</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
