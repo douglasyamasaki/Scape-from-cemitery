@@ -9,19 +9,28 @@
 #include "PauseCommand.h"
 #include "UpCommand.h"
 #include "RightCommand.h"
+#include "EnterCommand.h"
 using namespace CompController;
 class EventHandler
 {
 private:
-	CompositeController controllers[2];
+	CompositeController controllers[3];
 	sf::Keyboard::Key p1up;
 	sf::Keyboard::Key p1left;
 	sf::Keyboard::Key p1right;
 	sf::Keyboard::Key p1attack01;
 	sf::Keyboard::Key p1attack02;
 	sf::Keyboard::Key p1attack03;
+	sf::Keyboard::Key p2up;
+	sf::Keyboard::Key p2left;
+	sf::Keyboard::Key p2right;
+	sf::Keyboard::Key p2attack01;
+	sf::Keyboard::Key p2attack02;
+	sf::Keyboard::Key p2attack03;
+
 	sf::Keyboard::Key click;
 	sf::Keyboard::Key pause;
+	sf::Keyboard::Key enter;
 	UpCommand upleaf;
 	RightCommand rightleaf;
 	LeftCommand leftleaf;
@@ -29,12 +38,13 @@ private:
 	Attack02Command attack02;
 	Attack03Command attack03;
 	MenuClickCommand mclick;
+	EnterCommand ecmd;
 	MenuHandler* mhref;
 	PauseCommand pcommand;
 public:
 	EventHandler(MenuHandler* mhref);
-	void setP1(Player* p1) { controllers[0].setRef(p1); }
-	void setP2(Player* p2) { controllers[1].setRef(p2); }
+	void setP1(Player* p1) { controllers[1].setRef(p1); }
+	void setP2(Player* p2) { controllers[2].setRef(p2); }
 	void update(sf::Event* ev);
 };
 

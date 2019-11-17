@@ -9,4 +9,5 @@ public:
 	void load_static();
 	void load_default();
 	void update(float deltat);
+	void setFinished();
 };

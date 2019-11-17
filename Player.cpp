@@ -1,5 +1,7 @@
 #include "Player.h"
 #include "Arrow.h"
+
+
 void Player::updateTexture()
 {
 	if (!getLock()) {
@@ -44,8 +46,9 @@ Player::Player(sf::Vector2f size, sf::Vector2f pos, sf::Vector2f speed, sf::Vect
 	load(textures->getIdle(), sf::Vector2u(6, 4), 0.1);
 	this->setOrigin(getSize() / 2.0f);
 	this->arrowlistref = ref;
-	pontos = 0;
-	lives = 10;
+	pontos = 2000;
+	lives = 0;
+	name = "";
 	invulneravel = false;
 
 }

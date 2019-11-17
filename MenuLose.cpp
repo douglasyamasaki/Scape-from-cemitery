@@ -1,4 +1,8 @@
 #include "MenuLose.h"
+#include <iostream>
+#include "Principal.h"
+#include "MenuHandler.h"
+using namespace std;
 using namespace Menus;
 #include "ButtonMainMenu.h"
 using namespace MenuButtons;
@@ -10,6 +14,7 @@ MenuLose::MenuLose(sf::Vector2f size, MenuHandler* MHref) : MenuBase(size, MHref
 	add(bmm);
 }
 
-void MenuLose::executar()
+void MenuLose::executar(sf::Event* event)
 {
+	drawMenu();
 }

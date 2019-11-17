@@ -1,5 +1,14 @@
 #include "Level.h"
 #include "Player.h"
+#include <fstream>
+
+sf::RectangleShape Level::getCenter()
+{
+	if (getP2ref() != nullptr) {
+		///terminar
+	}
+	return sf::RectangleShape();
+}
 
 void Level::draw(sf::RenderWindow* window)
 {
@@ -13,4 +22,42 @@ void Level::draw(sf::RenderWindow* window)
 		window->draw(*projectiles.it.getIt()->getInfo());
 	}
 	window->draw(*p1);
+}
+
+void Level::setLost()
+{
+	bool checked;
+	if (p1->getLives() == 0) {
+		checked = true;
+	}
+	if (p2 != nullptr) {
+		if (p2->getLives() == 0){
+			if (checked == true)
+				lost = true;
+		}
+		else {
+			return;
+		}
+	}
+	if (checked = true)
+		lost = true;
+}
+
+void Level::savePoints()
+{
+	ofstream myfile;
+	myfile.open("ranking.txt", std::ios::app);
+	if (p1 != nullptr){
+		myfile << p1->getName() << endl;
+		myfile << p1->getPoints() << endl;
+	}
+	if (p2 != nullptr) {
+		myfile << p1->getName() << endl;
+		myfile << p1->getPoints() << endl;
+	}
+	if (p1 != nullptr && p2 != nullptr) {
+		myfile << p1->getName() << " & " << p2->getName()<<endl;
+		myfile << (p1->getPoints() + p2->getPoints());
+	}
+
 }

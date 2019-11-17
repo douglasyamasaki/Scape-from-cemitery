@@ -21,7 +21,7 @@ Menus::MenuMain::MenuMain(sf::Vector2f size, MenuHandler* MHref) : MenuBase(size
 	add(bq);
 }
 
-void Menus::MenuMain::executar()
+void Menus::MenuMain::executar(sf::Event* event)
 {
 	drawMenu();
 }

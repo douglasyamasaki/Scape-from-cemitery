@@ -186,9 +186,6 @@
     <ClInclude Include="MenuMain.h">
       <Filter>Header Files\Menus</Filter>
     </ClInclude>
-    <ClInclude Include="MenuModel.h">
-      <Filter>Header Files\Menus</Filter>
-    </ClInclude>
     <ClInclude Include="MenuPause.h">
       <Filter>Header Files\Menus</Filter>
     </ClInclude>
@@ -228,9 +225,6 @@
     <ClInclude Include="WarlockModel.h">
       <Filter>Header Files\Models</Filter>
     </ClInclude>
-    <ClInclude Include="UpCommand.h">
-      <Filter>Header Files\MenuButtons</Filter>
-    </ClInclude>
     <ClInclude Include="SpellsModel.h">
       <Filter>Header Files\Models</Filter>
     </ClInclude>
@@ -253,6 +247,18 @@
       <Filter>Header Files\EventHandler\Commands</Filter>
     </ClInclude>
     <ClInclude Include="PauseCommand.h">
+      <Filter>Header Files\EventHandler\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuModel.h">
+      <Filter>Header Files\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuNaming.h">
+      <Filter>Header Files\Menus</Filter>
+    </ClInclude>
+    <ClInclude Include="EnterCommand.h">
+      <Filter>Header Files\EventHandler\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="UpCommand.h">
       <Filter>Header Files\EventHandler\Commands</Filter>
     </ClInclude>
   </ItemGroup>
@@ -350,12 +356,6 @@
     <ClCompile Include="MenuMain.cpp">
       <Filter>Source Files\Menus</Filter>
     </ClCompile>
-    <ClCompile Include="MenuClickCommand.cpp">
-      <Filter>Source Files\Menus</Filter>
-    </ClCompile>
-    <ClCompile Include="MenuModel.cpp">
-      <Filter>Source Files\Menus</Filter>
-    </ClCompile>
     <ClCompile Include="MenuPause.cpp">
       <Filter>Source Files\Menus</Filter>
     </ClCompile>
@@ -418,6 +418,18 @@
     </ClCompile>
     <ClCompile Include="Level.cpp">
       <Filter>Source Files\Levels</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuModel.cpp">
+      <Filter>Source Files\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuClickCommand.cpp">
+      <Filter>Source Files\EventHandler\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuNaming.cpp">
+      <Filter>Source Files\Menus</Filter>
+    </ClCompile>
+    <ClCompile Include="EnterCommand.cpp">
+      <Filter>Source Files\EventHandler\Commands</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

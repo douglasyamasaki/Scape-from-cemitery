@@ -6,7 +6,8 @@ MenuHandler::MenuHandler(Principal* principalref) :
 	wmenu(sf::Vector2f(1280, 720), this),
 	lmenu(sf::Vector2f(1280, 720), this),
 	pmenu(sf::Vector2f(1280, 720), this),
-	rmenu(sf::Vector2f(1280, 720), this)
+	rmenu(sf::Vector2f(1280, 720), this),
+	nmenu(sf::Vector2f(1280,720), this)
 {
 	this->principalref = principalref;
 	currentMenu = &mmenu;
@@ -14,7 +15,7 @@ MenuHandler::MenuHandler(Principal* principalref) :
 	
 }
 
-void MenuHandler::update() {
+void MenuHandler::update(sf::Event* event) {
 	getPrincipal()->resetView();
-	currentMenu->executar();
+	currentMenu->executar(event);
 }

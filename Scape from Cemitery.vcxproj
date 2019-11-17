@@ -46,6 +46,7 @@
     <ClInclude Include="DynamicEntity.h" />
     <ClInclude Include="Enemie.h" />
     <ClInclude Include="EnemiesList.h" />
+    <ClInclude Include="EnterCommand.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="EventHandler.h" />
     <ClInclude Include="FirstLevel.h" />
@@ -61,6 +62,7 @@
     <ClInclude Include="MenuLose.h" />
     <ClInclude Include="MenuMain.h" />
     <ClInclude Include="MenuModel.h" />
+    <ClInclude Include="MenuNaming.h" />
     <ClInclude Include="MenuPause.h" />
     <ClInclude Include="MenuRanking.h" />
     <ClInclude Include="MenuSelection.h" />
@@ -105,6 +107,7 @@
     <ClCompile Include="Collisor.cpp" />
     <ClCompile Include="CompositeController.cpp" />
     <ClCompile Include="EnemiesList.cpp" />
+    <ClCompile Include="EnterCommand.cpp" />
     <ClCompile Include="EventHandler.cpp" />
     <ClCompile Include="FirstLevel.cpp" />
     <ClCompile Include="Flame.cpp" />
@@ -118,6 +121,7 @@
     <ClCompile Include="MenuLose.cpp" />
     <ClCompile Include="MenuMain.cpp" />
     <ClCompile Include="MenuModel.cpp" />
+    <ClCompile Include="MenuNaming.cpp" />
     <ClCompile Include="MenuPause.cpp" />
     <ClCompile Include="MenuRanking.cpp" />
     <ClCompile Include="MenuSelection.cpp" />

@@ -5,6 +5,6 @@ namespace Menus {
 	protected:
 	public:
 		MenuWin(sf::Vector2f size, MenuHandler* MHref);
-		void executar();
+		void executar(sf::Event* event);
 	};
 }

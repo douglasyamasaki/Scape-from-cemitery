@@ -15,7 +15,7 @@ Menus::MenuPause::MenuPause(sf::Vector2f size, MenuHandler* MHref) : MenuBase(si
 	add(bs);
 }
 
-void Menus::MenuPause::executar()
+void Menus::MenuPause::executar(sf::Event* event)
 {
 	drawMenu();
 }

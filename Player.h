@@ -3,7 +3,8 @@
 #include "Animation.h"
 #include "DynamicEntity.h"
 #include "ProjectileList.h"
-
+#include <string>
+using namespace std;
 using namespace Models;
 using namespace AbstractEntity;
 
@@ -12,6 +13,7 @@ private:
 	ProjectileList* arrowlistref;
 	ArcherModel* textures;
 	sf::Vector2f velocity;
+	string name;
 	bool invulneravel;
 	bool canJump;
 	float jumpHeight;
@@ -19,6 +21,8 @@ private:
 	int pontos;
 	int attacktype;
 public:
+	void setList(ProjectileList* arrowlistref) { this->arrowlistref = arrowlistref; }
+	void setName(string name) { this->name = name; }
 	void setAttType(int valor) { attacktype = valor; }
 	void attack();
 	void updateTexture();
@@ -29,10 +33,13 @@ public:
 	void jump();
 	void moveRight();
 	void moveLeft();
+	const string getName() const  { return name; }
 	void onHit(sf::Vector2f direction);
+	const int getPoints() const { return pontos; }
 	const int getAttackType() const { return attacktype;  }
 	const bool getCanJump() const { return canJump; }
 	const bool getInvulneravel() const { return invulneravel; }
+	const int getLives() const { return lives; }
 	void increasePoints(int valor) { pontos += valor; }
 
 };

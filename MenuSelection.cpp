@@ -12,7 +12,7 @@ Menus::MenuSelection::MenuSelection(sf::Vector2f size, MenuHandler* MHref) : Men
 	add(bbs);
 }
 
-void Menus::MenuSelection::executar()
+void Menus::MenuSelection::executar(sf::Event* event)
 {
 	drawMenu();
 }

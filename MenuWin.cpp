@@ -9,7 +9,8 @@ Menus::MenuWin::MenuWin(sf::Vector2f size, MenuHandler* MHref) : MenuBase(size, 
 	add(bmm);
 }
 
-void Menus::MenuWin::executar()
+void Menus::MenuWin::executar(sf::Event* event)
 {
+	
 	drawMenu();
 }

@@ -33,8 +33,10 @@ void FirstLevel::load_static()
 }
 
 void FirstLevel::load_default() {
-	p1 = new Player(sf::Vector2f(250,200), sf::Vector2f(0,-600), sf::Vector2f(100,0),sf::Vector2f(101,131), sf::Vector2f(15,-20),&projectiles);
 	load_static();
+	p1->setList(&projectiles);
+	if (p2 != nullptr)
+		p2->setList(&projectiles);
 	
 }
 
@@ -53,4 +55,12 @@ void FirstLevel::update(float deltat)
 		projectiles.it.getIt()->getInfo()->update(deltat);
 	}
 	check_collision();
+	setLost();
+	setFinished();
+}
+
+void FirstLevel::setFinished()
+{
+	if (p1->getPosition().x > 2000)
+		finished = true;
 }
