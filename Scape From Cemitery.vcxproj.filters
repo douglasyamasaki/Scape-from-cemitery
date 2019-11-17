@@ -70,30 +70,21 @@
     <Filter Include="Header Files\EventHandler\Commands">
       <UniqueIdentifier>{d66f80ba-8b4f-4b3c-86ae-898a25a86ccb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Functionals">
+      <UniqueIdentifier>{06dd56b2-5b16-4af8-92a5-500d15a4b3b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\ConcreteEntity">
+      <UniqueIdentifier>{385fd2ad-3cd9-4f65-8441-18f0ba0fad0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ConcreteEntity">
+      <UniqueIdentifier>{e732cf5a-6878-4b55-83a9-e38a08f7e124}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Functionals">
+      <UniqueIdentifier>{86eb163d-8ba5-4895-96b0-ed41103279b6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Collisor.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Warlock.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Ghost.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Principal.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Platform.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Body.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Animation.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ArcherModel.h">
@@ -261,30 +252,36 @@
     <ClInclude Include="UpCommand.h">
       <Filter>Header Files\EventHandler\Commands</Filter>
     </ClInclude>
+    <ClInclude Include="Collisor.h">
+      <Filter>Header Files\Levels</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelStateHandler.h">
+      <Filter>Header Files\Levels</Filter>
+    </ClInclude>
+    <ClInclude Include="SecondLevel.h">
+      <Filter>Header Files\Levels</Filter>
+    </ClInclude>
+    <ClInclude Include="Animation.h">
+      <Filter>Header Files\Functionals</Filter>
+    </ClInclude>
+    <ClInclude Include="Body.h">
+      <Filter>Header Files\Functionals</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Header Files\ConcreteEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="Ghost.h">
+      <Filter>Header Files\ConcreteEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="Platform.h">
+      <Filter>Header Files\ConcreteEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="Warlock.h">
+      <Filter>Header Files\ConcreteEntity</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Warlock.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Collisor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Ghost.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Body.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Principal.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Animation.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Platform.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ArcherModel.cpp">
@@ -430,6 +427,33 @@
     </ClCompile>
     <ClCompile Include="EnterCommand.cpp">
       <Filter>Source Files\EventHandler\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="Collisor.cpp">
+      <Filter>Source Files\Levels</Filter>
+    </ClCompile>
+    <ClCompile Include="LevelStateHandler.cpp">
+      <Filter>Source Files\Levels</Filter>
+    </ClCompile>
+    <ClCompile Include="SecondLevel.cpp">
+      <Filter>Source Files\Levels</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files\ConcreteEntity</Filter>
+    </ClCompile>
+    <ClCompile Include="Warlock.cpp">
+      <Filter>Source Files\ConcreteEntity</Filter>
+    </ClCompile>
+    <ClCompile Include="Ghost.cpp">
+      <Filter>Source Files\ConcreteEntity</Filter>
+    </ClCompile>
+    <ClCompile Include="Body.cpp">
+      <Filter>Source Files\Functionals</Filter>
+    </ClCompile>
+    <ClCompile Include="Animation.cpp">
+      <Filter>Source Files\Functionals</Filter>
+    </ClCompile>
+    <ClCompile Include="Platform.cpp">
+      <Filter>Source Files\ConcreteEntity</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -47,7 +47,7 @@ Player::Player(sf::Vector2f size, sf::Vector2f pos, sf::Vector2f speed, sf::Vect
 	this->setOrigin(getSize() / 2.0f);
 	this->arrowlistref = ref;
 	pontos = 2000;
-	lives = 0;
+	lives = 5;
 	name = "";
 	invulneravel = false;
 
@@ -95,6 +95,15 @@ void Player::moveLeft()
 	}
 }
 
+void Player::setPos(sf::Vector2f pos)
+{
+	hitbox.setPosition(pos);
+	if (!faceright)
+		setPosition(hitbox.getPosition().x - deslocamento.x, hitbox.getPosition().y + deslocamento.y);
+	else
+		setPosition(hitbox.getPosition().x + deslocamento.x, hitbox.getPosition().y + deslocamento.y);
+}
+
 void Player::onHit(sf::Vector2f direction)
 {
 	if (!invulneravel){
@@ -104,6 +113,15 @@ void Player::onHit(sf::Vector2f direction)
 	invulneravel = true;
 	lives--;
 	setFillColor(sf::Color::Red);
+	}
+}
+
+void Player::attacktypex(const int index)
+{
+	if (canJump && !lock) {
+		setLock();
+		setAttType(index);
+		reset();
 	}
 }
 

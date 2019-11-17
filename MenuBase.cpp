@@ -12,13 +12,14 @@ void MenuBase::drawMenu()
 	}
 }
 
+// checa "colisao" do click com o menu , se tiver colidindo chama a sua executar
 void MenuBase::input(sf::Vector2f cinput) {
 	vector<ButtonBase*>::iterator it;
 	ButtonBase* aux;
 	for (it = buttons.begin(); it != buttons.end(); it++) {
 		aux = *it;
-		if (cinput.x > aux->getPosition().x&& cinput.x < aux->getPosition().x + aux->getSize().x)
-			if (cinput.y > aux->getPosition().y&& cinput.y < aux->getPosition().y + aux->getSize().y)
+		if (cinput.x > aux->getPosition().x && cinput.x < aux->getPosition().x + aux->getSize().x)
+			if (cinput.y > aux->getPosition().y && cinput.y < aux->getPosition().y + aux->getSize().y)
 				(*it)->executar();
 	}
 }

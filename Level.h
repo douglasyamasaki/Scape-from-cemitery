@@ -3,6 +3,7 @@
 #include "EnemiesList.h"
 #include "ProjectileList.h"
 #include "Collisor.h"
+#include "LevelStateHandler.h"
 class Player;
 class Level {
 protected:
@@ -10,6 +11,7 @@ protected:
 	EnemiesList enemies;
 	ProjectileList projectiles;
 	Collisor collider;
+	LevelStateHandler lvlstateh;
 	Player* p1;
 	Player* p2;
 	bool pl2;
@@ -17,7 +19,7 @@ protected:
 	bool lost;
 
 public:
-	Level() { p1 = nullptr; p2 = nullptr; p2 = false; finished = false; lost = false; }
+	Level();
 	virtual void check_collision() = 0;
 	virtual void load_default() = 0;
 	virtual void update(float deltat) = 0;
@@ -32,5 +34,6 @@ public:
 	const bool getLost() const { return lost; }
 	void setLost();
 	void savePoints();
+	void save();
 	virtual void setFinished() = 0;
 };

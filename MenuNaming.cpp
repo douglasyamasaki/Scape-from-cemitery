@@ -44,12 +44,12 @@ void MenuNaming::confirm()
 		MHref->getPrincipal()->setName(1, line);
 		line.clear();
 	}
-	if (!MHref->getPrincipal()->getHaveP2()) {
+	if (!MHref->getPrincipal()->getHasP2()) {
 		MHref->switchTosmenu();
 		MHref->turnOn();
 		line.clear();
 	}
-	if (MHref->getPrincipal()->getHaveP2() && playerselect == 1) {
+	if (MHref->getPrincipal()->getHasP2() && playerselect == 1) {
 		playerselect = 0;
 		MHref->getPrincipal()->setName(2, line);
 		MHref->switchTosmenu();

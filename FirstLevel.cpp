@@ -26,17 +26,19 @@ void FirstLevel::load_static()
 	Warlock* wlk = new Warlock(sf::Vector2f(250, 200), sf::Vector2f(200, -300), sf::Vector2f(100, 0), sf::Vector2f(101, 131), sf::Vector2f(15, -20), 1000, &projectiles);
 	wlk->setP1(p1);
 	enemies + wlk;
-	collider.setEnemiesList(&enemies);
-	collider.setProjectileList(&projectiles);
-	collider.setStaticList(&platforms);
-	collider.setP1r(p1);
+	lvlstateh.setType(1);
 }
 
 void FirstLevel::load_default() {
 	load_static();
 	p1->setList(&projectiles);
-	if (p2 != nullptr)
+	if (p2 != nullptr){
 		p2->setList(&projectiles);
+		collider.setP2r(p2);
+		p2->setPos(sf::Vector2f(-100, -600));
+	}
+	p1->setPos(sf::Vector2f(-100, -600));
+	collider.setP1r(p1);
 	
 }
 

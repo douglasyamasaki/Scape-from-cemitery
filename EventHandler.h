@@ -31,12 +31,6 @@ private:
 	sf::Keyboard::Key click;
 	sf::Keyboard::Key pause;
 	sf::Keyboard::Key enter;
-	UpCommand upleaf;
-	RightCommand rightleaf;
-	LeftCommand leftleaf;
-	Attack01Command attack01;
-	Attack02Command attack02;
-	Attack03Command attack03;
 	MenuClickCommand mclick;
 	EnterCommand ecmd;
 	MenuHandler* mhref;

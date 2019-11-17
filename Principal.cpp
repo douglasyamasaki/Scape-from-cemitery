@@ -61,6 +61,21 @@ void Principal::executar() {
 	}
 }
 
+void Principal::load()
+{
+	printf("carregou");
+}
+
+void Principal::save()
+{
+	levelref->save();
+}
+
+void Principal::clearcurrentlevel()
+{
+	printf("clearou");
+}
+
 void Principal::setName(const int index, const string name)
 {
 	if (index == 1 && p1 != nullptr)
@@ -74,9 +89,20 @@ window(sf::VideoMode(VIEW_WIDTH, VIEW_HEIGHT), "Scape from Cemitery"),
 mh(this),
 controle(&mh)
 {
-	p1 = nullptr;
-	p2 = nullptr;
+	p1 = new Player(sf::Vector2f(250, 200), sf::Vector2f(0, 0), sf::Vector2f(100, 0), sf::Vector2f(101, 131), sf::Vector2f(15, -20), nullptr);
+	p2 = new Player(sf::Vector2f(250, 200), sf::Vector2f(0, 0), sf::Vector2f(100, 0), sf::Vector2f(101, 131), sf::Vector2f(15, -20), nullptr);
+	controle.setP1(p1);
+	controle.setP2(p2);
+	hasp2 = false;
+	levelref = nullptr;
+	leveltype = -1;
 	executar();
+}
+
+Principal::~Principal()
+{
+	delete p1;
+	delete p2;
 }
 
 void Principal::startDefaultLevel(int index)
@@ -84,10 +110,9 @@ void Principal::startDefaultLevel(int index)
 	if (index == 1) {
 		levelref = new FirstLevel();
 	}
-	controle.setP1(p1);
-	controle.setP2(p2);
 	levelref->setP1ref(p1);
-	levelref->setP2ref(p2);
+	if (hasp2)
+		levelref->setP2ref(p2);
 	levelref->load_default();
 	leveltype = index;
 }

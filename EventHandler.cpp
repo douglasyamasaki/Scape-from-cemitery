@@ -23,27 +23,27 @@ EventHandler::EventHandler(MenuHandler* mhref)
 		mclick.setMenuHandler(mhref);
 		pcommand.setMenuHandler(mhref);
 		click = static_cast<sf::Keyboard::Key>(999);
-		controllers[1].add(p1up, &upleaf);
-		controllers[1].add(p1right, &rightleaf);
-		controllers[1].add(p1left, &leftleaf);
-		controllers[1].add(p1attack01, &attack01);
-		controllers[1].add(p1attack02, &attack02);
-		controllers[1].add(p1attack03, &attack03);
+		controllers[1].add(p1up, new UpCommand());
+		controllers[1].add(p1right, new RightCommand());
+		controllers[1].add(p1left, new LeftCommand());
+		controllers[1].add(p1attack01, new Attack01Command());
+		controllers[1].add(p1attack02, new Attack02Command());
+		controllers[1].add(p1attack03, new Attack03Command());
 		controllers[0].add(click, &mclick);
 		controllers[0].add(pause, &pcommand);
 		controllers[0].add(enter, &ecmd);
-		controllers[1].add(p2up, &upleaf);
-		controllers[1].add(p2right, &rightleaf);
-		controllers[1].add(p2left, &leftleaf);
-		controllers[1].add(p2attack01, &attack01);
-		controllers[1].add(p2attack02, &attack02);
-		controllers[1].add(p2attack03, &attack03);
+		controllers[2].add(p2up, new UpCommand());
+		controllers[2].add(p2right, new RightCommand());
+		controllers[2].add(p2left, new LeftCommand());
+		controllers[2].add(p2attack01, new Attack01Command());
+		controllers[2].add(p2attack02, new Attack02Command());
+		controllers[2].add(p2attack03, new Attack03Command());
 
 }
 
 void EventHandler::update(sf::Event* ev)
 {
-	for (int i = 0; i < 2; i++) {
+	for (int i = 0; i < 3; i++) {
 		controllers[i].executar(ev);
 	}
 }

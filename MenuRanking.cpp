@@ -86,5 +86,7 @@ void Menus::MenuRanking::executar(sf::Event* event)
 		this->getMhref()->getPrincipal()->getWindow()->draw(text);
 		i++;
 		line.clear();
+		if (i > 15)
+			break; //somente os top 15 do arquivo ranking serao imprimidos
 	}
 }

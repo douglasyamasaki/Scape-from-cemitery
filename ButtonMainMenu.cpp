@@ -1,9 +1,11 @@
 #include "ButtonMainMenu.h"
 #include "MenuHandler.h"
+#include "Principal.h"
 using namespace MenuButtons;
 
 void MenuButtons::ButtonMainMenu::executar()
 {
+	mref->getMhref()->getPrincipal()->clearcurrentlevel();
 	mref->getMhref()->switchTommenu();
 	mref->getMhref()->turnOn();
 }

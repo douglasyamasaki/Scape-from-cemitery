@@ -2,10 +2,11 @@
 #include <SFML/Graphics.hpp>
 #include "Player.h"
 #include "Platform.h"
-#include <iostream>
 #include "EventHandler.h"
 #include "MenuHandler.h"
+#include "FirstLevel.h"
 #include "Level.h"
+#include "SecondLevel.h"
 using namespace std;
 static const float VIEW_HEIGHT = 720.0f;
 static const float VIEW_WIDTH = 1280.0f;
@@ -19,21 +20,32 @@ private:
 	float deltat;
 	void ResizeView(const sf::RenderWindow& window, sf::View& view);
 	sf::View view;
+
+	//menu
 	MenuHandler mh;
-	Level* levelref;
-	int leveltype;
+
+	//Players propriamentes dito
 	Player* p1;
 	Player* p2;
+	bool hasp2; // controla a presenca de um p2 na fase
+	//Fases
+	Level* levelref; // fase de controle
+	int leveltype; // refere a de cima
+	FirstLevel first;
+	//SecondLevel second;
 public:
 	sf::RenderWindow* getWindow() { return &window; }
 	Principal();
-	void startDefaultLevel(int index);
+	~Principal();
+	void setP2on(const bool opt) { hasp2 = opt; }
+	const bool getHasP2() const { return hasp2; }
+	void startDefaultLevel(int index); // inicia um nivel (index seria qual nivel) via default
 	void resetView() { window.setView(window.getDefaultView()); }
-	void manageLevel();
+	void manageLevel(); //gerencia os menus e eventos que se desencadeiam caso o jogador(es) vencam/percam
 	void executar();
-	void setP1(Player* p1) { this->p1 = p1; }
-	void setP2(Player* p2) { this->p2 = p2; }
-	void setName(const int index, const string name);
-	const bool getHaveP2() const { return (p2 != nullptr); }
+	void load(); // carrega as informacoes basicas para dai carregar o nivel
+	void save(); // inicia o processo de save
+	void clearcurrentlevel();//reseta o nivel atual para o estado inicial
+	void setName(const int index, const string name); //seta o nome de p1 ou p2
 };
 

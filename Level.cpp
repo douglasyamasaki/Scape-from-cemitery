@@ -2,6 +2,16 @@
 #include "Player.h"
 #include <fstream>
 
+Level::Level()
+{
+	collider.setEnemiesList(&enemies);
+	collider.setProjectileList(&projectiles);
+	collider.setStaticList(&platforms);
+	lvlstateh.setEnemies(&enemies);
+	lvlstateh.setProjectiles(&projectiles);
+	lvlstateh.setStatics(&platforms);
+}
+
 sf::RectangleShape Level::getCenter()
 {
 	if (getP2ref() != nullptr) {
@@ -22,11 +32,13 @@ void Level::draw(sf::RenderWindow* window)
 		window->draw(*projectiles.it.getIt()->getInfo());
 	}
 	window->draw(*p1);
+	if (p2 != nullptr)
+		window->draw(*p2);
 }
 
 void Level::setLost()
 {
-	bool checked;
+	bool checked = false;
 	if (p1->getLives() == 0) {
 		checked = true;
 	}
@@ -39,7 +51,7 @@ void Level::setLost()
 			return;
 		}
 	}
-	if (checked = true)
+	if (checked == true)
 		lost = true;
 }
 
@@ -60,4 +72,8 @@ void Level::savePoints()
 		myfile << (p1->getPoints() + p2->getPoints());
 	}
 
+}
+
+void Level::save() {
+	lvlstateh.save();
 }

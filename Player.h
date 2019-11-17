@@ -21,6 +21,7 @@ private:
 	int pontos;
 	int attacktype;
 public:
+	void attacktypex(const int index);
 	void setList(ProjectileList* arrowlistref) { this->arrowlistref = arrowlistref; }
 	void setName(string name) { this->name = name; }
 	void setAttType(int valor) { attacktype = valor; }
@@ -34,6 +35,7 @@ public:
 	void moveRight();
 	void moveLeft();
 	const string getName() const  { return name; }
+	void setPos(sf::Vector2f pos);
 	void onHit(sf::Vector2f direction);
 	const int getPoints() const { return pontos; }
 	const int getAttackType() const { return attacktype;  }
