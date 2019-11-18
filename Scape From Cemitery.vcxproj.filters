@@ -16,9 +16,6 @@
     <Filter Include="Header Files\AbstractEntity">
       <UniqueIdentifier>{382b8291-6b6d-4058-8cf0-019675753343}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Projectiles">
-      <UniqueIdentifier>{a28d943d-e651-4fe4-ba41-b1274ad44eaf}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\EventHandler">
       <UniqueIdentifier>{672e8e44-12da-452a-8756-a618c921f54e}</UniqueIdentifier>
     </Filter>
@@ -36,15 +33,6 @@
     </Filter>
     <Filter Include="Header Files\Models">
       <UniqueIdentifier>{bcb8f00c-7b4b-49ef-b9dd-d8c532406a3f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Projectiles\Spells">
-      <UniqueIdentifier>{6a7e48c4-101b-4483-81a2-4a964f71333c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Projectiles">
-      <UniqueIdentifier>{65a5bf39-134e-4db7-af53-f6c73ed9b61f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Projectiles\Spells">
-      <UniqueIdentifier>{c623ef22-8f75-4e52-9bb1-7c5132b0af51}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\MenuButtons">
       <UniqueIdentifier>{a67e589a-a3a3-4c73-911c-9043c8dc96bc}</UniqueIdentifier>
@@ -82,6 +70,30 @@
     <Filter Include="Source Files\Functionals">
       <UniqueIdentifier>{86eb163d-8ba5-4895-96b0-ed41103279b6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\ConcreteEntity\Enemie">
+      <UniqueIdentifier>{0a29b614-5b18-4d78-b842-a20a9dea3405}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\ConcreteEntity\Obstacle">
+      <UniqueIdentifier>{7fb7f879-7f46-4242-b381-6c9f46b246de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ConcreteEntity\Projectiles">
+      <UniqueIdentifier>{65a5bf39-134e-4db7-af53-f6c73ed9b61f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ConcreteEntity\Projectiles\Spells">
+      <UniqueIdentifier>{c623ef22-8f75-4e52-9bb1-7c5132b0af51}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ConcreteEntity\Obstacle">
+      <UniqueIdentifier>{dae29197-726a-4444-bf10-5fbf04324d75}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ConcreteEntity\Enemie">
+      <UniqueIdentifier>{fb4e2dbb-c781-41b6-8970-da908725d514}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\ConcreteEntity\Projectiles">
+      <UniqueIdentifier>{a28d943d-e651-4fe4-ba41-b1274ad44eaf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\ConcreteEntity\Projectiles\Spells">
+      <UniqueIdentifier>{6a7e48c4-101b-4483-81a2-4a964f71333c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Principal.h">
@@ -94,7 +106,7 @@
       <Filter>Header Files\Models</Filter>
     </ClInclude>
     <ClInclude Include="Barrage.h">
-      <Filter>Header Files\Projectiles</Filter>
+      <Filter>Header Files\ConcreteEntity\Projectiles</Filter>
     </ClInclude>
     <ClInclude Include="Button1p.h">
       <Filter>Header Files\MenuButtons</Filter>
@@ -136,10 +148,10 @@
       <Filter>Header Files\EventHandler</Filter>
     </ClInclude>
     <ClInclude Include="Arrow.h">
-      <Filter>Header Files\Projectiles</Filter>
+      <Filter>Header Files\ConcreteEntity\Projectiles</Filter>
     </ClInclude>
     <ClInclude Include="Flame.h">
-      <Filter>Header Files\Projectiles</Filter>
+      <Filter>Header Files\ConcreteEntity\Projectiles</Filter>
     </ClInclude>
     <ClInclude Include="GenericList.h">
       <Filter>Header Files\Lists</Filter>
@@ -220,10 +232,10 @@
       <Filter>Header Files\Models</Filter>
     </ClInclude>
     <ClInclude Include="Spell.h">
-      <Filter>Header Files\Projectiles</Filter>
+      <Filter>Header Files\ConcreteEntity\Projectiles</Filter>
     </ClInclude>
     <ClInclude Include="Spark.h">
-      <Filter>Header Files\Projectiles</Filter>
+      <Filter>Header Files\ConcreteEntity\Projectiles</Filter>
     </ClInclude>
     <ClInclude Include="Projectile.h">
       <Filter>Header Files\AbstractEntity</Filter>
@@ -270,14 +282,38 @@
     <ClInclude Include="Player.h">
       <Filter>Header Files\ConcreteEntity</Filter>
     </ClInclude>
-    <ClInclude Include="Ghost.h">
-      <Filter>Header Files\ConcreteEntity</Filter>
-    </ClInclude>
     <ClInclude Include="Platform.h">
       <Filter>Header Files\ConcreteEntity</Filter>
     </ClInclude>
+    <ClInclude Include="Obstacle.h">
+      <Filter>Header Files\AbstractEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="Ghost.h">
+      <Filter>Header Files\ConcreteEntity\Enemie</Filter>
+    </ClInclude>
     <ClInclude Include="Warlock.h">
-      <Filter>Header Files\ConcreteEntity</Filter>
+      <Filter>Header Files\ConcreteEntity\Enemie</Filter>
+    </ClInclude>
+    <ClInclude Include="Mine.h">
+      <Filter>Header Files\ConcreteEntity\Obstacle</Filter>
+    </ClInclude>
+    <ClInclude Include="Spike.h">
+      <Filter>Header Files\ConcreteEntity\Obstacle</Filter>
+    </ClInclude>
+    <ClInclude Include="Tombstone.h">
+      <Filter>Header Files\ConcreteEntity\Obstacle</Filter>
+    </ClInclude>
+    <ClInclude Include="TombstoneModel.h">
+      <Filter>Header Files\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="ObstacleList.h">
+      <Filter>Header Files\Lists</Filter>
+    </ClInclude>
+    <ClInclude Include="MineModel.h">
+      <Filter>Header Files\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="SpikeModel.h">
+      <Filter>Header Files\Models</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -288,7 +324,7 @@
       <Filter>Source Files\Models</Filter>
     </ClCompile>
     <ClCompile Include="Arrow.cpp">
-      <Filter>Source Files\Projectiles</Filter>
+      <Filter>Source Files\ConcreteEntity\Projectiles</Filter>
     </ClCompile>
     <ClCompile Include="ButtonBossStage.cpp">
       <Filter>Source Files\MenuButtons</Filter>
@@ -375,16 +411,16 @@
       <Filter>Source Files\Lists</Filter>
     </ClCompile>
     <ClCompile Include="Barrage.cpp">
-      <Filter>Source Files\Projectiles\Spells</Filter>
+      <Filter>Source Files\ConcreteEntity\Projectiles\Spells</Filter>
     </ClCompile>
     <ClCompile Include="Flame.cpp">
-      <Filter>Source Files\Projectiles\Spells</Filter>
+      <Filter>Source Files\ConcreteEntity\Projectiles\Spells</Filter>
     </ClCompile>
     <ClCompile Include="Spark.cpp">
-      <Filter>Source Files\Projectiles\Spells</Filter>
+      <Filter>Source Files\ConcreteEntity\Projectiles\Spells</Filter>
     </ClCompile>
     <ClCompile Include="Spell.cpp">
-      <Filter>Source Files\Projectiles\Spells</Filter>
+      <Filter>Source Files\ConcreteEntity\Projectiles\Spells</Filter>
     </ClCompile>
     <ClCompile Include="Attack01Command.cpp">
       <Filter>Source Files\EventHandler\Commands</Filter>
@@ -440,12 +476,6 @@
     <ClCompile Include="Player.cpp">
       <Filter>Source Files\ConcreteEntity</Filter>
     </ClCompile>
-    <ClCompile Include="Warlock.cpp">
-      <Filter>Source Files\ConcreteEntity</Filter>
-    </ClCompile>
-    <ClCompile Include="Ghost.cpp">
-      <Filter>Source Files\ConcreteEntity</Filter>
-    </ClCompile>
     <ClCompile Include="Body.cpp">
       <Filter>Source Files\Functionals</Filter>
     </ClCompile>
@@ -454,6 +484,33 @@
     </ClCompile>
     <ClCompile Include="Platform.cpp">
       <Filter>Source Files\ConcreteEntity</Filter>
+    </ClCompile>
+    <ClCompile Include="Ghost.cpp">
+      <Filter>Source Files\ConcreteEntity\Enemie</Filter>
+    </ClCompile>
+    <ClCompile Include="Warlock.cpp">
+      <Filter>Source Files\ConcreteEntity\Enemie</Filter>
+    </ClCompile>
+    <ClCompile Include="Tombstone.cpp">
+      <Filter>Source Files\ConcreteEntity\Obstacle</Filter>
+    </ClCompile>
+    <ClCompile Include="Mine.cpp">
+      <Filter>Source Files\ConcreteEntity\Obstacle</Filter>
+    </ClCompile>
+    <ClCompile Include="Spike.cpp">
+      <Filter>Source Files\ConcreteEntity\Obstacle</Filter>
+    </ClCompile>
+    <ClCompile Include="TombstoneModel.cpp">
+      <Filter>Source Files\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="ObstacleList.cpp">
+      <Filter>Source Files\Lists</Filter>
+    </ClCompile>
+    <ClCompile Include="SpikeModel.cpp">
+      <Filter>Source Files\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="MineModel.cpp">
+      <Filter>Source Files\Models</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

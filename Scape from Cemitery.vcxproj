@@ -68,6 +68,10 @@
     <ClInclude Include="MenuRanking.h" />
     <ClInclude Include="MenuSelection.h" />
     <ClInclude Include="MenuWin.h" />
+    <ClInclude Include="Mine.h" />
+    <ClInclude Include="MineModel.h" />
+    <ClInclude Include="Obstacle.h" />
+    <ClInclude Include="ObstacleList.h" />
     <ClInclude Include="PauseCommand.h" />
     <ClInclude Include="Platform.h" />
     <ClInclude Include="Player.h" />
@@ -79,8 +83,12 @@
     <ClInclude Include="Spark.h" />
     <ClInclude Include="Spell.h" />
     <ClInclude Include="SpellsModel.h" />
+    <ClInclude Include="Spike.h" />
+    <ClInclude Include="SpikeModel.h" />
     <ClInclude Include="StaticEntity.h" />
     <ClInclude Include="StaticList.h" />
+    <ClInclude Include="Tombstone.h" />
+    <ClInclude Include="TombstoneModel.h" />
     <ClInclude Include="UpCommand.h" />
     <ClInclude Include="Warlock.h" />
     <ClInclude Include="WarlockModel.h" />
@@ -129,6 +137,9 @@
     <ClCompile Include="MenuRanking.cpp" />
     <ClCompile Include="MenuSelection.cpp" />
     <ClCompile Include="MenuWin.cpp" />
+    <ClCompile Include="Mine.cpp" />
+    <ClCompile Include="MineModel.cpp" />
+    <ClCompile Include="ObstacleList.cpp" />
     <ClCompile Include="PauseCommand.cpp" />
     <ClCompile Include="Platform.cpp" />
     <ClCompile Include="Player.cpp" />
@@ -140,7 +151,11 @@
     <ClCompile Include="Spark.cpp" />
     <ClCompile Include="Spell.cpp" />
     <ClCompile Include="SpellsModel.cpp" />
+    <ClCompile Include="Spike.cpp" />
+    <ClCompile Include="SpikeModel.cpp" />
     <ClCompile Include="StaticList.cpp" />
+    <ClCompile Include="Tombstone.cpp" />
+    <ClCompile Include="TombstoneModel.cpp" />
     <ClCompile Include="UpCommand.cpp" />
     <ClCompile Include="Warlock.cpp" />
     <ClCompile Include="WarlockModel.cpp" />

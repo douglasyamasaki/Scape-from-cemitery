@@ -17,7 +17,7 @@ LevelStateHandler::LevelStateHandler()
 void LevelStateHandler::save()
 {
 	ofstream file;
-	file.open("level.txt", std::ios_base::app);
+	file.open("./Save/Base.txt", std::ios_base::app);
 
 	if (projetiles != nullptr && enemies != nullptr && statics != nullptr) {
 		file << leveltype << endl;

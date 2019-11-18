@@ -4,9 +4,12 @@
 #include "EnemiesList.h"
 #include "StaticList.h"
 #include "ProjectileList.h"
+#include "ObstacleList.h"
 #include "Spell.h"
 #include "Ghost.h"
 #include "Arrow.h"
+#include "Mine.h"
+#include "Tombstone.h"
 
 bool Collisor::CheckCollision(Body* thisbody, Body* other, sf::Vector2f& direction, float push)
 {
@@ -61,6 +64,41 @@ bool Collisor::CheckCollision(Body* thisbody, Body* other, sf::Vector2f& directi
 	return false;
 }
 
+
+void Collisor::CollidePlayerObstacle()
+{
+	for (obstacles->it = obstacles->getPrimeiro(); obstacles->it.getIt() != nullptr; obstacles->it++) {
+		Tombstone* tombptr = dynamic_cast<Tombstone*>(obstacles->it.getIt()->getInfo());
+		Mine* mineptr = dynamic_cast<Mine*>(obstacles->it.getIt()->getInfo());
+		sf::Vector2f direction = sf::Vector2f(0.0f, 0.0f);
+		if (CheckCollision(obstacles->it.getIt()->getInfo(), p1r, direction, 1.0f)) {
+			if (tombptr != nullptr) {
+				enemies->remove();
+			}
+			if (mineptr != nullptr) {
+				enemies->remove();
+				p1r->onHit(direction);
+			}
+			else {
+				p1r->onHit(direction);
+			}
+		}
+		if (p2r != nullptr) {
+			if (CheckCollision(obstacles->it.getIt()->getInfo(), p2r, direction, 1.0f)) {
+				if (tombptr != nullptr) {
+					enemies->remove();
+				}
+				if (mineptr != nullptr) {
+					enemies->remove();
+					p2r->onHit(direction);
+				}
+				else {
+					p2r->onHit(direction);
+				}
+			}
+		}
+	}
+}
 
 void Collisor::CollidePlayerPlatform()
 {

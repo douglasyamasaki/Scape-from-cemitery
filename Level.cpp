@@ -7,6 +7,7 @@ Level::Level()
 	collider.setEnemiesList(&enemies);
 	collider.setProjectileList(&projectiles);
 	collider.setStaticList(&platforms);
+	collider.setObstacleList(&obstacles);
 	lvlstateh.setEnemies(&enemies);
 	lvlstateh.setProjectiles(&projectiles);
 	lvlstateh.setStatics(&platforms);
@@ -28,12 +29,15 @@ void Level::draw(sf::RenderWindow* window)
 	for (enemies.it = enemies.getPrimeiro(); enemies.it.getIt() != nullptr; enemies.it++) {
 		window->draw(*enemies.it.getIt()->getInfo());
 	}
-	for (projectiles.it = projectiles.getPrimeiro(); projectiles.it.getIt() != nullptr; projectiles.it++) {
-		window->draw(*projectiles.it.getIt()->getInfo());
+	for (obstacles.it = obstacles.getPrimeiro(); obstacles.it.getIt() != nullptr; obstacles.it++) {
+		window->draw(*obstacles.it.getIt()->getInfo());
 	}
 	window->draw(*p1);
 	if (p2 != nullptr)
 		window->draw(*p2);
+	for (projectiles.it = projectiles.getPrimeiro(); projectiles.it.getIt() != nullptr; projectiles.it++) {
+		window->draw(*projectiles.it.getIt()->getInfo());
+	}
 }
 
 void Level::setLost()

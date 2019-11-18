@@ -4,12 +4,14 @@
 #include "ProjectileList.h"
 #include "Collisor.h"
 #include "LevelStateHandler.h"
+#include "ObstacleList.h"
 class Player;
 class Level {
 protected:
 	StaticList platforms;
 	EnemiesList enemies;
 	ProjectileList projectiles;
+	ObstacleList obstacles;
 	Collisor collider;
 	LevelStateHandler lvlstateh;
 	Player* p1;
