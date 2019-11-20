@@ -37,6 +37,9 @@ void CompController::CompositeController::executar(sf::Event* e)
 	for (it = cmdMap.begin(); it != cmdMap.end(); ++it) {
 		if (it->second->getActive())
 			it->second->executar(e);
+		CompositeController* aux = dynamic_cast<CompositeController*>(it->second);
+		if (aux != nullptr)
+			aux->executar(e);
 
 	}
 }

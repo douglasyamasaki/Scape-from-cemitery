@@ -10,6 +10,7 @@
 #include "Arrow.h"
 #include "Mine.h"
 #include "Tombstone.h"
+#include "Platform.h"
 
 bool Collisor::CheckCollision(Body* thisbody, Body* other, sf::Vector2f& direction, float push)
 {
@@ -119,6 +120,7 @@ void Collisor::CollidePlayerPlatform()
 	}
 }
 
+
 void Collisor::CollidePlayerEnemie()
 {
 	for (enemies->it = enemies->getPrimeiro(); enemies->it.getIt() != nullptr; enemies->it++) {
@@ -168,6 +170,9 @@ void Collisor::CollideProjectilePlatform()
 						spellptr->onCollision(direction);
 				}
 			}
+			Platform* pltaux = dynamic_cast<Platform*>(statics->it.getIt()->getInfo());
+			if (pltaux != nullptr)
+				pltaux->fix();
 		}
 	}
 }

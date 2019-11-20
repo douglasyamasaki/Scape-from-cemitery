@@ -21,10 +21,10 @@ public:
 		else if (direction.x > 0.0f)
 			speed.x = 0.0f;
 		if (direction.y < 0.0f) {
-			speed.y = 0.0f;
+			velocity.y = 0.0f;
 		}
 		else if (direction.y > 0.0f) {
-			speed.y = 0.0f;
+			velocity.y = 0.0f;
 		}
 	}
 	virtual void onHit(sf::Vector2f direction) = 0;

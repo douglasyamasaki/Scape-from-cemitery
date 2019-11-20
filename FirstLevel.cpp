@@ -25,10 +25,12 @@ void FirstLevel::load_static()
 {
 	Platform* chao = new Platform(sf::Vector2f(10000, 1000), sf::Vector2f(0, 0));
 	platforms + chao;
-	Spike* spike = new Spike(sf::Vector2f(287, 62), sf::Vector2f(100, -600));
-	obstacles + spike;
 	lvlstateh.setType(1);
+	Warlock* wlk = new Warlock(sf::Vector2f(250, 200), sf::Vector2f(200, -700), sf::Vector2f(150, 0), sf::Vector2f(101, 131), sf::Vector2f(15, -20), 1000, &projectiles);
+	wlk->setP1(p1);
+	enemies + wlk;
 }
+
 
 void FirstLevel::load_default() {
 	load_static();
