@@ -63,19 +63,34 @@ void Warlock::attack()
 			reset();
 		}
 		if (attacktype == 1 && frames == 19) {
-			Spark* sparkptr = new Spark(sf::Vector2f(250, 200), sf::Vector2f(p1p.x, p1p.y - 300), sf::Vector2f(0, 1000), sf::Vector2f(55, 131), sf::Vector2f(15, -20));
+			Spark* sparkptr = new Spark(sf::Vector2f(250, 200), sf::Vector2f(p1p.x, p1p.y - 300), sf::Vector2f(0, 500), sf::Vector2f(20, 131), sf::Vector2f(15, -20));
 			*projeteis + sparkptr;
 			frameup();
+			if (p2 != nullptr) {
+				Spark* sparkptr2 = new Spark(sf::Vector2f(250, 200), sf::Vector2f(p2p.x, p2p.y - 300), sf::Vector2f(0, 500), sf::Vector2f(20, 131), sf::Vector2f(15, -20));
+				*projeteis + sparkptr2;
+				frameup();
+			}
 		}
 		if (attacktype == 2 && frames == 41) {
-			Flame* barrageptr = new Flame(sf::Vector2f(250, 200), sf::Vector2f(p1p.x, p1p.y - 300), sf::Vector2f(0, 1000), sf::Vector2f(55, 131), sf::Vector2f(15, -20));
+			Flame* barrageptr = new Flame(sf::Vector2f(250, 200), sf::Vector2f(p1p.x, p1p.y - 300), sf::Vector2f(0, 500), sf::Vector2f(20, 131), sf::Vector2f(15, -20));
 			*projeteis + barrageptr;
 			frameup();
+			if (p2 != nullptr) {
+				Flame* flameptr2 = new Flame(sf::Vector2f(250, 200), sf::Vector2f(p2p.x, p2p.y - 300), sf::Vector2f(0, 500), sf::Vector2f(20, 131), sf::Vector2f(15, -20));
+				*projeteis + flameptr2;
+				frameup();
+			}
 		}
 		if (attacktype == 3 && frames == 17) {
-			Barrage* flameptr = new Barrage(sf::Vector2f(250, 200), sf::Vector2f(p1p.x, p1p.y - 300), sf::Vector2f(0, 1000), sf::Vector2f(55, 131), sf::Vector2f(15, -20));
+			Barrage* flameptr = new Barrage(sf::Vector2f(250, 200), sf::Vector2f(p1p.x, p1p.y - 300), sf::Vector2f(0, 500), sf::Vector2f(20, 131), sf::Vector2f(15, -20));
 			frameup();
 			*projeteis + flameptr;
+			if (p2 != nullptr) {
+				Barrage* barrageptr2 = new Barrage(sf::Vector2f(250, 200), sf::Vector2f(p2p.x, p2p.y - 300), sf::Vector2f(0, 500), sf::Vector2f(20, 131), sf::Vector2f(15, -20));
+				*projeteis + barrageptr2;
+				frameup();
+			}
 		}
 			
 	}
@@ -127,6 +142,7 @@ Warlock::Warlock(sf::Vector2f size, sf::Vector2f pos, sf::Vector2f speed, sf::Ve
 
 void Warlock::update(float deltat)
 {
+
 	seek();
 	move();
 	UpdateTexture();
@@ -138,7 +154,7 @@ void Warlock::update(float deltat)
 	else
 		setPosition(hitbox.getPosition().x + deslocamento.x, hitbox.getPosition().y + deslocamento.y);
 	velocity.x *= 0.0f;
-	velocity.y *= 0.0f;
+	velocity.y += 981.0f * deltat;
 	randomizeattack();
 	attack();
 }

@@ -7,5 +7,6 @@ class Platform : public StaticEntity , public Body
 private:
 public:
 	Platform(sf::Vector2f size, sf::Vector2f pos) : StaticEntity(size, pos) , Body (size){ setTexture(nullptr); setOrigin(getSize() / 2.0f);}
+	void fix() { setPosition(hitbox.getPosition()); }
 };
 
