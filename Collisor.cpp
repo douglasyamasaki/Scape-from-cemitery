@@ -11,6 +11,7 @@
 #include "Mine.h"
 #include "Tombstone.h"
 #include "Platform.h"
+#include "Fireball.h"
 
 bool Collisor::CheckCollision(Body* thisbody, Body* other, sf::Vector2f& direction, float push)
 {
@@ -74,10 +75,10 @@ void Collisor::CollidePlayerObstacle()
 		sf::Vector2f direction = sf::Vector2f(0.0f, 0.0f);
 		if (CheckCollision(obstacles->it.getIt()->getInfo(), p1r, direction, 1.0f)) {
 			if (tombptr != nullptr) {
-				enemies->remove();
+				obstacles->remove();
 			}
-			if (mineptr != nullptr) {
-				enemies->remove();
+			else if (mineptr != nullptr) {
+				obstacles->remove();
 				p1r->onHit(direction);
 			}
 			else {
@@ -87,10 +88,10 @@ void Collisor::CollidePlayerObstacle()
 		if (p2r != nullptr) {
 			if (CheckCollision(obstacles->it.getIt()->getInfo(), p2r, direction, 1.0f)) {
 				if (tombptr != nullptr) {
-					enemies->remove();
+					obstacles->remove();
 				}
 				if (mineptr != nullptr) {
-					enemies->remove();
+					obstacles->remove();
 					p2r->onHit(direction);
 				}
 				else {
@@ -126,12 +127,17 @@ void Collisor::CollidePlayerEnemie()
 	for (enemies->it = enemies->getPrimeiro(); enemies->it.getIt() != nullptr; enemies->it++) {
 		sf::Vector2f direction = sf::Vector2f(0.0f, 0.0f);
 		if (p1r != nullptr) {
-			if (CheckCollision(p1r, enemies->it.getIt()->getInfo()->getBody(), direction, 1.0f))
+			if (CheckCollision(p1r, enemies->it.getIt()->getInfo()->getBody(), direction, 1.0f)){
 				p1r->onHit(direction);
+				enemies->it.getIt()->getInfo()->onHit(direction);
+			}
+				
 		}
 		if (p2r != nullptr)
 			if (CheckCollision(p2r, enemies->it.getIt()->getInfo()->getBody(), direction, 1.0f))
 				p2r->onHit(direction);
+		if (enemies->it.getIt()->getInfo()->getVidas() <= 0)
+			enemies->remove();
 	}
 }
 
@@ -182,6 +188,7 @@ void Collisor::CollideProjectilePlayer()
 	for (projectiles->it = projectiles->getPrimeiro(); projectiles->it.getIt() != nullptr; projectiles->it++) {
 		sf::Vector2f direction = sf::Vector2f(0.0f, 0.0f);
 		Spell* spellptr = dynamic_cast<Spell*>(projectiles->it.getIt()->getInfo());
+		Fireball* fireballptr = dynamic_cast<Fireball*>(projectiles->it.getIt()->getInfo());
 		if (spellptr != nullptr) {
 			if (p1r != nullptr) {
 				if (!p1r->getInvulneravel())
@@ -193,6 +200,22 @@ void Collisor::CollideProjectilePlayer()
 				if (!p1r->getInvulneravel())
 					if (CheckCollision(p2r, projectiles->it.getIt()->getInfo(), direction, 1.0f))
 						p2r->onHit(direction);
+			}
+		}
+		if (fireballptr != nullptr) {
+			if (p1r != nullptr) {
+				if (!p1r->getInvulneravel())
+					if (CheckCollision(p1r, projectiles->it.getIt()->getInfo(), direction, 1.0f)){
+						p1r->onHit(direction);
+						projectiles->remove();
+					}
+			}
+			if (p2r != nullptr) {
+				if (!p1r->getInvulneravel())
+					if (CheckCollision(p2r, projectiles->it.getIt()->getInfo(), direction, 1.0f)) {
+						p2r->onHit(direction);
+						projectiles->remove();
+					}	
 			}
 		}
 	}

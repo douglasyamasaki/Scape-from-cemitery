@@ -8,7 +8,7 @@ class Mine : public Obstacle
 private:
 	MineModel* texture;
 public:
-	Mine(sf::Vector2f size, sf::Vector2f pos);
+	Mine(sf::Vector2f pos);
 	~Mine();
 };
 

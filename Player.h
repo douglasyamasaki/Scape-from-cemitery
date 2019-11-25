@@ -28,7 +28,7 @@ public:
 	void attack();
 	void updateTexture();
 	void OnCollision(sf::Vector2f direction);
-	Player(sf::Vector2f size, sf::Vector2f pos, sf::Vector2f speed, sf::Vector2f hitbox, sf::Vector2f deslocamento, ProjectileList* ref);
+	Player(sf::Vector2f pos);
 	void update(float deltat);
 	sf::RectangleShape getHit() { return hitbox; }
 	void jump();
@@ -37,11 +37,16 @@ public:
 	const string getName() const  { return name; }
 	void setPos(sf::Vector2f pos);
 	void onHit(sf::Vector2f direction);
+	const sf::Vector2f getVelocity() const { return velocity; }
 	const int getPoints() const { return pontos; }
 	const int getAttackType() const { return attacktype;  }
 	const bool getCanJump() const { return canJump; }
 	const bool getInvulneravel() const { return invulneravel; }
 	const int getLives() const { return lives; }
 	void increasePoints(int valor) { pontos += valor; }
+	void setLives(const int lives) { this->lives = lives; }
+	void setInvulneravel() { invulneravel = true; }
+	void setVelocity(const sf::Vector2f velocity) { this->velocity = velocity; }
+	~Player() { arrowlistref = nullptr; textures = nullptr; }
 
 };

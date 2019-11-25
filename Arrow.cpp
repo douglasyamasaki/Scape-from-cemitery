@@ -1,6 +1,5 @@
 #include "Arrow.h"
-
-Arrow::Arrow(sf::Vector2f size, sf::Vector2f pos, sf::Vector2f speed, sf::Vector2f hitbox, sf::Vector2f deslocamento,Player* pref) : Projectile(size, pos, speed, hitbox, deslocamento)
+Arrow::Arrow(sf::Vector2f pos, sf::Vector2f speed, Player* pref) : Projectile(sf::Vector2f(120, 15), pos, speed, sf::Vector2f(120, 50), sf::Vector2f(0, 0))
 {
 	texture = ArrowModel::getInstance();
 	setTexture(texture->getArrow());

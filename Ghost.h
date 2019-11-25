@@ -13,10 +13,13 @@ private:
 	GhostModel* texture;
 	sf::Vector2f movedirection;
 public:
+	const sf::Vector2f getMoveDirection() const { return movedirection; }
+	void setMoveDirection(const sf::Vector2f movedirection) { this->movedirection = movedirection; }
 	void setTarget(Player* plr) { this->target = plr; }
 	void seek();
 	void onHit(sf::Vector2f direction);
 	void update(float deltat);
-	Ghost(sf::Vector2f size, sf::Vector2f pos, sf::Vector2f speed, sf::Vector2f hitbox, sf::Vector2f deslocamento, const float reward,Player* p1);
+	Player* getTarget() const { return target; }
+	Ghost(sf::Vector2f pos,Player* p1);
 };
 

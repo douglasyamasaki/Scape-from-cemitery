@@ -11,7 +11,7 @@ private:
 	TombstoneModel* texture;
 	int type;
 public:
-	Tombstone(sf::Vector2f size, sf::Vector2f pos);
+	Tombstone(sf::Vector2f pos);
 	static const int getQuantity()  { return quantity; }
 	const int getType() const { return type; }
 	~Tombstone();

@@ -23,13 +23,14 @@ protected:
 public:
 	Level();
 	virtual void check_collision() = 0;
+	void load();
 	virtual void load_default() = 0;
 	virtual void update(float deltat) = 0;
 	virtual void load_static() = 0;
 	sf::RectangleShape getCenter();
 	void draw(sf::RenderWindow* window);
-	void setP1ref(Player* p1) { this->p1 = p1; }
-	void setP2ref(Player* p2) { this->p2 = p2; }
+	void setP1ref(Player* p1);
+	void setP2ref(Player* p2);
 	Player* getP1ref() { return p1; }
 	Player* getP2ref() { return p2; }
 	const bool getFinished() const { return finished; }
@@ -37,5 +38,7 @@ public:
 	void setLost();
 	void savePoints();
 	void save();
+	void clear();
+	LevelStateHandler* getStateHandler() { return &lvlstateh; }
 	virtual void setFinished() = 0;
 };

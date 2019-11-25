@@ -10,7 +10,7 @@ protected:
 	sf::Vector2f velocity;
 
 public:
-	Enemie(sf::Vector2f size, sf::Vector2f pos, sf::Vector2f speed, sf::Vector2f hitbox, sf::Vector2f deslocamento, const float reward) :
+	Enemie(sf::Vector2f size, sf::Vector2f pos, sf::Vector2f speed, sf::Vector2f hitbox, sf::Vector2f deslocamento, const int reward) :
 		DynamicEntity(size, pos, speed, hitbox, deslocamento),
 		reward(reward) {}
 	void OnCollision(sf::Vector2f direction)
@@ -32,5 +32,6 @@ public:
 	virtual void update(float deltat) = 0;
 	virtual void seek() = 0;
 	const int getVidas() const { return vidas; }
+	void setVidas(const int vidas) { this->vidas = vidas; }
 };
 }

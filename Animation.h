@@ -22,8 +22,14 @@ public:
 	void setLock() { lock = true; }
 	void setImgC(sf::Vector2u imgC) { this->imgCount = imgC; }
 	const bool getFaceright() const { return faceright; }
-	void setFaceright() { faceright = true; }
+	void setFaceright(const bool opt) { faceright = opt; }
+	void setFrame(const int frame) { this->frames = frame; }
+	const sf::Vector2u getImgC() const { return imgCount; }
+	const sf::IntRect getUV() const { return uvRect; }
+	void setUV(const sf::Vector2i size) { uvRect.width = size.x; uvRect.height = size.y; }
 	const bool getLock() const { return lock; }
+	void setimgI(const sf::Vector2u imgI) { this->imgI = imgI; }
+	const sf::Vector2u getimgI() const { return imgI; }
 	const int getFrame() const { return frames; }
 };
 

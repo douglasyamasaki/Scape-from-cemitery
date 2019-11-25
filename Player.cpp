@@ -36,7 +36,7 @@ void Player::OnCollision(sf::Vector2f direction)
 }
 
 
-Player::Player(sf::Vector2f size, sf::Vector2f pos, sf::Vector2f speed, sf::Vector2f hitbox, sf::Vector2f deslocamento, ProjectileList* ref) : DynamicEntity (size,pos,speed,hitbox,deslocamento)
+Player::Player(sf::Vector2f pos) : DynamicEntity (sf::Vector2f(250, 200),pos, sf::Vector2f(125, 0), sf::Vector2f(101, 131), sf::Vector2f(15, -20))
 {
 	attacktype = 0;
 	this->deslocamento = deslocamento;
@@ -45,7 +45,7 @@ Player::Player(sf::Vector2f size, sf::Vector2f pos, sf::Vector2f speed, sf::Vect
 	setTexture(textures->getIdle());
 	load(textures->getIdle(), sf::Vector2u(6, 4), 0.1);
 	this->setOrigin(getSize() / 2.0f);
-	this->arrowlistref = ref;
+	this->arrowlistref = nullptr;
 	pontos = 2000;
 	lives = 5;
 	name = "";
@@ -107,7 +107,7 @@ void Player::setPos(sf::Vector2f pos)
 void Player::onHit(sf::Vector2f direction)
 {
 	if (!invulneravel){
-	velocity.x = direction.x * 4*speed.x;
+	velocity.x = -direction.x * 2*speed.x;
 	velocity.y = -sqrt(2.0f * 981.0f * jumpHeight);
 	canJump = false;
 	invulneravel = true;
@@ -143,7 +143,7 @@ void Player::attack() {
 			setStime(0.05);
 		}
 		if (getFrame() == 8 && attacktype == 1) {
-			Arrow* aux = new Arrow(sf::Vector2f(120, 15), getPosition()+sf::Vector2f(0,30), sf::Vector2f(1000,-350), sf::Vector2f(100, 50), sf::Vector2f(0, 0),this);
+			Arrow* aux = new Arrow(getPosition()+sf::Vector2f(0,30), sf::Vector2f(1000,-350), this);
 			*arrowlistref + aux;
 			if (!faceright) {
 				aux->scale(-1, 1);
@@ -155,7 +155,7 @@ void Player::attack() {
 		if (getFrame() == 10 && attacktype == 2) {
 			for (int i = 0; i < 3; i++) {
 				int k = rand() % 240;
-				Arrow* aux = new Arrow(sf::Vector2f(120, 15), getPosition() + sf::Vector2f(0, 30), sf::Vector2f(800-k,-350+k), sf::Vector2f(120, 50), sf::Vector2f(0, 0),this);
+				Arrow* aux = new Arrow(getPosition() + sf::Vector2f(0, 30), sf::Vector2f(800-k,-350+k),this);
 				*arrowlistref + aux;
 				if (!faceright) {
 					aux->scale(-1, 1);
@@ -169,7 +169,7 @@ void Player::attack() {
 			for (int i=0; i<5 ; i++){
 				int k = rand() % 240;
 				int j = rand() % 50;
-				Arrow* aux = new Arrow(sf::Vector2f(120, 15), getPosition() + sf::Vector2f(0, 30), sf::Vector2f(320-j,-900+k), sf::Vector2f(120, 50), sf::Vector2f(0, 0),this);
+				Arrow* aux = new Arrow(getPosition() + sf::Vector2f(0, 30), sf::Vector2f(320-j,-900+k), this);
 				*arrowlistref + aux;
 				if (!faceright) {
 					aux->scale(-1, 1);

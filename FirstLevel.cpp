@@ -6,6 +6,9 @@
 #include "Warlock.h"
 #include "Spell.h"
 #include "Spike.h"
+#include "Dragon.h"
+#include "Mine.h"
+#include "Tombstone.h"
 FirstLevel::FirstLevel() : Level()
 {
 }
@@ -26,9 +29,6 @@ void FirstLevel::load_static()
 	Platform* chao = new Platform(sf::Vector2f(10000, 1000), sf::Vector2f(0, 0));
 	platforms + chao;
 	lvlstateh.setType(1);
-	Warlock* wlk = new Warlock(sf::Vector2f(250, 200), sf::Vector2f(200, -700), sf::Vector2f(150, 0), sf::Vector2f(101, 131), sf::Vector2f(15, -20), 1000, &projectiles);
-	wlk->setP1(p1);
-	enemies + wlk;
 }
 
 
@@ -40,7 +40,12 @@ void FirstLevel::load_default() {
 		collider.setP2r(p2);
 		p2->setPos(sf::Vector2f(-100, -600));
 	}
+	
 	p1->setPos(sf::Vector2f(-100, -600));
+	Warlock* wlkptr = new Warlock(sf::Vector2f(300, -600), &projectiles);
+	wlkptr->setP1(p1);
+	enemies + wlkptr;
+	lvlstateh.setP1(p1);
 	collider.setP1r(p1);
 	
 }

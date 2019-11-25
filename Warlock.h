@@ -13,7 +13,6 @@ private:
 	Player* p2;
 	ProjectileList* projeteis;
 	WarlockModel* textures;
-	void UpdateTexture();
 	int attacktype;
 
 	void move();
@@ -21,11 +20,15 @@ private:
 	void attack();
 	void randomizeattack();
 public:
+	void loadTexture();
+	void UpdateTexture();
+	int getAttType() const { return attacktype; }
 	void onHit(sf::Vector2f direction);
-	Warlock (sf::Vector2f size, sf::Vector2f pos, sf::Vector2f speed, sf::Vector2f hitbox, sf::Vector2f deslocamento, const float reward, ProjectileList* ref);
+	Warlock ( sf::Vector2f pos,ProjectileList* ref);
 	void update(float deltat);
 	void setP1(Player* p1) { this->p1 = p1; }
 	void setP2(Player* p2) { this->p2 = p2; }
+	void setAttType(const int type) { this->attacktype = type; }
 	
 };
 

@@ -4,6 +4,21 @@
 #include "Barrage.h"
 #include "Flame.h"
 
+void Warlock::loadTexture()
+{
+	textures = WarlockModel::getInstance();
+	if (attacktype == 1)
+		setTexture(textures->getCast1());
+	else if (attacktype == 2)
+		setTexture(textures->getCast2());
+	else if (attacktype == 3)
+		setTexture(textures->getCast3());
+	else if (movdirection.x > 0 | movdirection.x < 0)
+		setTexture(textures->getWalk());
+	else
+		setTexture(textures->getIdle());
+}
+
 void Warlock::UpdateTexture()
 {
 	if (!getLock()) {
@@ -63,31 +78,31 @@ void Warlock::attack()
 			reset();
 		}
 		if (attacktype == 1 && frames == 19) {
-			Spark* sparkptr = new Spark(sf::Vector2f(250, 200), sf::Vector2f(p1p.x, p1p.y - 300), sf::Vector2f(0, 500), sf::Vector2f(20, 131), sf::Vector2f(15, -20));
+			Spark* sparkptr = new Spark(sf::Vector2f(p1p.x, p1p.y - 300));
 			*projeteis + sparkptr;
 			frameup();
 			if (p2 != nullptr) {
-				Spark* sparkptr2 = new Spark(sf::Vector2f(250, 200), sf::Vector2f(p2p.x, p2p.y - 300), sf::Vector2f(0, 500), sf::Vector2f(20, 131), sf::Vector2f(15, -20));
+				Spark* sparkptr2 = new Spark(sf::Vector2f(p2p.x, p2p.y - 300));
 				*projeteis + sparkptr2;
 				frameup();
 			}
 		}
 		if (attacktype == 2 && frames == 41) {
-			Flame* barrageptr = new Flame(sf::Vector2f(250, 200), sf::Vector2f(p1p.x, p1p.y - 300), sf::Vector2f(0, 500), sf::Vector2f(20, 131), sf::Vector2f(15, -20));
+			Flame* barrageptr = new Flame( sf::Vector2f(p1p.x, p1p.y - 300));
 			*projeteis + barrageptr;
 			frameup();
 			if (p2 != nullptr) {
-				Flame* flameptr2 = new Flame(sf::Vector2f(250, 200), sf::Vector2f(p2p.x, p2p.y - 300), sf::Vector2f(0, 500), sf::Vector2f(20, 131), sf::Vector2f(15, -20));
+				Flame* flameptr2 = new Flame(sf::Vector2f(p2p.x, p2p.y - 300));
 				*projeteis + flameptr2;
 				frameup();
 			}
 		}
 		if (attacktype == 3 && frames == 17) {
-			Barrage* flameptr = new Barrage(sf::Vector2f(250, 200), sf::Vector2f(p1p.x, p1p.y - 300), sf::Vector2f(0, 500), sf::Vector2f(20, 131), sf::Vector2f(15, -20));
+			Barrage* flameptr = new Barrage(sf::Vector2f(p1p.x, p1p.y - 300));
 			frameup();
 			*projeteis + flameptr;
 			if (p2 != nullptr) {
-				Barrage* barrageptr2 = new Barrage(sf::Vector2f(250, 200), sf::Vector2f(p2p.x, p2p.y - 300), sf::Vector2f(0, 500), sf::Vector2f(20, 131), sf::Vector2f(15, -20));
+				Barrage* barrageptr2 = new Barrage(sf::Vector2f(p2p.x, p2p.y - 300));
 				*projeteis + barrageptr2;
 				frameup();
 			}
@@ -129,8 +144,9 @@ void Warlock::onHit(sf::Vector2f direction)
 {
 }
 
-Warlock::Warlock(sf::Vector2f size, sf::Vector2f pos, sf::Vector2f speed, sf::Vector2f hitbox, sf::Vector2f deslocamento, const float reward, ProjectileList* ref) : 
-	Enemie (size,pos,speed,hitbox,deslocamento,reward)
+
+Warlock::Warlock(sf::Vector2f pos,ProjectileList* ref) : 
+	Enemie (sf::Vector2f(250, 200),pos, sf::Vector2f(150, 0), sf::Vector2f(101, 131), sf::Vector2f(15, -20),1000)
 {
 	this->projeteis = ref;
 	textures = WarlockModel::getInstance();
@@ -142,7 +158,6 @@ Warlock::Warlock(sf::Vector2f size, sf::Vector2f pos, sf::Vector2f speed, sf::Ve
 
 void Warlock::update(float deltat)
 {
-
 	seek();
 	move();
 	UpdateTexture();

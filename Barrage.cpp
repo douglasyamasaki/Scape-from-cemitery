@@ -1,6 +1,5 @@
 #include "Barrage.h"
-
-Barrage::Barrage(sf::Vector2f size, sf::Vector2f pos, sf::Vector2f speed, sf::Vector2f hitbox, sf::Vector2f deslocamento) : Spell (size,pos,speed,hitbox,deslocamento)
+Barrage::Barrage(sf::Vector2f pos) : Spell (sf::Vector2f(250, 200),pos,sf::Vector2f(0, 500), sf::Vector2f(20, 131), sf::Vector2f(15, -20))
 {
 	textures = SpellsModel::getInstance();
 	setTexture(textures->getSpell3());

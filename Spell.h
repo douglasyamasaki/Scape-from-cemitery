@@ -15,6 +15,7 @@ public:
 	virtual void update(float deltat) = 0;
 	const bool getHitable() const { return hitable; }
 	const bool getActive() const { return active; }
+	void setHitable(const bool hitable) { this->hitable = hitable; }
 	void onCollision(sf::Vector2f direction);
 };
 

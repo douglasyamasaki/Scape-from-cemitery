@@ -13,11 +13,11 @@ void Ghost::update(float deltat)
 	seek();
 	if (movedirection.x < 0.0f) {
 		faceright = true;
-		velocity.x += speed.x;
+		velocity.x -= speed.x;
 	}
 	else {
 		faceright = false;
-		velocity.x -= speed.x;
+		velocity.x += speed.x;
 	}
 	if (movedirection.y > 0.0f) {
 		velocity.y += speed.y;
@@ -36,8 +36,9 @@ void Ghost::update(float deltat)
 	velocity.y *= 0.0f;
 }
 
-Ghost::Ghost(sf::Vector2f size, sf::Vector2f pos, sf::Vector2f speed, sf::Vector2f hitbox, sf::Vector2f deslocamento, const float reward,Player* p1) :
-	Enemie(size,pos,speed,hitbox,deslocamento,reward)
+
+Ghost::Ghost(sf::Vector2f pos, Player* p1) :
+	Enemie(sf::Vector2f(140, 90),pos, sf::Vector2f(100, 100), sf::Vector2f(140, 90), sf::Vector2f(0, 0),500)
 {
 	vidas = 1;
 	setTarget(p1);

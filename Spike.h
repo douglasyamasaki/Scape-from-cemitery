@@ -8,7 +8,7 @@ class Spike : public Obstacle
 private:
 	SpikeModel* texture;
 public:
-	Spike(sf::Vector2f size, sf::Vector2f pos);
+	Spike(sf::Vector2f pos);
 	~Spike();
 };
 

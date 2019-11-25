@@ -10,7 +10,7 @@ Level::Level()
 	collider.setObstacleList(&obstacles);
 	lvlstateh.setEnemies(&enemies);
 	lvlstateh.setProjectiles(&projectiles);
-	lvlstateh.setStatics(&platforms);
+	lvlstateh.setStatics(&obstacles);
 }
 
 sf::RectangleShape Level::getCenter()
@@ -38,6 +38,16 @@ void Level::draw(sf::RenderWindow* window)
 	for (projectiles.it = projectiles.getPrimeiro(); projectiles.it.getIt() != nullptr; projectiles.it++) {
 		window->draw(*projectiles.it.getIt()->getInfo());
 	}
+}
+
+void Level::setP1ref(Player* p1)
+{
+	this->p1 = p1; collider.setP1r(p1); lvlstateh.setP1(p1); p1->setList(&projectiles);
+}
+
+void Level::setP2ref(Player* p2)
+{
+	this->p2 = p2; collider.setP2r(p2); lvlstateh.setP2(p2); p2->setList(&projectiles);
 }
 
 void Level::setLost()
@@ -78,6 +88,14 @@ void Level::savePoints()
 
 }
 
+void Level::load(){
+	lvlstateh.load();
+}
+void Level::clear() {
+	projectiles.clean();
+	enemies.clean();
+	obstacles.clean();
+}
 void Level::save() {
 	lvlstateh.save();
 }

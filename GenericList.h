@@ -64,6 +64,7 @@ public:
 		delete it.getIt()->getInfo();
 		delete it.getIt();
 		it = aux;
+		size--;
 	}
 	GenericList() { primeiro = nullptr; atual = nullptr; }
 	void operator+ (T* info) {

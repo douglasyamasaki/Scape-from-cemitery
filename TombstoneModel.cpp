@@ -8,14 +8,11 @@ TombstoneModel* TombstoneModel::getInstance() {
 	return instance;
 }
 TombstoneModel::TombstoneModel() {
-	Tombstone1 = new sf::Texture;
-	Tombstone2 = new sf::Texture;
-	Tombstone1->loadFromFile("./Sprites/Obstacles/Tombstone1.png");
-	Tombstone2->loadFromFile("./Sprites/Obstacles/Tombstone2.png");
+	Tombstone = new sf::Texture;
+	Tombstone->loadFromFile("./Sprites/Obstacles/Tombstone.png");
 }
 TombstoneModel::~TombstoneModel()
 {
 	delete instance;
-	delete Tombstone1;
-	delete Tombstone2;
+	delete Tombstone;
 }

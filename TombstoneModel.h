@@ -5,13 +5,11 @@ class TombstoneModel
 {
 private:
 	static TombstoneModel* instance;
-	sf::Texture* Tombstone1;
-	sf::Texture* Tombstone2;
+	sf::Texture* Tombstone;
 	TombstoneModel();
 public:
 	~TombstoneModel();
 	static TombstoneModel* getInstance();
-	sf::Texture* getTombstone1() const { return Tombstone1; }
-	sf::Texture* getTombstone2() const { return Tombstone2; }
+	sf::Texture* getTombstone() const { return Tombstone; }
 };
 }
