@@ -16,6 +16,8 @@ MenuModel::MenuModel() {
 	Selection = new sf::Texture();
 	Ranking = new sf::Texture();
 	Main = new sf::Texture();
+	Naming = new sf::Texture();
+	Naming->loadFromFile("./Sprites/Menu/Naming.png");
 	Pause->loadFromFile("./Sprites/Menu/Pause.png");
 	Win->loadFromFile("./Sprites/Menu/Win.png");
 	Lose->loadFromFile("./Sprites/Menu/Lose.png");

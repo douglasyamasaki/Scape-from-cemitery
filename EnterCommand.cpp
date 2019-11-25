@@ -8,5 +8,6 @@ void CompController::EnterCommand::executar(sf::Event* e)
 		MenuNaming* menuptr = dynamic_cast<MenuNaming*>(mref->getCurrentMenu());
 		if (menuptr != nullptr)
 			menuptr->confirm();
+		off();
 	}
 }

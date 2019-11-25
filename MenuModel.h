@@ -11,9 +11,11 @@ private:
 	sf::Texture* Selection;
 	sf::Texture* Ranking;
 	sf::Texture* Main;
+	sf::Texture* Naming;
 	MenuModel();
 public:
 	static MenuModel* getInstance();
+	sf::Texture* getNaming() { return Naming; }
 	sf::Texture* getPause() { return Pause; }
 	sf::Texture* getWin() { return Win; }
 	sf::Texture* getLose() { return Lose; }
