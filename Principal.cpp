@@ -178,7 +178,8 @@ void Principal::clearcurrentlevel()
 {
 	delete p1;
 	delete p2;
-	levelref->clear();
+	if (levelref != nullptr)
+		levelref->clear();
 	p1 = new Player(sf::Vector2f(0.0f, 0.0f));
 	p2 = new Player(sf::Vector2f(0.0f, 0.0f));
 	controle.setP1(p1);

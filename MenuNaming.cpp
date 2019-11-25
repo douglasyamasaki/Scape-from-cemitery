@@ -30,7 +30,6 @@ void MenuNaming::executar(sf::Event* event)
 			text.setString(line);
 		}
 	text.setPosition(sf::Vector2f(460, 260 + 280 * playerselect));
-	printf("%d", playerselect);
 	drawMenu();
 	if (!MHref->getPrincipal()->getHasP2()) {
 		sf::RectangleShape hidep2(sf::Vector2f(460, 265));
@@ -46,31 +45,35 @@ void MenuNaming::executar(sf::Event* event)
 
 void MenuNaming::confirm()
 {
-	if (!MHref->getPrincipal()->getHasP2()) {
-		MHref->switchTosmenu();
-		MHref->turnOn();
-		line.clear();
-		p1l.setString(line);
-		p2l.setString(line);
-		playerselect = 0;
-	}
-	if (MHref->getPrincipal()->getHasP2() && playerselect == 1) {
-		playerselect = 0;
-		p2l.setString(line);
-		MHref->getPrincipal()->setName(2, line);
-		MHref->switchTosmenu();
-		MHref->turnOn();
-		line.clear();
-		p1l.setString(line);
-		p2l.setString(line);
-		playerselect = 0;
-		return;
-	}
 	if (playerselect == 0) {
-		playerselect++;
 		MHref->getPrincipal()->setName(1, line);
 		p1l.setString(line);
 		line.clear();
+	}
+	if (!MHref->getPrincipal()->getHasP2() && playerselect == 0) {
+		MHref->switchTosmenu();
+		MHref->turnOn();
+		line.clear();
+		p1l.setString(line);
+		p2l.setString(line);
+		playerselect = 0;
 		return;
 	}
+	if (MHref->getPrincipal()->getHasP2() && playerselect == 1) {
+		playerselect = 2;
+		p2l.setString(line);
+		MHref->getPrincipal()->setName(2, line);
+		line.clear();
+		p1l.setString(line);
+		p2l.setString(line);
+	}
+
+	if (playerselect == 2) {
+		MHref->switchTosmenu();
+		MHref->turnOn();
+		line.clear();
+		playerselect = 0;
+		return;
+	}
+	playerselect++;
 }

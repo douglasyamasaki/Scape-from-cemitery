@@ -83,8 +83,8 @@ public:
 	int getSize() { return size; }
 	Element<T>* getPrimeiro() { return primeiro; }
 	void clean() {
-		Element<T>* it;
-		Element<T>* saveIt;
+		Element<T>* it = nullptr;
+		Element<T>* saveIt = nullptr;
 		it = saveIt = primeiro;
 		while (it != nullptr) {
 			saveIt = saveIt->getProx();

@@ -5,9 +5,11 @@
 #include "Collisor.h"
 #include "LevelStateHandler.h"
 #include "ObstacleList.h"
+#include "HUDModel.h"
 class Player;
 class Level {
 protected:
+	HUDModel* hudtexture;
 	StaticList platforms;
 	EnemiesList enemies;
 	ProjectileList projectiles;
@@ -19,6 +21,9 @@ protected:
 	bool pl2;
 	bool finished;
 	bool lost;
+	sf::RectangleShape hudp1;
+	sf::RectangleShape hudp2;
+	sf::RectangleShape potion;
 
 public:
 	Level();

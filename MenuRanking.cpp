@@ -38,9 +38,12 @@ void Menus::MenuRanking::read()
 	string line;
 	if (file.is_open()) {
 		while (!(file.eof())) {
+			line.clear();
 			RankingSlot* aux = new RankingSlot;
 			getline(file, line);
 			aux->setString(line);
+			if (line.size() == 0)
+				continue;
 			line.clear();
 			getline(file, line);
 			const char* c = line.c_str();

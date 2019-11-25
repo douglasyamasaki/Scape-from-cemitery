@@ -327,6 +327,9 @@
     <ClInclude Include="Dragon.h">
       <Filter>Header Files\ConcreteEntity\Enemie</Filter>
     </ClInclude>
+    <ClInclude Include="HUDModel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Principal.cpp">
@@ -535,6 +538,9 @@
     </ClCompile>
     <ClCompile Include="FireballModel.cpp">
       <Filter>Source Files\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="HUDModel.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

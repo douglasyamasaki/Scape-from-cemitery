@@ -415,18 +415,7 @@ void LevelStateHandler::load()
 				*enemies + ghostptr;
 				break;
 			}
-			/*file << static_cast<int>(SaveType::WARLOCK);
-			file << wlkptr->getVidas();
-			file << wlkptr->getHBPos().x << endl;
-			file << wlkptr->getHBPos().y << endl;
-			file << wlkptr->getAttType() << endl;
-			file << wlkptr->getFaceright() << endl;
-			file << wlkptr->getFrame() << endl;
-			file << wlkptr->getimgI().x << endl;
-			file << wlkptr->getimgI().y << endl;
-			file << wlkptr->getImgC().x << endl;
-			file << wlkptr->getImgC().y << endl;
-			file << wlkptr->getLock();*/
+			
 			case static_cast<int>(SaveType::WARLOCK) : {
 				file >> intaux; // vidas
 				file >> floataux2; //x

@@ -58,6 +58,7 @@
     <ClInclude Include="GenericList.h" />
     <ClInclude Include="Ghost.h" />
     <ClInclude Include="GhostModel.h" />
+    <ClInclude Include="HUDModel.h" />
     <ClInclude Include="LeftCommand.h" />
     <ClInclude Include="Level.h" />
     <ClInclude Include="LevelStateHandler.h" />
@@ -131,6 +132,7 @@
     <ClCompile Include="Flame.cpp" />
     <ClCompile Include="Ghost.cpp" />
     <ClCompile Include="GhostModel.cpp" />
+    <ClCompile Include="HUDModel.cpp" />
     <ClCompile Include="LeftCommand.cpp" />
     <ClCompile Include="Level.cpp" />
     <ClCompile Include="LevelStateHandler.cpp" />
