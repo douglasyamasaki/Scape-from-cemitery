@@ -4,7 +4,11 @@
 
 void Player::updateTexture()
 {
-	if (!getLock()) {
+	if (dead){
+		setTexture(textures->getDie());
+		return;
+	}
+	if (!getLock() && !dead) {
 		if (velocity.y > 0.0f && !canJump)
 			setTexture(textures->getJumpUp());
 		else if (velocity.y < 0.0f)
@@ -47,13 +51,28 @@ Player::Player(sf::Vector2f pos) : DynamicEntity (sf::Vector2f(250, 200),pos, sf
 	this->setOrigin(getSize() / 2.0f);
 	this->arrowlistref = nullptr;
 	pontos = 2000;
-	lives = 5;
+	lives = 2;
 	name = "";
+	dead = false;
 	invulneravel = false;
 
 }
 
 void Player::update(float deltat) {
+	if (dead && !getLock()){
+		setimgI(sf::Vector2u(4,5));
+		Refresh(deltat);
+		setTextureRect(uvRect);
+		return;
+	}
+	if (lives <= 0 && !getLock() && !dead) {
+		setTexture(textures->getDie());
+		setLock();
+		dead = true;
+		setImgC(sf::Vector2u(6, 6));
+		reset();
+	}
+	printf("%d %d\n", imgI.x, imgI.y);
 	if (!invulneravel)
 		velocity.x = movdirection.x * speed.x;
 	updateTexture();

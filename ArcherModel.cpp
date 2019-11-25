@@ -16,6 +16,8 @@ ArcherModel::ArcherModel() {
 	Attack01 = new sf::Texture();
 	Attack02 = new sf::Texture();
 	Attack03 = new sf::Texture();
+	Die = new sf::Texture();
+	Die->loadFromFile("./Sprites/Skeleton/Die.png");
 	Walk->loadFromFile("./Sprites/Skeleton/Walk.png");
 	Idle->loadFromFile("./Sprites/Skeleton/Idle.png");
 	JumpUp->loadFromFile("./Sprites/Skeleton/Jump Up.png");

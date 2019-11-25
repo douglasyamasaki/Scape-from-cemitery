@@ -64,6 +64,7 @@ void Principal::executar() {
 
 void Principal::load()
 {
+	// aqui se carregara os dados pre fase , ou seja , os dados que correspondem as agregacoes da principal:
 	int aux,aux2;
 	float faux1, faux2;
 	string saux;
@@ -184,6 +185,7 @@ void Principal::clearcurrentlevel()
 	p2 = new Player(sf::Vector2f(0.0f, 0.0f));
 	controle.setP1(p1);
 	controle.setP2(p2);
+	hasp2 = false;
 }
 
 void Principal::setName(const int index, const string name)

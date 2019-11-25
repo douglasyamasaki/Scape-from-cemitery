@@ -14,7 +14,7 @@ using namespace CompController;
 class EventHandler
 {
 private:
-	CompositeController controllers[3];
+	CompositeController controllers;
 	sf::Keyboard::Key p1up;
 	sf::Keyboard::Key p1left;
 	sf::Keyboard::Key p1right;
@@ -37,8 +37,9 @@ private:
 	PauseCommand pcommand;
 public:
 	EventHandler(MenuHandler* mhref);
-	void setP1(Player* p1) { controllers[1].setRef(p1); }
-	void setP2(Player* p2) { controllers[2].setRef(p2); }
+	void setP1(Player* p1);
+	void setP2(Player* p2);
+	void restartcontrollers();
 	void update(sf::Event* ev);
 };
 

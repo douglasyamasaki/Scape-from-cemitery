@@ -234,7 +234,6 @@ void LevelStateHandler::save()
 			file << wlkptr->getHBPos().y << endl;
 			file << wlkptr->getMovDirection().x << endl;
 			file << wlkptr->getMovDirection().y << endl;
-			printf("%d\n", wlkptr->getAttType());
 			file << wlkptr->getAttType() << endl;
 			file << wlkptr->getFaceright() << endl;
 			file << wlkptr->getFrame() << endl;

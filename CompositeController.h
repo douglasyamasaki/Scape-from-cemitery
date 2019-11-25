@@ -14,6 +14,8 @@ namespace CompController {
 		void add(sf::Keyboard::Key key, Controller* ele);
 		Controller* getCmd(sf::Keyboard::Key index);
 		void executar(sf::Event* e);
+		void clearcomposite() { cmdMap.clear(); pref = nullptr; mref = nullptr; }
+		~CompositeController() { cmdMap.clear(); pref = nullptr; mref = nullptr; }
 	};
 }
 

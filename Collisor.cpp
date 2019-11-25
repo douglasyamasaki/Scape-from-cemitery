@@ -126,16 +126,17 @@ void Collisor::CollidePlayerEnemie()
 {
 	for (enemies->it = enemies->getPrimeiro(); enemies->it.getIt() != nullptr; enemies->it++) {
 		sf::Vector2f direction = sf::Vector2f(0.0f, 0.0f);
-		if (p1r != nullptr) {
+		if (p1r != nullptr && !p1r->getInvulneravel() && !p1r->getDead()) {
 			if (CheckCollision(p1r, enemies->it.getIt()->getInfo()->getBody(), direction, 1.0f)){
 				p1r->onHit(direction);
 				enemies->it.getIt()->getInfo()->onHit(direction);
 			}
 				
 		}
-		if (p2r != nullptr)
-			if (CheckCollision(p2r, enemies->it.getIt()->getInfo()->getBody(), direction, 1.0f))
-				p2r->onHit(direction);
+		if (p2r != nullptr )
+			if (!p2r->getInvulneravel() && !p2r->getDead())
+				if (CheckCollision(p2r, enemies->it.getIt()->getInfo()->getBody(), direction, 1.0f))
+					p2r->onHit(direction);
 		if (enemies->it.getIt()->getInfo()->getVidas() <= 0)
 			enemies->remove();
 	}
@@ -191,27 +192,27 @@ void Collisor::CollideProjectilePlayer()
 		Fireball* fireballptr = dynamic_cast<Fireball*>(projectiles->it.getIt()->getInfo());
 		if (spellptr != nullptr) {
 			if (p1r != nullptr) {
-				if (!p1r->getInvulneravel())
+				if (!p1r->getInvulneravel() && !p1r->getDead())
 					if (spellptr->getHitable())
 						if (CheckCollision(p1r, projectiles->it.getIt()->getInfo(), direction, 1.0f))
 							p1r->onHit(direction);
 			}
 			if (p2r != nullptr) {
-				if (!p1r->getInvulneravel())
+				if (!p1r->getInvulneravel() && !p2r->getDead())
 					if (CheckCollision(p2r, projectiles->it.getIt()->getInfo(), direction, 1.0f))
 						p2r->onHit(direction);
 			}
 		}
 		if (fireballptr != nullptr) {
 			if (p1r != nullptr) {
-				if (!p1r->getInvulneravel())
+				if (!p1r->getInvulneravel() && !p1r->getDead())
 					if (CheckCollision(p1r, projectiles->it.getIt()->getInfo(), direction, 1.0f)){
 						p1r->onHit(direction);
 						projectiles->remove();
 					}
 			}
 			if (p2r != nullptr) {
-				if (!p1r->getInvulneravel())
+				if (!p1r->getInvulneravel() && !p2r->getDead())
 					if (CheckCollision(p2r, projectiles->it.getIt()->getInfo(), direction, 1.0f)) {
 						p2r->onHit(direction);
 						projectiles->remove();

@@ -16,11 +16,13 @@ private:
 	string name;
 	bool invulneravel;
 	bool canJump;
+	bool dead;
 	float jumpHeight;
 	int lives;
 	int pontos;
 	int attacktype;
 public:
+	const bool getDead() { return dead; }
 	void attacktypex(const int index);
 	void setList(ProjectileList* arrowlistref) { this->arrowlistref = arrowlistref; }
 	void setName(string name) { this->name = name; }

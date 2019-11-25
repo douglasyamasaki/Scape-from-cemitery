@@ -10,3 +10,5 @@ yamasaki
 6000
 douglas & yamasaki
 12000
+douglas
+2000

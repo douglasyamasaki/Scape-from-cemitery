@@ -59,7 +59,6 @@ void Level::draw(sf::RenderWindow* window)
 	text.setCharacterSize(20);
 	string line;
 	line = p1->getName();
-	cout << line << endl;
 	text.setString(line);
 	text.setPosition(120, 48);
 	window->draw(text);

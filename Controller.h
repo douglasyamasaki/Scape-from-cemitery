@@ -19,5 +19,6 @@ namespace CompController {
 		const bool getActive() const { return active; }
 		virtual void add(int key, Controller ele) {};
 		virtual Controller* getCmd(int index) { return nullptr; };
+		virtual ~Controller() { pref = nullptr; mref = nullptr; }
 	};
 }
