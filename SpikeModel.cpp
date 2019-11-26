@@ -7,6 +7,11 @@ SpikeModel* SpikeModel::getInstance() {
 		instance = new SpikeModel();
 	return instance;
 }
+SpikeModel::~SpikeModel()
+{
+	delete(instance);
+	delete(Spike);
+}
 
 SpikeModel::SpikeModel() {
 	Spike = new sf::Texture();
