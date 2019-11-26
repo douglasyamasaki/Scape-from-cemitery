@@ -18,6 +18,7 @@ private:
 	sf::Texture* Save;
 	ButtonsModel();
 public:
+	~ButtonsModel(){delete(instance);}
 	static ButtonsModel* getInstance();
 	sf::Texture* getP1() { return P1; }
 	sf::Texture* getP2() { return P2; }
