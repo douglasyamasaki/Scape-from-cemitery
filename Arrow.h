@@ -16,6 +16,7 @@ private:
 public:
 	void setShooter(Player* shooter) { origem = shooter; }
 	Arrow(sf::Vector2f pos, sf::Vector2f speed,Player* pref);
+	~Arrow();
 	void update(float deltat);
 	const sf::Vector2f getVelocity() const { return velocity; }
 	Player* getShooter() { return origem; }
