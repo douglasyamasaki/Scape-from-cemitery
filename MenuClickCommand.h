@@ -6,7 +6,7 @@ class MenuClickCommand : public Controller
 private:
 public:
 	MenuClickCommand() : Controller() { active = true; }
-	~MenuClickCommand(){active = false;}
+	~MenuClickCommand(){}
 	void setMenuHandler(MenuHandler* mhref) { this->mref = mhref; }
 	void executar(sf::Event* e);
 };
