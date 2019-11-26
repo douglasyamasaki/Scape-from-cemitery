@@ -10,5 +10,6 @@ namespace AbstractEntity {
 		Entity(sf::Vector2f size) : sf::RectangleShape(size) {
 			setOrigin(sf::Vector2f(0.0f, 0.0f));
 		}
+		~Entity(){}
 	};
 }
