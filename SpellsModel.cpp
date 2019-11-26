@@ -12,6 +12,13 @@ SpellsModel::SpellsModel()
 	Spell2->loadFromFile("./Sprites/Warlock/Spell02.png");
 	Spell3->loadFromFile("./Sprites/Warlock/Spell03.png");
 }
+SpellsModel::~SpellsModel()
+{
+	delete(Spell1);
+	delete(Spell2);
+	delete(Spell3);
+	delete(instance);
+}
 
 SpellsModel* SpellsModel::getInstance()
 {
