@@ -20,6 +20,7 @@ public:
 		this->MHref = MHref;
 		texture = MenuModel::getInstance();
 	}
+	~MenuBase(){delete(this->instance)}
 	void drawMenu();
 	MenuHandler* getMhref() { return MHref; }
 	void add(ButtonBase* element) { buttons.push_back(element); }
