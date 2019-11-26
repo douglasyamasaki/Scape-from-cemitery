@@ -10,6 +10,7 @@ private:
 	bool spawnBoss;
 public:
 	SecondLevel();
+	~SecondLevel(){}
 	void getBoss();
 	void setSpawn(const bool opt) { spawnBoss = opt; }
 	void check_collision();
