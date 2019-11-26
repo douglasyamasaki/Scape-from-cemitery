@@ -12,3 +12,8 @@ MineModel::MineModel() {
 	Mine = new sf::Texture();
 	Mine->loadFromFile("./Sprites/Obstacles/Mine.png");
 }
+
+MineModel::~MineModel() {
+	delete(Mine);
+	delete(instance);
+}
