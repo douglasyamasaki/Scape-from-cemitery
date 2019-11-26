@@ -6,6 +6,7 @@ namespace CompController{
 	{
 	public:
 		EnterCommand() : Controller(){ }
+		~EnterCommmand(){}
 		void setMenuHandler(MenuHandler* mhref) { this->mref = mhref; }
 		void executar(sf::Event* e);
 	};
