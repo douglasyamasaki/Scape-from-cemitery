@@ -19,6 +19,7 @@ namespace AbstractEntity {
 		{
 			this->speed = speed;
 		}
+		~DynamimcEntity(){}
 		virtual void setPos (sf::Vector2f pos) {
 			hitbox.setPosition(pos);
 			setPosition(pos);
