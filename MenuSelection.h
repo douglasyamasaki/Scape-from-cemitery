@@ -5,6 +5,7 @@ namespace Menus {
 	protected:
 	public:
 		MenuSelection(sf::Vector2f size, MenuHandler* MHref);
+		~MenuSelection();
 		void executar(sf::Event* event);
 	};
 }
