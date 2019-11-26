@@ -12,6 +12,7 @@ protected:
 	bool active;
 public:
 	Spell(sf::Vector2f size, sf::Vector2f pos, sf::Vector2f speed, sf::Vector2f hitbox, sf::Vector2f deslocamento) : Projectile(size, pos, speed, hitbox, deslocamento) { hitable = false; active = true; textures = nullptr; }
+	~Spell(){textures = nullptr;}
 	virtual void update(float deltat) = 0;
 	const bool getHitable() const { return hitable; }
 	const bool getActive() const { return active; }
