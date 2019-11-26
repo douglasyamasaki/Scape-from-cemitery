@@ -8,6 +8,7 @@ namespace Models {
 		sf::Texture* Spike;
 		SpikeModel();
 	public:
+		~SpikeModel();
 		static SpikeModel* getInstance();
 		sf::Texture* getSpike() { return Spike; }
 	};
