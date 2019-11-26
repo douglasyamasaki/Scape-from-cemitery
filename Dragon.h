@@ -14,6 +14,7 @@ private:
 	float accumulator;
 public:
 	Dragon(sf::Vector2f pos);
+	~Dragon(){delete(instance);}
 	void onHit(sf::Vector2f direction);
 	void seek();
 	void update(float deltat);
