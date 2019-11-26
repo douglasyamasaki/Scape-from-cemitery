@@ -15,6 +15,7 @@ namespace Models{
 		sf::Texture* Cast3;
 		WarlockModel();
 	public:
+		~WarlockModel(){delete(instance);}
 		static WarlockModel* getInstance();
 		sf::Texture* getWalk() { return Walk; }
 		sf::Texture* getRise() { return Rise; }
