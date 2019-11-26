@@ -3,17 +3,23 @@
 #include <fstream>
 #include <iostream>
 using namespace std;
-
+#include "TilesetModel.h"
 Level::Level()
 {
+	TilesetModel* instance = TilesetModel::getInstance();
+	background.setTexture(*instance->getBackground());
+	background.setOrigin(background.getLocalBounds().width / 2, background.getLocalBounds().height / 2);
+	background.scale(3.0f, 3.0f);
+	background.setTextureRect(sf::IntRect(0.0f, 0.0f, 10000, 10000));
+	background.setPosition(0.0f, 0.0f);
 	hudtexture = HUDModel::getInstance();
-	collider.setEnemiesList(&enemies);
-	collider.setProjectileList(&projectiles);
-	collider.setStaticList(&platforms);
-	collider.setObstacleList(&obstacles);
-	lvlstateh.setEnemies(&enemies);
-	lvlstateh.setProjectiles(&projectiles);
-	lvlstateh.setStatics(&obstacles);
+	collider.setList(&enemies);
+	collider.setList(&projectiles);
+	collider.setList(&platforms);
+	collider.setList(&obstacles);
+	lvlstateh.setList(&enemies);
+	lvlstateh.setList(&projectiles);
+	lvlstateh.setList(&obstacles);
 	hudp1.setSize(sf::Vector2f(349, 202));
 	hudp1.setTexture(hudtexture->getP1());
 	hudp1.setPosition(sf::Vector2f(0.0f, 0.0f));
@@ -25,16 +31,20 @@ Level::Level()
 	potion.setPosition(188, 174.8);
 }
 
-sf::RectangleShape Level::getCenter()
+sf::Vector2f Level::getCenter()
 {
-	if (getP2ref() != nullptr) {
-		///terminar
+	if (p1->getDead()) {
+		if (p2 != nullptr) {
+			if (!p2->getDead())
+				return p2->getHBPos();
+		}
 	}
-	return sf::RectangleShape();
+	return p1->getHBPos();
 }
 
 void Level::draw(sf::RenderWindow* window)
 {
+	window->draw(background);
 	for (platforms.it = platforms.getPrimeiro(); platforms.it.getIt() != nullptr; platforms.it++) {
 		window->draw(*platforms.it.getIt()->getInfo());
 	}
@@ -149,6 +159,12 @@ void Level::load(){
 	lvlstateh.load();
 }
 void Level::clear() {
+	lost = false;
+	finished = false;
+	pl2 = false;
+	p1 = nullptr;
+	p2 = nullptr;
+	ghostqty = 0;
 	projectiles.clean();
 	enemies.clean();
 	obstacles.clean();

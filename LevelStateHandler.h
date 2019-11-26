@@ -12,6 +12,8 @@ private:
 	int waitedproj;
 	int waitedobjeticles;
 	int waitedenemies;
+	int ghostquantity;
+	bool hasSpawned;
 	Player* p1;
 	Player* p2;
 	int leveltype;
@@ -23,9 +25,11 @@ public:
 	void setP1(Player* p1) { this->p1 = p1; }
 	void setP2(Player* p2) { this->p2 = p2; }
 	void load();
-	void setProjectiles(ProjectileList* projectiles) { this->projectiles = projectiles; }
-	void setEnemies(EnemiesList* enemies) { this->enemies = enemies; }
-	void setStatics(ObstacleList* obstacles) { this->obstacles = obstacles; }
+	void setHasSpawned(const bool opt) { this->hasSpawned = opt; }
+	void setGhostQuantity(const int valor) { ghostquantity = valor; }
+	void setList(ProjectileList* projectiles) { this->projectiles = projectiles; }
+	void setList(EnemiesList* enemies) { this->enemies = enemies; }
+	void setList(ObstacleList* obstacles) { this->obstacles = obstacles; }
 	void setType(const int leveltype) { this->leveltype = leveltype; }
 	void setwProj(const int value) { waitedproj = value; }
 	void setwEnemies(const int value) { waitedenemies = value; }

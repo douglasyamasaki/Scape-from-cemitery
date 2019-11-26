@@ -3,6 +3,7 @@
 class FirstLevel : public Level
 {
 private:
+	void resetlists();
 public:
 	FirstLevel();
 	void check_collision();
