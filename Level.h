@@ -34,6 +34,8 @@ protected:
 
 public:
 	Level();
+	~Level(){{delete(this->instance);
+		  delete(hudtexture);}
 	virtual void check_collision() = 0;
 	void load();
 	virtual void load_default() = 0;
