@@ -8,6 +8,7 @@ class ArrowModel
 		sf::Texture* Arrow;
 		ArrowModel();
 	public:
+		~ArrowModel();
 		static ArrowModel* getInstance();
 		sf::Texture* getArrow() { return Arrow; }
 	};
