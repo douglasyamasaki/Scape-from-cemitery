@@ -5,6 +5,7 @@ namespace CompController{
 	{
 	public:
 		Attack03Command() : Controller() {}
+		~Attack03Command(){}
 		void executar(sf::Event* e);
 	};
 }
