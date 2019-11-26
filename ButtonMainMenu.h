@@ -6,5 +6,6 @@ namespace MenuButtons {
 	public:
 		void executar();
 		ButtonMainMenu(sf::Vector2f size, sf::Vector2f pos, MenuBase* mref);
+		~ButtonMainMenu(){delete(instance);}
 	};
 }
