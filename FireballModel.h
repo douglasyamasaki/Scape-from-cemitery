@@ -7,6 +7,7 @@ private:
 	FireballModel();
 	static FireballModel* instance;
 public:
+	~FireBallModel(){delete(instance);}
 	sf::Texture* getFireball() { return Fireball; }
 	static FireballModel* getInstance();
 };
