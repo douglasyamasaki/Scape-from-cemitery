@@ -6,9 +6,14 @@
 #include "LevelStateHandler.h"
 #include "ObstacleList.h"
 #include "HUDModel.h"
+#include <list>
+using namespace std;
 class Player;
 class Level {
 protected:
+	list<sf::Vector2f>obstaclesapoints;
+	list<sf::Vector2f>obstaclesbpoints;
+	list<sf::Vector2f>enemiespoints;
 	HUDModel* hudtexture;
 	StaticList platforms;
 	EnemiesList enemies;
@@ -16,6 +21,8 @@ protected:
 	ObstacleList obstacles;
 	Collisor collider;
 	LevelStateHandler lvlstateh;
+	int ghostqty;
+	sf::Sprite background;
 	Player* p1;
 	Player* p2;
 	bool pl2;
@@ -34,7 +41,8 @@ public:
 	virtual void load_default() = 0;
 	virtual void update(float deltat) = 0;
 	virtual void load_static() = 0;
-	sf::RectangleShape getCenter();
+	void setGhostqty(const int value) { ghostqty = value; }
+	sf::Vector2f getCenter();
 	void draw(sf::RenderWindow* window);
 	void setP1ref(Player* p1);
 	void setP2ref(Player* p2);

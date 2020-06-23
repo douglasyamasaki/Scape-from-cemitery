@@ -1,8 +1,9 @@
 #pragma once
 #include "Level.h"
+
+class Warlock;
 class SecondLevel : public Level
 {
-<<<<<<< HEAD
 private:
 	Warlock* bossref;
 	void resetlists();
@@ -17,8 +18,5 @@ public:
 	void load_default();
 	void update(float deltat);
 	void setFinished();
-=======
-	
->>>>>>> parent of f7c28ad... Updating
 };
 

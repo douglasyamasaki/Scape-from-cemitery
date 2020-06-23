@@ -29,8 +29,6 @@ bool Collisor::CheckCollision(Body* thisbody, Body* other, sf::Vector2f& directi
 	if (interX < 0.0f && interY < 0.0f) {
 		push = std::min(std::max(push, 0.0f), 1.0f); 
 		if (interX > interY) {
-			if (interX < -0.2)
-				interX = -0.2;
 			if (deltax > 0.0f) {
 				thisbody->moveHB(interX * (1.0f - push), 0.0f);
 				other->moveHB(-interX * push, 0.0f);
@@ -45,8 +43,6 @@ bool Collisor::CheckCollision(Body* thisbody, Body* other, sf::Vector2f& directi
 			}
 		}
 		else {
-			if (interY < -0.2)
-				interY = -0.2;
 			if (deltay > 0.0f) {
 				thisbody->moveHB(0.0f, interY * (1.0f - push));
 				other->moveHB(0.0f, -interY * push);
@@ -76,10 +72,12 @@ void Collisor::CollidePlayerObstacle()
 		if (CheckCollision(obstacles->it.getIt()->getInfo(), p1r, direction, 1.0f)) {
 			if (tombptr != nullptr) {
 				obstacles->remove();
+				continue;
 			}
 			else if (mineptr != nullptr) {
 				obstacles->remove();
 				p1r->onHit(direction);
+				continue;
 			}
 			else {
 				p1r->onHit(direction);
@@ -89,10 +87,12 @@ void Collisor::CollidePlayerObstacle()
 			if (CheckCollision(obstacles->it.getIt()->getInfo(), p2r, direction, 1.0f)) {
 				if (tombptr != nullptr) {
 					obstacles->remove();
+					continue;
 				}
 				if (mineptr != nullptr) {
 					obstacles->remove();
 					p2r->onHit(direction);
+					continue;
 				}
 				else {
 					p2r->onHit(direction);
@@ -108,6 +108,9 @@ void Collisor::CollidePlayerPlatform()
 	for (statics->it = statics->getPrimeiro(); statics->it.getIt() != nullptr; statics->it++) {
 		sf::Vector2f direction = sf::Vector2f(0.0f, 0.0f);
 		Body* bodyptr = dynamic_cast<Body*>(statics->it.getIt()->getInfo());
+		Platform* pltaux = dynamic_cast<Platform*>(statics->it.getIt()->getInfo());
+		if (pltaux != nullptr)
+			pltaux->fix();
 		if (bodyptr != nullptr) {
 			if (p1r != nullptr) {
 				if (CheckCollision(bodyptr, p1r->getBody(), direction, 1.0f))
@@ -165,6 +168,9 @@ void Collisor::CollideProjectilePlatform()
 	for (statics->it = statics->getPrimeiro(); statics->it.getIt() != nullptr; statics->it++) {
 		Body* bodyptr = dynamic_cast<Body*>(statics->it.getIt()->getInfo());
 		sf::Vector2f direction = sf::Vector2f(0.0f, 0.0f);
+		Platform* pltaux = dynamic_cast<Platform*>(statics->it.getIt()->getInfo());
+		if (pltaux != nullptr)
+			pltaux->fix();
 		if (bodyptr != nullptr) {
 			for (projectiles->it = projectiles->getPrimeiro(); projectiles->it.getIt() != nullptr; projectiles->it++) {
 				Spell* spellptr = dynamic_cast<Spell*>(projectiles->it.getIt()->getInfo());
@@ -177,9 +183,6 @@ void Collisor::CollideProjectilePlatform()
 						spellptr->onCollision(direction);
 				}
 			}
-			Platform* pltaux = dynamic_cast<Platform*>(statics->it.getIt()->getInfo());
-			if (pltaux != nullptr)
-				pltaux->fix();
 		}
 	}
 }
