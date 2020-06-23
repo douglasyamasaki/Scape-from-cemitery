@@ -11,8 +11,6 @@ void Ghost::seek()
 void Ghost::update(float deltat)
 {
 	seek();
-	if (target->getDead())
-		vidas--;
 	if (movedirection.x < 0.0f) {
 		faceright = true;
 		velocity.x -= speed.x;

@@ -45,15 +45,6 @@ void Warlock::seek()
 		else
 			movdirection = p2v;
 	}
-	if (p2 != nullptr && p1 != nullptr) {
-		if (p2->getDead())
-			movdirection = p1v;
-	}
-	else if (p1 != nullptr && p2 != nullptr) {
-		if (p1->getDead())
-			movdirection = p2v;
-	}
-		
 	if (movdirection.x > 500 || movdirection.x < -500)
 		movdirection.x = 0;
 }
@@ -87,45 +78,33 @@ void Warlock::attack()
 			reset();
 		}
 		if (attacktype == 1 && frames == 19) {
-			if (!p1->getDead()){
 			Spark* sparkptr = new Spark(sf::Vector2f(p1p.x, p1p.y - 300));
 			*projeteis + sparkptr;
 			frameup();
-			}
 			if (p2 != nullptr) {
-				if (!p2->getDead()){
 				Spark* sparkptr2 = new Spark(sf::Vector2f(p2p.x, p2p.y - 300));
 				*projeteis + sparkptr2;
 				frameup();
-				}
 			}
 		}
 		if (attacktype == 2 && frames == 41) {
-			if (!p1->getDead()) {
-				Flame* barrageptr = new Flame(sf::Vector2f(p1p.x, p1p.y - 300));
-				*projeteis + barrageptr;
-				frameup();
-			}
+			Flame* barrageptr = new Flame( sf::Vector2f(p1p.x, p1p.y - 300));
+			*projeteis + barrageptr;
+			frameup();
 			if (p2 != nullptr) {
-				if (!p2->getDead()) {
-					Flame* flameptr2 = new Flame(sf::Vector2f(p2p.x, p2p.y - 300));
-					*projeteis + flameptr2;
-					frameup();
-				}
+				Flame* flameptr2 = new Flame(sf::Vector2f(p2p.x, p2p.y - 300));
+				*projeteis + flameptr2;
+				frameup();
 			}
 		}
 		if (attacktype == 3 && frames == 17) {
-			if (!p2->getDead()) {
-				Barrage* flameptr = new Barrage(sf::Vector2f(p1p.x, p1p.y - 300));
-				frameup();
-				*projeteis + flameptr;
-			}
+			Barrage* flameptr = new Barrage(sf::Vector2f(p1p.x, p1p.y - 300));
+			frameup();
+			*projeteis + flameptr;
 			if (p2 != nullptr) {
-				if (!p2->getDead()) {
-					Barrage* barrageptr2 = new Barrage(sf::Vector2f(p2p.x, p2p.y - 300));
-					*projeteis + barrageptr2;
-					frameup();
-				}
+				Barrage* barrageptr2 = new Barrage(sf::Vector2f(p2p.x, p2p.y - 300));
+				*projeteis + barrageptr2;
+				frameup();
 			}
 		}
 			
@@ -163,12 +142,11 @@ void Warlock::randomizeattack()
 
 void Warlock::onHit(sf::Vector2f direction)
 {
-	vidas--;
 }
 
 
 Warlock::Warlock(sf::Vector2f pos,ProjectileList* ref) : 
-	Enemie (sf::Vector2f(250, 200),pos, sf::Vector2f(200, 0), sf::Vector2f(101, 131), sf::Vector2f(15, -20),1000)
+	Enemie (sf::Vector2f(250, 200),pos, sf::Vector2f(150, 0), sf::Vector2f(101, 131), sf::Vector2f(15, -20),1000)
 {
 	this->projeteis = ref;
 	textures = WarlockModel::getInstance();

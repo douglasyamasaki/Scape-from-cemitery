@@ -24,10 +24,10 @@ void Player::OnCollision(sf::Vector2f direction)
 {
 	
 	if (direction.x < 0.0f) {
-		movdirection.x = 0.0f;
+		velocity.x = 0.0f;
 	}
 	else if (direction.x > 0.0f)
-		movdirection.x = 0.0f;
+		velocity.x = 0.0f;
 	if (direction.y < 0.0f) {
 		invulneravel = false;
 		setFillColor(sf::Color::White);
@@ -40,7 +40,7 @@ void Player::OnCollision(sf::Vector2f direction)
 }
 
 
-Player::Player(sf::Vector2f pos) : DynamicEntity (sf::Vector2f(250, 200),pos, sf::Vector2f(200, 0), sf::Vector2f(101, 131), sf::Vector2f(15, -20))
+Player::Player(sf::Vector2f pos) : DynamicEntity (sf::Vector2f(250, 200),pos, sf::Vector2f(125, 0), sf::Vector2f(101, 131), sf::Vector2f(15, -20))
 {
 	attacktype = 0;
 	this->deslocamento = deslocamento;
@@ -50,31 +50,12 @@ Player::Player(sf::Vector2f pos) : DynamicEntity (sf::Vector2f(250, 200),pos, sf
 	load(textures->getIdle(), sf::Vector2u(6, 4), 0.1);
 	this->setOrigin(getSize() / 2.0f);
 	this->arrowlistref = nullptr;
-	pontos = 0;
-	lives = 5;
+	pontos = 2000;
+	lives = 2;
 	name = "";
 	dead = false;
 	invulneravel = false;
-	faceright = true;
 
-}
-
-void Player::restartplayer()
-{
-	velocity.x *= 0.0f;
-	velocity.y *= 0.0f;
-	movdirection.x *= 0.0f;
-	movdirection.y *= 0.0f;
-	reset();
-	setImgC(sf::Vector2u(6, 4));
-	dead = false;
-	invulneravel = false;
-	pontos = 0;
-	lives = 5;
-	name = "";
-	setTexture(textures->getIdle());
-	attacktype = 0;
-	faceright = true;
 }
 
 void Player::update(float deltat) {
@@ -91,6 +72,7 @@ void Player::update(float deltat) {
 		setImgC(sf::Vector2u(6, 6));
 		reset();
 	}
+	printf("%d %d\n", imgI.x, imgI.y);
 	if (!invulneravel)
 		velocity.x = movdirection.x * speed.x;
 	updateTexture();
@@ -155,13 +137,12 @@ void Player::onHit(sf::Vector2f direction)
 
 void Player::attacktypex(const int index)
 {
-	if (canJump && !lock && !dead) {
+	if (canJump && !lock) {
 		setLock();
 		setAttType(index);
 		reset();
 	}
 }
-
 
 void Player::attack() {
 	if (attacktype == 0)

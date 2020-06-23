@@ -14,7 +14,7 @@ using namespace CompController;
 class EventHandler
 {
 private:
-	CompositeController* controllers;
+	CompositeController controllers;
 	sf::Keyboard::Key p1up;
 	sf::Keyboard::Key p1left;
 	sf::Keyboard::Key p1right;

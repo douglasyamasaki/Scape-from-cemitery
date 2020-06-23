@@ -24,8 +24,6 @@ private:
 public:
 	const bool getDead() { return dead; }
 	void attacktypex(const int index);
-	void restartplayer();
-	void setDead(const bool opt) { this->dead = opt; }
 	void setList(ProjectileList* arrowlistref) { this->arrowlistref = arrowlistref; }
 	void setName(string name) { this->name = name; }
 	void setAttType(int valor) { attacktype = valor; }

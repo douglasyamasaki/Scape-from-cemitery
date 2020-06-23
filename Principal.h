@@ -25,14 +25,14 @@ private:
 	MenuHandler mh;
 
 	//Players propriamentes dito
-	Player p1;
-	Player p2;
+	Player* p1;
+	Player* p2;
 	bool hasp2; // controla a presenca de um p2 na fase
 	//Fases
 	Level* levelref; // fase de controle
 	int leveltype; // refere a de cima
 	FirstLevel first;
-	SecondLevel second;
+	//SecondLevel second;
 public:
 	sf::RenderWindow* getWindow() { return &window; }
 	Principal();

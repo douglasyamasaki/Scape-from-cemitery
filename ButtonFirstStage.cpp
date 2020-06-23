@@ -13,5 +13,5 @@ void MenuButtons::ButtonFirstStage::executar()
 MenuButtons::ButtonFirstStage::ButtonFirstStage(sf::Vector2f size, sf::Vector2f pos, MenuBase* mref) : ButtonBase(size, pos, mref)
 {
 	textures->ButtonsModel::getInstance();
-	setTexture(textures->getStage1());
+	setTexture(textures->getBossStage());
 }

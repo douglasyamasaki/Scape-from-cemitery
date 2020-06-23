@@ -1,6 +1,6 @@
 #include "Spike.h"
 
-Spike::Spike(sf::Vector2f pos) : Obstacle(sf::Vector2f(40, 62), pos)
+Spike::Spike(sf::Vector2f pos) : Obstacle(sf::Vector2f(287, 62), pos)
 {
 	setOrigin(getSize() / 2.0f);
 	texture = SpikeModel::getInstance();

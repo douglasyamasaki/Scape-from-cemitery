@@ -92,7 +92,6 @@
     <ClInclude Include="SpikeModel.h" />
     <ClInclude Include="StaticEntity.h" />
     <ClInclude Include="StaticList.h" />
-    <ClInclude Include="TilesetModel.h" />
     <ClInclude Include="Tombstone.h" />
     <ClInclude Include="TombstoneModel.h" />
     <ClInclude Include="UpCommand.h" />
@@ -165,7 +164,6 @@
     <ClCompile Include="Spike.cpp" />
     <ClCompile Include="SpikeModel.cpp" />
     <ClCompile Include="StaticList.cpp" />
-    <ClCompile Include="TilesetModel.cpp" />
     <ClCompile Include="Tombstone.cpp" />
     <ClCompile Include="TombstoneModel.cpp" />
     <ClCompile Include="UpCommand.cpp" />

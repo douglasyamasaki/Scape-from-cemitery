@@ -58,8 +58,6 @@ void LevelStateHandler::save()
 		file << enemies->getSize() << endl;
 		file << obstacles->getSize()<<endl;
 		file << pls << endl;
-		file << ghostquantity << endl;
-		file << hasSpawned << endl;
 	}
 	file.close();
 	// salva p1
@@ -79,11 +77,6 @@ void LevelStateHandler::save()
 		file << p1->getimgI().y << endl;
 		file << p1->getInvulneravel() << endl;
 		file << p1->getFaceright() << endl;
-		file << p1->getImgC().x << endl;
-		file << p1->getImgC().y << endl;
-		file << p1->getimgI().x << endl;
-		file << p1->getimgI().y << endl;
-		file << p1->getDead() << endl;
 	}
 	file.close();
 	//salva p2
@@ -103,11 +96,6 @@ void LevelStateHandler::save()
 		file << p2->getimgI().y << endl;
 		file << p2->getInvulneravel() << endl;
 		file << p2->getFaceright() << endl;
-		file << p2->getImgC().x << endl;
-		file << p2->getImgC().y << endl;
-		file << p2->getimgI().x << endl;
-		file << p2->getimgI().y << endl;
-		file << p2->getDead() << endl;
 	}
 	file.close();
 
@@ -418,7 +406,7 @@ void LevelStateHandler::load()
 				Ghost* ghostptr = new Ghost(sf::Vector2f(0.0f, 0.0f), nullptr);
 				if (intaux == 1)
 					ghostptr->setTarget(p1);
-				else if (intaux == 2)
+				else if (intaux2 == 2)
 					ghostptr->setTarget(p2);
 				ghostptr->setPos(sf::Vector2f(floataux, floataux2));
 				ghostptr->setMoveDirection(sf::Vector2f(floataux3, floataux4));
