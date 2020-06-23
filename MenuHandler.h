@@ -25,7 +25,6 @@ private:
 
 public:
 	MenuHandler(Principal* principalref);
-	~MenuHandler(){}
 	Principal* getPrincipal() const { return principalref; }
 	void turnOff() { currentMenu->off(); }
 	void turnOn() { currentMenu->on(); }

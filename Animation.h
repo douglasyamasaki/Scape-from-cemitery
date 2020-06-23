@@ -15,7 +15,6 @@ protected:
 public:
 	void load (sf::Texture* texture, sf::Vector2u ImgCount, float stime);
 	Animation();
-	~Animation();
 	void setStime(const float stime) { this->stime = stime; }
 	void frameup() { frames++; }
 	void reset() { imgI = sf::Vector2u(0, 0); frames = 0; }

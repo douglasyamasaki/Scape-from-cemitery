@@ -10,7 +10,6 @@ private:
 	static HUDModel* instance;
 	HUDModel();
 public:
-	~HUDModel(){delete(instance);}
 	sf::Texture* getP1() { return P1; }
 	sf::Texture* getP2() { return P2; }
 	sf::Texture* getPotion() { return Pot; }

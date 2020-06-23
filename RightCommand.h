@@ -5,7 +5,6 @@ namespace CompController {
 	{
 	public:
 		RightCommand() : Controller() { }
-		~RightCommand(){}
 		void executar(sf::Event* e);
 	};
 }

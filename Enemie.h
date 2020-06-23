@@ -13,7 +13,6 @@ public:
 	Enemie(sf::Vector2f size, sf::Vector2f pos, sf::Vector2f speed, sf::Vector2f hitbox, sf::Vector2f deslocamento, const int reward) :
 		DynamicEntity(size, pos, speed, hitbox, deslocamento),
 		reward(reward) {}
-	~Enemmie(){}
 	void OnCollision(sf::Vector2f direction)
 	{
 		if (direction.x < 0.0f) {

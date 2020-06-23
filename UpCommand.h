@@ -5,7 +5,6 @@ namespace CompController{
 	{
 	public:
 		UpCommand() : Controller() { }
-		~UpCommand(){}
 		void executar(sf::Event* e);
 	};
 }

@@ -6,7 +6,6 @@ private:
 	void resetlists();
 public:
 	FirstLevel();
-	~FirstLevel(){}
 	void check_collision();
 	void load_static();
 	void load_default();

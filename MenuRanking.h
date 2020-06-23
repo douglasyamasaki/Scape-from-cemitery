@@ -23,7 +23,6 @@ namespace Menus {
 		void reset();
 		void read();
 		MenuRanking(sf::Vector2f size, MenuHandler* MHref);
-		~MenuRanking(){delete(bmm);}
 		void executar(sf::Event* event);
 	};
 }

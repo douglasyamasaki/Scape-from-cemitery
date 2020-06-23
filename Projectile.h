@@ -8,7 +8,6 @@ namespace AbstractEntity{
 		DynamicEntity(size, pos, speed, hitbox, deslocamento) {
 
 		}
-		~Projectile(){}
 		virtual void update(float deltat) = 0;
 	};
 }

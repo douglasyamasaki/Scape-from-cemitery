@@ -7,7 +7,6 @@ private:
 	DragonModel();
 	static DragonModel* instance;
 public:
-	~DragonModel(){delete(instance);}
 	sf::Texture* getDragon() { return Dragon; }
 	static DragonModel* getInstance();
 };

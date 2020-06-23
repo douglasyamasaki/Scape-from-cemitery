@@ -9,12 +9,6 @@ TilesetModel::TilesetModel()
 	Tile1->loadFromFile("./Sprites/Tileset/Tile1.png");
 	Background->loadFromFile("./Sprites/Tileset/Background.png");
 }
-TilesetModel::~TilesetModel()
-{
-	delete(Tile1);
-	delete(Background);
-	delete(instance);
-}
 
 TilesetModel* TilesetModel::getInstance()
 {

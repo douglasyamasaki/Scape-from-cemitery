@@ -11,10 +11,6 @@ Menus::MenuSelection::MenuSelection(sf::Vector2f size, MenuHandler* MHref) : Men
 	add(bs1);
 	add(bbs);
 }
-Menus::~MenuSelection(){
-	delete(bs1);
-	delete(bbs);
-}
 
 void Menus::MenuSelection::executar(sf::Event* event)
 {

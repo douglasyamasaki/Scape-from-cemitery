@@ -7,5 +7,3 @@ void CompController::Attack01Command::executar(sf::Event* e)
 	}
 }
 
-Attack01Command::~Attack01Command(){}
-

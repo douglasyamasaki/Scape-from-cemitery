@@ -14,10 +14,6 @@ Menus::MenuPause::MenuPause(sf::Vector2f size, MenuHandler* MHref) : MenuBase(si
 	add(br);
 	add(bs);
 }
-Menus::~MenuPause(){
-	delete(bmm);
-	delete(br);
-	delete(bs);
 
 void Menus::MenuPause::executar(sf::Event* event)
 {

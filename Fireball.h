@@ -9,7 +9,6 @@ private:
 public:
 	void flip() { speed.x *= -1; }
 	Fireball(sf::Vector2f pos);
-	~Fireball(){delete(instance);}
 	void update(float deltat);
 };
 

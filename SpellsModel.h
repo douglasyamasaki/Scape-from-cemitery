@@ -11,7 +11,6 @@ class SpellsModel
 		sf::Texture* Spell3;
 		SpellsModel();
 	public:
-		~SpellsModel();
 		static SpellsModel* getInstance();
 		sf::Texture* getSpell1() { return Spell1; }
 		sf::Texture* getSpell2() { return Spell2; }

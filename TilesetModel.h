@@ -8,7 +8,6 @@ private:
 	static TilesetModel* instance;
 	TilesetModel();
 public:
-	~TilesetModel();
 	sf::Texture* getTile1  () const { return Tile1; }
 	sf::Texture* getBackground() const { return Background; }
 	static TilesetModel* getInstance();

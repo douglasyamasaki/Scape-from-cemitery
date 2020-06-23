@@ -6,7 +6,6 @@ namespace AbstractEntity {
 	private:
 	public:
 		Obstacle(sf::Vector2f size, sf::Vector2f pos) : Entity (size,pos), Body (size,sf::Vector2f(0.0f,0.0f),pos) { }
-		~Obstacle(){}
 		virtual ~Obstacle() {}
 	};
 }

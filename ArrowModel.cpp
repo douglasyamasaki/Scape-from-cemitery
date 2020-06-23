@@ -7,10 +7,6 @@ ArrowModel* ArrowModel::getInstance() {
 		instance = new ArrowModel();
 	return instance;
 }
-ArrowModel::~ArrowModel(){
-	delete(instance);
-	delete(Arrow);
-}
 
 ArrowModel::ArrowModel() {
 	Arrow = new sf::Texture();

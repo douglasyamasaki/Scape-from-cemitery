@@ -8,10 +8,6 @@ Spark::Spark(sf::Vector2f pos) : Spell (sf::Vector2f(250, 200),pos, sf::Vector2f
 	setLock();
 	active = true;
 }
-Spark::~Spark(){
-	delete(texture);
-	active = false;
-}
 
 void Spark::update(float deltat)
 {

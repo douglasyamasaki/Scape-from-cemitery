@@ -6,7 +6,6 @@ Arrow::Arrow(sf::Vector2f pos, sf::Vector2f speed, Player* pref) : Projectile(sf
 	velocity = speed;
 	origem = pref;
 }
-Arrow::~Arrow(){}
 
 void Arrow::update(float deltat)
 {

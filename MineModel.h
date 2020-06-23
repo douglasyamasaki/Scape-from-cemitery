@@ -8,7 +8,6 @@ namespace Models {
 		sf::Texture* Mine;
 		MineModel();
 	public:
-		~MineModel();
 		static MineModel* getInstance();
 		sf::Texture* getMine() { return Mine; }
 	};

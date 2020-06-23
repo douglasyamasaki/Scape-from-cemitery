@@ -5,7 +5,6 @@ class LeftCommand : public Controller
 	{
 	public:
 		LeftCommand() : Controller() { }
-		~LeftCommand(){}
 		void executar(sf::Event* e);
 	};
 }

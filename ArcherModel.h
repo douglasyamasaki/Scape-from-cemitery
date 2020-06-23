@@ -15,7 +15,6 @@ namespace Models{
 		sf::Texture* Die;
 		ArcherModel();
 	public:
-		~ArcherModel();
 		static ArcherModel* getInstance();
 		sf::Texture* getWalk() { return Walk; }
 		sf::Texture* getIdle() { return Idle; }

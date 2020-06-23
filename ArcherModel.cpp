@@ -26,13 +26,3 @@ ArcherModel::ArcherModel() {
 	Attack02->loadFromFile("./Sprites/Skeleton/Attack02.png");
 	Attack03->loadFromFile("./Sprites/Skeleton/Attack03.png");
 }
-ArcherModel::~ArcherModel() {
-	delete(instance);
-	delete(Walk);
-	delete(Idle);
-	delete(JumpUp);
-	delete(JumpDown);
-	delete(Attack01);
-	delete(Attack02);
-	delete(Attack03);
-}

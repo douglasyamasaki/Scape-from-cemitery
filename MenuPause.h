@@ -5,7 +5,6 @@ namespace Menus {
 	protected:
 	public:
 		MenuPause(sf::Vector2f size, MenuHandler* MHref);
-		~MenuPause();
 		void executar(sf::Event* event);
 	};
 }

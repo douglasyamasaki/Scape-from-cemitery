@@ -36,7 +36,6 @@ private:
 	MenuHandler* mhref;
 	PauseCommand pcommand;
 public:
-	~CompController(){}
 	EventHandler(MenuHandler* mhref);
 	void setP1(Player* p1);
 	void setP2(Player* p2);

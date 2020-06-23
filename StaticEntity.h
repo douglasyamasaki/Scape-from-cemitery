@@ -7,6 +7,5 @@ namespace AbstractEntity {
 		StaticEntity(sf::Vector2f size, sf::Vector2f pos) : Entity(size, pos) {
 	
 		}
-		~StaticEntity(){}
 	};
 }

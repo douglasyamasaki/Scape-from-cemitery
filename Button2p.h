@@ -6,6 +6,5 @@ namespace MenuButtons {
 	public:
 		void executar();
 		Button2p(sf::Vector2f size, sf::Vector2f pos, MenuBase* mref);
-		~Button2p(){delete(instance);}
 	};
 }
